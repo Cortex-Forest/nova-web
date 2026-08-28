@@ -34,9 +34,9 @@ export const siteConfig: {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "",
   ogImage: "/og.png", // 1200×630 PNG（P1-3 生成，标记为可替换品牌资产）
   networkLabel: process.env.NEXT_PUBLIC_NETWORK_LABEL ?? "Testnet",
-  // 项目方尚未提供真实地址 → null；UI 渲染 Coming Soon，绝不指向无关网站
+  // 项目方已提供真实仓库地址（2026-08-28）；其余社区地址未提供仍为 null
   links: {
-    github: null,
+    github: "https://github.com/Cortex-Forest/nova-web",
     x: null,
     discord: null,
     telegram: null,
