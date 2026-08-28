@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-ink-950 text-mist-200 font-sans antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(34, 211, 238, 0.28);
+    color: #ffffff;
+  }
+
+  /* 自定义滚动条（桌面端） */
+  @media (min-width: 768px) {
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #070a11;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1c2740;
+      border-radius: 8px;
+      border: 2px solid #070a11;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #2a3a5e;
+    }
+  }
+
+  :focus-visible {
+    outline: 2px solid rgba(34, 211, 238, 0.7);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  /* 玻璃拟态面板 */
+  .glass {
+    @apply bg-ink-800/60 backdrop-blur-xl border border-white/8;
+  }
+
+  .glass-hover {
+    @apply transition-colors duration-300 hover:border-white/20 hover:bg-ink-800/80;
+  }
+
+  /* 渐变文字 */
+  .text-gradient {
+    @apply bg-nova-gradient bg-clip-text text-transparent;
+  }
+
+  /* 科技网格背景 */
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .grid-bg-fade {
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 75%);
+  }
+
+  /* 链接下划线动画 */
+  .link-underline {
+    position: relative;
+  }
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 1px;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.25s ease;
+    background: linear-gradient(90deg, #22d3ee, #a78bfa);
+  }
+  .link-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* 数值等宽（用于状态/占位数据） */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* 减速动效 */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
