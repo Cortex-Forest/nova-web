@@ -21,6 +21,11 @@ export async function GET(request: Request) {
       resource: resource ?? null,
       docs: "/developers#api",
     },
-    { status: 503 },
+    {
+      status: 503,
+      // P2.5 冻结：仅对当前实际存在的 GET stub 使用 no-store（scoped），
+      // 禁止全局 /api/* no-store 覆盖未来接口的缓存语义。
+      headers: { "Cache-Control": "no-store" },
+    },
   );
 }
