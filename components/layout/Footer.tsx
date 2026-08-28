@@ -89,10 +89,22 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/8 pt-6 text-xs text-mist-500 sm:flex-row">
-          <p>
-            © {new Date().getFullYear()} {siteConfig.name} Layer1. All rights
-            reserved.
-          </p>
+          <div className="flex flex-col items-center gap-2 sm:flex-row sm:gap-6">
+            <p>
+              © {new Date().getFullYear()} {siteConfig.name} Layer1. All rights
+              reserved.
+            </p>
+            {siteConfig.links.websiteRepo && (
+              <a
+                href={siteConfig.links.websiteRepo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-underline transition-colors hover:text-white"
+              >
+                Website source
+              </a>
+            )}
+          </div>
           <p className="tabular">
             Status: <span className="text-mist-300">{siteConfig.networkLabel}</span>
           </p>

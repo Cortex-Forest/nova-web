@@ -5,13 +5,20 @@
  * 1. 本文件是域名/OG/社区链接的【唯一】事实来源，禁止在其他文件硬编码。
  * 2. 真实域名尚未确定 → 从环境变量 NEXT_PUBLIC_SITE_URL 读取，未设置时为空字符串。
  *    禁止编造占位域名（如 *.example.com）。
- * 3. 社区/仓库地址项目方尚未提供 → 全部为 null，UI 统一渲染 "Coming Soon"。
- *    禁止链接到无关网站首页（github.com/、x.com/ 等）。
- * 4. 本文件不包含任何未经确认的链上数据。
+ * 3. GitHub 架构（P2）：
+ *    - `github`（Nova 主项目入口）= https://github.com/Cortex-Forest/nova
+ *    - `websiteRepo`（官网源码入口）= https://github.com/Cortex-Forest/nova-web
+ *    用户面向的 GitHub/Open Source CTA 必须指向 `github`（主项目），
+ *    只有“Website Source / 官网源码”语义才使用 `websiteRepo`。
+ * 4. 未提供的社区地址为 null → UI 渲染 "Coming Soon"，禁止链接到无关网站首页。
+ * 5. 本文件不包含任何未经确认的链上数据。
  */
 
 export interface SiteLinks {
+  /** Nova 主项目 GitHub 入口 */
   github: string | null;
+  /** 官网自身源码仓库（Website Source 语义） */
+  websiteRepo: string | null;
   x: string | null;
   discord: string | null;
   telegram: string | null;
@@ -34,9 +41,10 @@ export const siteConfig: {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "",
   ogImage: "/og.png", // 1200×630 PNG（P1-3 生成，标记为可替换品牌资产）
   networkLabel: process.env.NEXT_PUBLIC_NETWORK_LABEL ?? "Testnet",
-  // 项目方已提供真实仓库地址（2026-08-28）；其余社区地址未提供仍为 null
+  // GitHub 架构（P2）：用户入口→主仓库 nova；官网源码→nova-web；其余社区待提供仍为 null
   links: {
-    github: "https://github.com/Cortex-Forest/nova-web",
+    github: "https://github.com/Cortex-Forest/nova",
+    websiteRepo: "https://github.com/Cortex-Forest/nova-web",
     x: null,
     discord: null,
     telegram: null,

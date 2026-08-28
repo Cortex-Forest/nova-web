@@ -59,8 +59,8 @@ const tools: {
   {
     icon: Github,
     title: "GitHub",
-    description: "Open-source protocol, node, and tools — repository link coming soon.",
-    state: "Planned",
+    description: "Open-source protocol, node, and tools — audit and contribute.",
+    state: "Live",
     href: "#github",
   },
 ];
