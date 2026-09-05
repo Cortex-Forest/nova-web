@@ -6,6 +6,7 @@ const navTargets = [
   { label: "Developers", path: "/developers" },
   { label: "Token", path: "/token" },
   { label: "Roadmap", path: "/roadmap" },
+  { label: "Early Access", path: "/early-access" },
 ];
 
 test.describe("internal navigation", () => {

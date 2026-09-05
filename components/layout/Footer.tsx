@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { Github, MessageCircle, Twitter, type LucideIcon } from "lucide-react";
+import { ArrowRight, Github, MessageCircle, Twitter, type LucideIcon } from "lucide-react";
 import { footerNav } from "@/config/nav";
 import { siteConfig } from "@/config/site";
 import { Container } from "@/components/ui/Container";
+import { Button } from "@/components/ui/Button";
 import { NovaMark } from "@/components/visual/NovaMark";
 
 type Social = { label: string; href: string; icon: LucideIcon };
@@ -35,6 +36,13 @@ export function Footer() {
               decentralized storage &amp; compute, gaming ecosystem, and a global
               node network.
             </p>
+            {/* V1.1：Early Access 生态参与预登记入口 */}
+            <div className="mt-6">
+              <Button href="/early-access" variant="secondary" size="sm">
+                Join Early Access
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </div>
             {socials.length > 0 ? (
               <div className="mt-6 flex items-center gap-2">
                 {socials.map((s) => (

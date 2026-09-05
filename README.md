@@ -41,15 +41,19 @@ nova-web/
 │   ├── token/              # /token
 │   ├── explorer/           # /explorer
 │   ├── roadmap/            # /roadmap
-│   └── api/explorer/       # Explorer API（预留，503 Coming Soon）
+│   ├── early-access/       # /early-access（V1.1 生态参与预登记，非 Token Sale）
+│   └── api/                # API（预留）
+│       ├── explorer/       # Explorer API（503 Coming Soon）
+│       └── early-access/   # Early Access 登记（验证 + 存储 adapter，503 诚实降级）
 ├── components/
 │   ├── layout/             # Navbar / Footer
 │   ├── ui/                 # Button / Card / Badge / SectionHeading / Container
-│   ├── visual/             # GridBackground / ParticleField / NodeNetwork / Reveal / GlowOrb / PageHeader
-│   └── explorer/           # ExplorerPreview（界面占位）
+│   ├── visual/             # GridBackground / NodeNetwork / Reveal / GlowOrb / PageHeader
+│   ├── explorer/           # ExplorerPreview（界面占位）
+│   └── early-access/       # EarlyAccessJoin（参与类型选择 + 登记表单）
 ├── sections/home/          # 首页区块（Hero / Pillars / TechPreview / ...）
 ├── config/                 # site.ts / nav.ts（单一事实来源）
-├── lib/                    # 工具函数
+├── lib/                    # 工具函数（含 early-access 注册纯逻辑）
 ├── explorer/  wallet/  node/  docs/  api/   # 未来模块预留（类型契约 + README）
 ├── public/  assets/        # 静态资源
 ```

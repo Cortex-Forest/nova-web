@@ -22,6 +22,8 @@ export const mainNav: NavItem[] = [
   { label: "Token", href: "/token" },
   { label: "Explorer", href: "/explorer" },
   { label: "Roadmap", href: "/roadmap" },
+  // V1.1：生态参与预登记入口（非 Token Sale / ICO）
+  { label: "Early Access", href: "/early-access" },
 ];
 
 /** 导航下拉（"产品/网络" 分组），桌面端 hover 展示 */

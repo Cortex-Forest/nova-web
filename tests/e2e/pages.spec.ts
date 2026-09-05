@@ -9,6 +9,7 @@ const routes = [
   "/token",
   "/explorer",
   "/roadmap",
+  "/early-access",
 ];
 
 test.describe("page rendering — all routes", () => {

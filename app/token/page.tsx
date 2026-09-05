@@ -41,6 +41,24 @@ export default function TokenPage() {
         description="NOVA is the native token of the Nova network — used for fees, staking, and participation incentives. Final parameters are published with the Economics Specification; nothing on this page is speculative."
       />
 
+      {/* V1.1 状态声明：Tokenomics 未冻结，勿误解为可购买/可销售 */}
+      <section className="relative pb-10">
+        <Container>
+          <Reveal>
+            <div className="mx-auto max-w-3xl rounded-2xl border border-amber-400/20 bg-amber-400/5 px-6 py-5 text-center">
+              <div className="mb-2 flex items-center justify-center gap-2">
+                <ReadinessBadge label="In Development" tone="amber" />
+                <Badge tone="neutral">Not Finalized</Badge>
+              </div>
+              <p className="text-sm leading-relaxed text-mist-400 text-pretty">
+                Nova’s economic model is currently under protocol design and has
+                not been finalized.
+              </p>
+            </div>
+          </Reveal>
+        </Container>
+      </section>
+
       {/* Token Economy */}
       <section id="economy" className="relative pb-24 md:pb-28">
         <Container>
