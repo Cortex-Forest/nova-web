@@ -3,7 +3,13 @@ import {
   MAX_BODY_BYTES,
   submitEarlyAccess,
   validateEarlyAccessInput,
+  type RegisterOutcome,
 } from "@/lib/early-access";
+import { submitEarlyAccessSupabase } from "@/lib/early-access-supabase";
+import {
+  getEarlyAccessInsertDb,
+  isSupabaseConfigured,
+} from "@/lib/supabase/server";
 
 /**
  * POST /api/early-access —— Early Access 生态参与预登记（V1.1）
@@ -19,11 +25,10 @@ import {
  * 5. 最小数据：仅转发 email / participationTypes / 可选 country / created_at。
  *    不采集密码、私钥、助记词、支付信息、证件、签名等。
  *
- * ## 存储（诚实降级）
- * 官网当前无后端数据库，且本轮禁止自建/部署第三方数据库。
- * - 配置了 EARLY_ACCESS_ENDPOINT：转发到远端注册服务并映射结果。
- * - 未配置：返回 503 REGISTRATION_NOT_AVAILABLE（与 /api/explorer 503
- *   Coming Soon 策略一致），绝不假装「已注册」。
+ * ## 存储（backend precedence，清晰且无双重写入）
+ * 1. SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY 均已配置 → Supabase 为主存储（写入 early_access_applications）。
+ * 2. 否则若配置了 EARLY_ACCESS_ENDPOINT → legacy/alternative HTTP adapter（保留原行为）。
+ * 3. 二者均未配置 → 返回 503 REGISTRATION_NOT_AVAILABLE（诚实降级，绝不假装「已注册」）。
  *
  * ## 响应契约
  * - 200  { success: true }
@@ -31,10 +36,11 @@ import {
  * - 409  { success: false, error: "ALREADY_REGISTERED" }
  * - 429  { success: false, error: "RATE_LIMITED" }
  * - 503  { success: false, error: "REGISTRATION_NOT_AVAILABLE" }
- * - 502  { success: false, error: "SERVER_ERROR" }
+ * - 500  { success: false, error: "SERVER_ERROR" }（Supabase 写库失败，不泄露内部细节）
+ * - 502  { success: false, error: "SERVER_ERROR" }（legacy HTTP adapter 原有语义，保持稳定）
  */
 
-/** 远端注册端点（在 Vercel/宿主环境变量中配置，为空则 503 诚实降级） */
+/** Supabase（主）配置由 isSupabaseConfigured() 判断；下方为 legacy HTTP endpoint */
 const ENDPOINT = process.env.EARLY_ACCESS_ENDPOINT ?? null;
 
 // ---- 尽力而为的内存限流（单实例滑动窗口） ----
@@ -122,8 +128,26 @@ export async function POST(request: Request) {
     );
   }
 
-  // 6) 存储 adapter（未配置 endpoint → 503 诚实降级）
-  const outcome = await submitEarlyAccess(parsed.payload, { endpoint: ENDPOINT });
+  // 6) 存储：backend precedence（Supabase 主 → legacy HTTP → 503 诚实降级）
+  let outcome: RegisterOutcome;
+  let backend: "supabase" | "http" | "none";
+
+  if (isSupabaseConfigured()) {
+    backend = "supabase";
+    try {
+      const db = getEarlyAccessInsertDb();
+      outcome = await submitEarlyAccessSupabase(db, parsed.payload);
+    } catch {
+      // client 构造等意外异常 → 统一 error（不泄露内部细节）
+      outcome = { status: "error" };
+    }
+  } else if (ENDPOINT) {
+    backend = "http";
+    outcome = await submitEarlyAccess(parsed.payload, { endpoint: ENDPOINT });
+  } else {
+    backend = "none";
+    outcome = { status: "unavailable" };
+  }
 
   switch (outcome.status) {
     case "registered":
@@ -144,9 +168,10 @@ export async function POST(request: Request) {
         { status: 503 },
       );
     default:
+      // Supabase 写库失败 → 500；legacy HTTP adapter 保持原有 502 语义
       return NextResponse.json(
         { success: false, error: "SERVER_ERROR" },
-        { status: 502 },
+        { status: backend === "supabase" ? 500 : 502 },
       );
   }
 }
