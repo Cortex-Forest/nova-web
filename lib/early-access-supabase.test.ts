@@ -1,9 +1,13 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import {
   buildEarlyAccessApplicationRow,
+  EARLY_ACCESS_SUPABASE_ERROR_EVENT,
+  logEarlyAccessSupabaseError,
   normalizeEmail,
+  redactSensitive,
   submitEarlyAccessSupabase,
   type EarlyAccessDb,
+  type EarlyAccessDbError,
 } from "./early-access-supabase";
 import type { EarlyAccessPayload } from "./early-access";
 
@@ -14,7 +18,7 @@ const basePayload: EarlyAccessPayload = {
 };
 
 function mockDb(
-  handler: (row: unknown) => Promise<{ error: { code?: string | null } | null }>,
+  handler: (row: unknown) => Promise<{ error: EarlyAccessDbError | null }>,
 ): EarlyAccessDb {
   return {
     insert: async (row) => handler(row),
@@ -66,6 +70,15 @@ describe("normalizeEmail / buildEarlyAccessApplicationRow", () => {
 });
 
 describe("submitEarlyAccessSupabase", () => {
+  // 静默真实 console，避免错误路径噪声；并可断言诊断日志调用
+  let errSpy: ReturnType<typeof vi.spyOn>;
+  beforeEach(() => {
+    errSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+  });
+  afterEach(() => {
+    errSpy.mockRestore();
+  });
+
   it("insert success → registered (HTTP 200)", async () => {
     const outcome = await submitEarlyAccessSupabase(
       mockDb(async () => ({ error: null })),
@@ -127,5 +140,106 @@ describe("submitEarlyAccessSupabase", () => {
       { status: "duplicate" },
       { status: "duplicate" },
     ]);
+  });
+});
+
+describe("diagnostics (safe error logging)", () => {
+  it("redactSensitive removes emails and long token-like strings", () => {
+    const text =
+      'duplicate key (alice@example.com) value violates constraint abcdefghijklmnopqrstuvwxyz0123456789';
+    const out = redactSensitive(text);
+    expect(out).not.toContain("alice@example.com");
+    expect(out).not.toContain("abcdefghijklmnopqrstuvwxyz0123456789");
+    expect(out).toContain("[email-redacted]");
+    expect(out).toContain("[token-redacted]");
+  });
+
+  it("redactSensitive keeps short, non-sensitive identifiers", () => {
+    expect(redactSensitive("relation does not exist")).toBe(
+      "relation does not exist",
+    );
+    expect(redactSensitive("23505")).toBe("23505");
+  });
+
+  it("unexpected DB error is logged once with fixed event and code (no email leaked)", async () => {
+    const errSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+    try {
+      const outcome = await submitEarlyAccessSupabase(
+        mockDb(async () => ({
+          error: {
+            code: "42703",
+            message: 'column "some_column" of relation "early_access_applications" does not exist',
+            details: "affected row contained alice@example.com (redact me)",
+            hint: null,
+          },
+        })),
+        basePayload,
+      );
+      expect(outcome).toEqual({ status: "error" });
+
+      expect(errSpy).toHaveBeenCalledTimes(1);
+      const [event, payload] = errSpy.mock.calls[0] as [string, string];
+      expect(event).toBe(EARLY_ACCESS_SUPABASE_ERROR_EVENT);
+      const json = JSON.parse(payload);
+      expect(json.kind).toBe("insert-error");
+      expect(json.code).toBe("42703");
+      expect(JSON.stringify(json)).not.toContain("alice@example.com");
+    } finally {
+      errSpy.mockRestore();
+    }
+  });
+
+  it("duplicate (23505) does NOT emit an error log", async () => {
+    const errSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+    try {
+      await submitEarlyAccessSupabase(
+        mockDb(async () => ({
+          error: { code: "23505", message: "duplicate key value" },
+        })),
+        basePayload,
+      );
+      expect(errSpy).not.toHaveBeenCalled();
+    } finally {
+      errSpy.mockRestore();
+    }
+  });
+
+  it("thrown insert exception is logged with fixed event (no email leaked)", async () => {
+    const errSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+    try {
+      const outcome = await submitEarlyAccessSupabase(
+        mockDb(async () => {
+          throw new Error(
+            "connect ECONNREFUSED while inserting alice@example.com (internal)",
+          );
+        }),
+        basePayload,
+      );
+      expect(outcome).toEqual({ status: "error" });
+
+      expect(errSpy).toHaveBeenCalledTimes(1);
+      const [event, payload] = errSpy.mock.calls[0] as [string, string];
+      expect(event).toBe(EARLY_ACCESS_SUPABASE_ERROR_EVENT);
+      expect(JSON.stringify(JSON.parse(payload))).not.toContain("alice@example.com");
+    } finally {
+      errSpy.mockRestore();
+    }
+  });
+
+  it("logEarlyAccessSupabaseError never receives or emits PII keys", () => {
+    const errSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+    try {
+      logEarlyAccessSupabaseError("client-init", {
+        message: "fetch failed (supabase-project.supabase.co)",
+      });
+      const [, payload] = errSpy.mock.calls[0] as [string, string];
+      const json = JSON.parse(payload);
+      expect(Object.keys(json).sort()).toEqual(
+        ["code", "details", "hint", "kind", "message"].sort(),
+      );
+      expect(json.kind).toBe("client-init");
+    } finally {
+      errSpy.mockRestore();
+    }
   });
 });

@@ -5,7 +5,7 @@ import {
   validateEarlyAccessInput,
   type RegisterOutcome,
 } from "@/lib/early-access";
-import { submitEarlyAccessSupabase } from "@/lib/early-access-supabase";
+import { submitEarlyAccessSupabase, logEarlyAccessSupabaseError } from "@/lib/early-access-supabase";
 import {
   getEarlyAccessInsertDb,
   isSupabaseConfigured,
@@ -137,8 +137,9 @@ export async function POST(request: Request) {
     try {
       const db = getEarlyAccessInsertDb();
       outcome = await submitEarlyAccessSupabase(db, parsed.payload);
-    } catch {
-      // client 构造等意外异常 → 统一 error（不泄露内部细节）
+    } catch (err) {
+      // client 构造等意外异常 → 统一 error（不泄露内部细节）；仅记录脱敏诊断
+      logEarlyAccessSupabaseError("client-init", err);
       outcome = { status: "error" };
     }
   } else if (ENDPOINT) {
