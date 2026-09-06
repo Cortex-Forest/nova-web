@@ -10,6 +10,7 @@ const routes = [
   "/explorer",
   "/roadmap",
   "/early-access",
+  "/airdrop",
 ];
 
 test.describe("page rendering — all routes", () => {

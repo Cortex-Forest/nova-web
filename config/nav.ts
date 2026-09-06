@@ -24,6 +24,8 @@ export const mainNav: NavItem[] = [
   { label: "Roadmap", href: "/roadmap" },
   // V1.1：生态参与预登记入口（非 Token Sale / ICO）
   { label: "Early Access", href: "/early-access" },
+  // V1.3：Genesis Program 早期社区积分入口（Points only，非 Token）
+  { label: "Airdrop", href: "/airdrop" },
 ];
 
 /** 导航下拉（"产品/网络" 分组），桌面端 hover 展示 */

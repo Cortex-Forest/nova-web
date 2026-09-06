@@ -3,6 +3,7 @@ import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { createRequire } from "node:module";
 import type { EarlyAccessDb, EarlyAccessApplicationRow } from "@/lib/early-access-supabase";
 import { describeSupabaseUrlStructure } from "@/lib/supabase/url-structure";
+import { mapGenesisRpcRow, type GenesisRegisterOutcome } from "@/lib/genesis";
 
 /**
  * Server-only Supabase client（真实注册存储，V1.1 Backend Integration）
@@ -57,6 +58,62 @@ export function getEarlyAccessInsertDb(): EarlyAccessDb {
       return { error };
     },
   };
+}
+
+// ---------------------------------------------------------------------------
+// Genesis Program（V1.3）—— 服务端接线（RPC 注册 / profile 只读查询）
+// ---------------------------------------------------------------------------
+
+/**
+ * 调用 genesis_register(email) RPC（单事务：profile + REGISTER event + balance）。
+ * 未配置时由路由先行判断；此处仅映射结果，绝不泄露内部错误/SQL。
+ */
+export async function registerGenesisProfile(
+  email: string,
+): Promise<GenesisRegisterOutcome> {
+  const db = supabaseAdmin();
+  try {
+    const { data, error } = await db.rpc("genesis_register", { p_email: email });
+    if (error) return { status: "error" };
+    const row = Array.isArray(data) ? data[0] : data;
+    return mapGenesisRpcRow(row);
+  } catch {
+    return { status: "error" };
+  }
+}
+
+export interface GenesisProfilePublic {
+  nova_id: string;
+  points_balance: number;
+  created_at: string;
+}
+
+/**
+ * 按 nova_id 只读查询公开档案（不含 email —— 避免 PII 泄露）。
+ * 返回 null 表示不存在；never 返回 Supabase 内部错误。
+ */
+export async function getGenesisProfile(
+  novaId: string,
+): Promise<{ ok: true; profile: GenesisProfilePublic } | { ok: false }> {
+  const db = supabaseAdmin();
+  try {
+    const { data, error } = await db
+      .from("genesis_profiles")
+      .select("nova_id, points_balance, created_at")
+      .eq("nova_id", novaId)
+      .maybeSingle();
+    if (error || !data) return { ok: false };
+    return {
+      ok: true,
+      profile: {
+        nova_id: data.nova_id,
+        points_balance: data.points_balance,
+        created_at: data.created_at,
+      },
+    };
+  } catch {
+    return { ok: false };
+  }
 }
 
 // ---------------------------------------------------------------------------
