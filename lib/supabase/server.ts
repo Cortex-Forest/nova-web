@@ -1,6 +1,8 @@
 import "server-only";
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
+import { createRequire } from "node:module";
 import type { EarlyAccessDb, EarlyAccessApplicationRow } from "@/lib/early-access-supabase";
+import { describeSupabaseUrlStructure } from "@/lib/supabase/url-structure";
 
 /**
  * Server-only Supabase client（真实注册存储，V1.1 Backend Integration）
@@ -55,4 +57,44 @@ export function getEarlyAccessInsertDb(): EarlyAccessDb {
       return { error };
     },
   };
+}
+
+// ---------------------------------------------------------------------------
+// PGRST125 运行时 URL 诊断（最小、安全、仅结构信息）
+// ---------------------------------------------------------------------------
+
+/** URL 结构诊断固定事件名（Vercel 日志检索用） */
+export const EARLY_ACCESS_SUPABASE_URL_DIAGNOSTIC_EVENT =
+  "EARLY_ACCESS_SUPABASE_URL_DIAGNOSTIC";
+
+/** 尝试读取已安装的 supabase-js 版本（运行时、尽力而为；失败为 undefined） */
+function supabaseJsVersion(): string | undefined {
+  try {
+    const req = createRequire(import.meta.url);
+    const pkg = req("@supabase/supabase-js/package.json") as {
+      version?: string;
+    };
+    return pkg.version;
+  } catch {
+    return undefined;
+  }
+}
+
+let urlDiagLogged = false;
+
+/**
+ * 输出运行时 SUPABASE_URL 的安全结构（脱敏 host / path / 派生 REST path）。
+ * 绝不输出完整 URL / secret / query 值。每个函数实例只记一次。
+ */
+export function logSupabaseUrlDiagnostic(): void {
+  if (urlDiagLogged) return;
+  urlDiagLogged = true;
+  const structure = describeSupabaseUrlStructure(process.env.SUPABASE_URL);
+  console.error(
+    EARLY_ACCESS_SUPABASE_URL_DIAGNOSTIC_EVENT,
+    JSON.stringify({
+      ...structure,
+      supabase_js_version: supabaseJsVersion() ?? null,
+    }),
+  );
 }

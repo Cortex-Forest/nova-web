@@ -9,6 +9,7 @@ import { submitEarlyAccessSupabase, logEarlyAccessSupabaseError } from "@/lib/ea
 import {
   getEarlyAccessInsertDb,
   isSupabaseConfigured,
+  logSupabaseUrlDiagnostic,
 } from "@/lib/supabase/server";
 
 /**
@@ -148,6 +149,11 @@ export async function POST(request: Request) {
   } else {
     backend = "none";
     outcome = { status: "unavailable" };
+  }
+
+  // 仅当 Supabase 出现写库错误时，输出一次安全的 URL 结构诊断（PGRST125 定位）
+  if (backend === "supabase" && outcome.status === "error") {
+    logSupabaseUrlDiagnostic();
   }
 
   switch (outcome.status) {
