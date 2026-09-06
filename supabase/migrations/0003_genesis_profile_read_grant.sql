@@ -1,0 +1,25 @@
+-- ============================================================================
+-- Nova Website — Genesis Program (V1.3)
+-- Migration 0003: grant service_role SELECT on genesis_profiles (profile API)
+--
+-- Context / root cause:
+--   GET /api/genesis/profile reads genesis_profiles directly via the service
+--   role (PostgREST). genesis_profiles has RLS enabled with NO policies, and
+--   the service role holds no SELECT privilege on the table, so the direct
+--   read returns "permission denied for table genesis_profiles" (42501) and
+--   the API maps it to HTTP 404 NOT_FOUND.
+--   (The write path is unaffected: genesis_register() is SECURITY DEFINER and
+--   runs as the table owner.)
+--
+-- Minimal-privilege fix — ONLY this grant:
+--   service_role → SELECT → public.genesis_profiles
+--
+-- Explicitly NOT granted here (per owner scope):
+--   - no SELECT for anon / authenticated
+--   - no SELECT (or any privilege) on genesis_points_events
+--   - no RLS change, no policy, no schema change, no data change
+--   - genesis_profiles is read-only for the profile API; it exposes only
+--     nova_id / points_balance / created_at (email is never selected).
+-- ============================================================================
+
+grant select on table public.genesis_profiles to service_role;
