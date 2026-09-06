@@ -105,4 +105,13 @@ describe("migration 0002 invariants (static)", () => {
     // No anon INSERT policy is created anywhere.
     expect(sql).not.toMatch(/create policy.*for insert.*to anon/i);
   });
+
+  it("qualifies gen_random_bytes as extensions.gen_random_bytes (search_path=public safety)", () => {
+    // SECURITY DEFINER + SET search_path=public: an unqualified gen_random_bytes(3)
+    // does not resolve in this Supabase (function lives in the extensions schema),
+    // which made the production RPC fail with a runtime resolution error → HTTP 500.
+    expect(sql).toContain("extensions.gen_random_bytes(3)");
+    // No unqualified gen_random_bytes(...) call remains in the function body.
+    expect(sql).not.toMatch(/(?<![.\w])gen_random_bytes\s*\(/);
+  });
 });

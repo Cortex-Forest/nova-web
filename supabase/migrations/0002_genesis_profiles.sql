@@ -106,7 +106,7 @@ begin
   v_nova := null;
   for v_try in 1..5 loop
     begin
-      v_bytes := gen_random_bytes(3);
+      v_bytes := extensions.gen_random_bytes(3);
       v_nova := 'NV-GEN-' || lpad(
         ((get_byte(v_bytes, 0) * 65536 + get_byte(v_bytes, 1) * 256 + get_byte(v_bytes, 2)) % 1000000)::text,
         6,
