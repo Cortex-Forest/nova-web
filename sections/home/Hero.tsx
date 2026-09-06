@@ -73,7 +73,7 @@ export function Hero() {
         >
           <Button href="/developers#testnet" size="lg">
             <Play className="h-4 w-4" />
-            Launch Testnet
+            Testnet — Join Waitlist
           </Button>
           <Button href="/node" variant="secondary" size="lg">
             <Server className="h-4 w-4" />

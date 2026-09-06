@@ -54,7 +54,7 @@ const pillars: {
       "BFT finality with explicit finalization",
       "Finality states: Pending → Confirmed → Finalized",
     ],
-    readiness: "In Development",
+    readiness: "Design Frozen",
   },
   {
     icon: Network,
@@ -181,7 +181,7 @@ export default function TechnologyPage() {
                 Six systems, one <span className="text-gradient">coherent network</span>
               </>
             }
-            description="Each system has a clear protocol boundary. Status labels reflect the current development stage — nothing is overstated."
+            description="Each system has a clear protocol boundary. Protocol and consensus design is complete and frozen — validator set & votes, DAG, Random Witness, Finality & Precommit QC, Checkpoint, and Fork Choice (steps 10-1..10-14). Labels: \u2018Design Frozen\u2019 = specification complete & frozen; \u2018In Development\u2019 = implementation in progress; \u2018Planned\u2019 = not started. Nothing here is deployed or live."
           />
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {pillars.map((p, i) => (

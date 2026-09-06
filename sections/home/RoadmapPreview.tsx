@@ -6,23 +6,23 @@ import { Reveal } from "@/components/visual/Reveal";
 const phases = [
   {
     phase: "Phase 1",
-    title: "Protocol Development",
-    desc: "Core protocol, cryptography, storage, and consensus foundations.",
+    title: "Protocol & Consensus Design",
+    desc: "Architecture, protocol, and consensus design are complete and frozen.",
   },
   {
     phase: "Phase 2",
-    title: "Testnet",
-    desc: "Public testnet — nodes, wallets, and developer tooling.",
+    title: "Core Implementation",
+    desc: "Protocol, storage, and consensus implementation — in progress.",
   },
   {
     phase: "Phase 3",
-    title: "Mainnet",
-    desc: "Production launch with staking and the first node rewards.",
+    title: "Genesis · Devnet · Testnet",
+    desc: "Network preparation — not launched; no public devnet or testnet yet.",
   },
   {
     phase: "Phase 4",
-    title: "Ecosystem",
-    desc: "Storage, compute, gaming, and the open developer ecosystem.",
+    title: "Mainnet & Ecosystem",
+    desc: "Future milestones — production launch and the open ecosystem.",
   },
 ];
 

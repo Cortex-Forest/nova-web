@@ -18,7 +18,11 @@ type Phase = {
   phase: string;
   title: string;
   summary: string;
-  status: "In Progress" | "Planned";
+  status:
+    | "Design Frozen"
+    | "In Progress"
+    | "Pending · Not Launched"
+    | "Future · Planned";
   tone: "cyan" | "neutral";
   items: { label: string; status: ItemStatus }[];
 };
@@ -26,64 +30,59 @@ type Phase = {
 const phases: Phase[] = [
   {
     phase: "Phase 1",
-    title: "Protocol Development",
+    title: "Protocol & Consensus Design",
     summary:
-      "The foundation: cryptography, canonical encoding, state transitions, storage, and consensus — documented and tested before anything ships.",
-    status: "In Progress",
+      "Architecture and protocol design are complete and frozen. Consensus design — validator set & votes, DAG, Random Witness, Finality & Precommit QC, Checkpoint, and Fork Choice — is final across steps 10-1..10-14. Core implementation proceeds separately and is verified before anything ships.",
+    status: "Design Frozen",
     tone: "cyan",
     items: [
-      { label: "Cryptography & address system", status: "done" },
-      { label: "Transaction & state transition model", status: "done" },
-      { label: "State storage & proofs", status: "done" },
-      { label: "Consensus: PoS, DAG, BFT finality", status: "active" },
-      { label: "P2P network layer", status: "active" },
-      { label: "WASM execution runtime", status: "planned" },
-      { label: "Node coordination layer", status: "planned" },
+      { label: "Architecture & protocol design", status: "done" },
+      { label: "Canonical encoding & test vectors", status: "done" },
+      { label: "Consensus: ValidatorSet · Vote · DAG", status: "done" },
+      { label: "Random Witness · Finality & Precommit QC", status: "done" },
+      { label: "Checkpoint · Fork Choice (10-1..10-14)", status: "done" },
     ],
   },
   {
     phase: "Phase 2",
-    title: "Testnet",
+    title: "Core Implementation",
     summary:
-      "A public testnet with nodes, wallets, an explorer, and a full developer toolkit. The network is real — the tokens are test tokens.",
-    status: "Planned",
-    tone: "neutral",
+      "Core implementation is in progress — piece by piece, with frozen design decisions and tests before anything ships. Nothing is marked complete until it is verified.",
+    status: "In Progress",
+    tone: "cyan",
     items: [
-      { label: "Public RPC & faucet", status: "planned" },
-      { label: "Explorer & wallet support", status: "planned" },
-      { label: "Validator onboarding", status: "planned" },
-      { label: "Node downloads & dashboard", status: "planned" },
-      { label: "Developer docs & SDKs", status: "planned" },
+      { label: "Transaction & state-transition execution", status: "done" },
+      { label: "State storage & proofs", status: "done" },
+      { label: "Consensus implementation & node coordination", status: "active" },
+      { label: "P2P & sync primitives", status: "active" },
+      { label: "WASM execution runtime", status: "planned" },
     ],
   },
   {
     phase: "Phase 3",
-    title: "Mainnet",
+    title: "Genesis · Devnet · Testnet",
     summary:
-      "Production launch. Staking goes live, node rewards begin, and the token economy starts operating under its published specification.",
-    status: "Planned",
+      "Genesis and network parameters are not finalized. No devnet is public and no testnet has launched.",
+    status: "Pending · Not Launched",
     tone: "neutral",
     items: [
-      { label: "Genesis & token distribution", status: "planned" },
-      { label: "Staking & slashing live", status: "planned" },
-      { label: "Node rewards program", status: "planned" },
-      { label: "Validator & node tooling", status: "planned" },
-      { label: "Security audits & hardening", status: "planned" },
+      { label: "Final genesis & network parameters", status: "planned" },
+      { label: "Devnet (not public)", status: "planned" },
+      { label: "Public testnet — RPC, faucet, explorer, wallets", status: "planned" },
     ],
   },
   {
     phase: "Phase 4",
-    title: "Ecosystem",
+    title: "Mainnet & Ecosystem",
     summary:
-      "The open ecosystem: decentralized storage and compute networks, gaming infrastructure, and tools for builders and creators.",
-    status: "Planned",
+      "Mainnet launch and the open ecosystem are future milestones — storage, compute, gaming, and tools for builders and creators.",
+    status: "Future · Planned",
     tone: "neutral",
     items: [
-      { label: "Decentralized storage network", status: "planned" },
-      { label: "Decentralized compute network", status: "planned" },
-      { label: "Gaming ecosystem infrastructure", status: "planned" },
-      { label: "Creator & AI tooling", status: "planned" },
-      { label: "Developer grants & programs", status: "planned" },
+      { label: "Mainnet genesis & token distribution", status: "planned" },
+      { label: "Staking, slashing & node rewards", status: "planned" },
+      { label: "Storage, compute & gaming networks", status: "planned" },
+      { label: "Creator & developer programs", status: "planned" },
     ],
   },
 ];
