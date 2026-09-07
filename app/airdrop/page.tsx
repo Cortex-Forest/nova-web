@@ -8,6 +8,7 @@ import { GlowOrb } from "@/components/visual/GlowOrb";
 import { GridBackground } from "@/components/visual/GridBackground";
 import { Badge } from "@/components/ui/Badge";
 import { GenesisJoin } from "@/components/genesis/GenesisJoin";
+import { GenesisWallet } from "@/components/genesis/GenesisWallet";
 
 export const metadata: Metadata = pageSeo(
   "/airdrop",
@@ -171,8 +172,31 @@ export default function AirdropPage() {
               </p>
             </div>
           </Reveal>
+          {/* Wallet connection (Phase 1 — connect only; Connected ≠ Authenticated) */}
+          <Reveal delay={0.06}>
+            <div className="mx-auto mt-10 max-w-lg">
+              <div className="mb-4 text-center">
+                <p className="text-xs font-semibold uppercase tracking-widest text-mist-500">
+                  Wallet option
+                </p>
+                <p className="mt-2 text-sm text-mist-400">
+                  Connect your wallet and sign a short message to verify you own
+                  it and join with a wallet-based Nova identity. Connecting alone
+                  does not verify or register you — the signature step completes
+                  verification.
+                </p>
+              </div>
+              <GenesisWallet />
+            </div>
+          </Reveal>
+
           <Reveal delay={0.08}>
             <div className="mx-auto mt-10 max-w-lg">
+              <div className="mb-4 text-center">
+                <p className="text-xs font-semibold uppercase tracking-widest text-mist-500">
+                  Or register with email
+                </p>
+              </div>
               <GenesisJoin />
             </div>
           </Reveal>
