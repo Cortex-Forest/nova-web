@@ -4,7 +4,7 @@ import { footerNav } from "@/config/nav";
 import { siteConfig } from "@/config/site";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { NovaMark } from "@/components/visual/NovaMark";
+import { YazimaoLogo } from "@/components/visual/YazimaoLogo";
 
 type Social = { label: string; href: string; icon: LucideIcon };
 
@@ -25,16 +25,22 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
           {/* Brand */}
           <div>
-            <Link href="/" className="flex items-center gap-2.5">
-              <NovaMark className="h-9 w-9" />
-              <span className="font-display text-xl font-semibold text-white">
-                Nova
-              </span>
+            <Link href="/" className="inline-flex items-center gap-2.5" aria-label="YAZIMAO home">
+              <YazimaoLogo symbolClassName="h-9 w-9" textClassName="text-xl" />
             </Link>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-mist-500">
-              An independent Layer1 blockchain — high-performance infrastructure,
-              decentralized storage &amp; compute, gaming ecosystem, and a global
-              node network.
+            <p className="mt-4 font-display text-lg font-semibold text-mist-100">
+              Every Creation Matters.
+            </p>
+            <p className="mt-1 text-sm text-mist-400">
+              A public network for human creation.
+            </p>
+            <p className="mt-3 max-w-xs text-sm leading-relaxed text-mist-500">
+              Writing, music, art, video, ideas and digital works — recorded,
+              connected, verified and preserved together. One creation may be
+              small; together they build something much bigger.
+            </p>
+            <p className="mt-3 text-xs text-mist-600">
+              中文品牌：鸭子毛 · Nova 是协议内部开发代号
             </p>
             {/* V1.1：Early Access 生态参与预登记入口 */}
             <div className="mt-6">
@@ -99,7 +105,7 @@ export function Footer() {
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/8 pt-6 text-xs text-mist-500 sm:flex-row">
           <div className="flex flex-col items-center gap-2 sm:flex-row sm:gap-6">
             <p>
-              © {new Date().getFullYear()} {siteConfig.name} Layer1. All rights
+              © {new Date().getFullYear()} {siteConfig.name}. All rights
               reserved.
             </p>
             {siteConfig.links.websiteRepo && (

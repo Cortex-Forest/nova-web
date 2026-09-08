@@ -27,9 +27,10 @@ import {
 /** 参与类型 → 描述（展示文案，非投资承诺） */
 const TYPE_DETAILS: Record<ParticipationTypeId, string> = {
   creator:
-    "Help shape Nova’s creator ecosystem — tools, content, and creator economics.",
+    "Help shape YAZIMAO’s creator ecosystem — tools, content, and creator economics.",
   node: "Follow future node operation and ways to participate in the network.",
-  developer: "Follow Nova protocol, developer tools, and ecosystem development.",
+  developer:
+    "Follow YAZIMAO protocol, developer tools, and ecosystem development.",
   community:
     "Follow project progress, the testnet, and community events as they arrive.",
 };
@@ -125,7 +126,7 @@ export function EarlyAccessJoin() {
                 <span className="text-gradient">join the community</span>
               </>
             }
-            description="Select one or more areas that interest you. Your choices are only used to tailor updates about Nova — no token purchase, no payment, no wallet."
+            description="Select one or more areas that interest you. Your choices are only used to tailor updates about YAZIMAO — no token purchase, no payment, no wallet."
           />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {PARTICIPATION_TYPES.map((t) => {
@@ -210,14 +211,14 @@ export function EarlyAccessJoin() {
                   <span className="text-gradient">Community Program</span>
                 </>
               }
-              description="An early-community program is being prepared for people who want to follow Nova from the start."
+              description="An early-community program is being prepared for people who want to follow YAZIMAO from the start."
             />
             <div className="flex flex-col gap-5 rounded-2xl border border-white/8 bg-ink-800/50 p-7">
               <div className="flex items-start gap-3">
                 <Sparkles className="mt-0.5 h-5 w-5 shrink-0 text-nova-cyanSoft" />
                 <p className="text-sm leading-relaxed text-mist-300 text-pretty">
-                  Nova is preparing a community-oriented Genesis program for early
-                  ecosystem participants. The program will be defined as the
+                  YAZIMAO is preparing a community-oriented Genesis program for
+                  early ecosystem participants. The program will be defined as the
                   protocol and network architecture mature.
                 </p>
               </div>
@@ -245,12 +246,12 @@ export function EarlyAccessJoin() {
                 You’re on the list.
               </h2>
               <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-mist-400">
-                Thank you for joining Nova Early Access. Follow the development of
-                Nova as we move toward testnet.
+                Thank you for joining YAZIMAO Early Access. Follow the development
+                of YAZIMAO as we move toward testnet.
               </p>
               <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
                 <Button href="/" variant="secondary">
-                  Back to Nova
+                  Back to YAZIMAO
                 </Button>
                 <Button href="/technology">
                   Explore Technology
@@ -378,16 +379,17 @@ export function EarlyAccessJoin() {
                       if (issue) setIssue(null);
                     }}
                     className="mt-0.5 h-4 w-4 rounded border-white/20 accent-nova-cyan"
-                    aria-label="I agree to receive Nova project updates."
+                    aria-label="I agree to receive YAZIMAO project updates."
                   />
-                  <span>I agree to receive Nova project updates.</span>
+                  <span>I agree to receive YAZIMAO project updates.</span>
                 </label>
 
                 {/* 校验错误 / 重复 / 网络错误提示 */}
                 <div aria-live="polite">
                   {termsMissing && view !== "submitting" && (
                     <p className="rounded-xl border border-amber-400/20 bg-amber-400/5 px-4 py-3 text-sm text-amber-200/90">
-                      Please confirm you’re happy to receive Nova project updates.
+                      Please confirm you’re happy to receive YAZIMAO project
+                      updates.
                     </p>
                   )}
                   {issue && view !== "submitting" && (

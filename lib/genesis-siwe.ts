@@ -15,7 +15,8 @@ import { canonicalWalletAddress, isValidNonce } from "@/lib/genesis-wallet";
  *   chain_id       = authentication signing context (NOT Nova network id)
  */
 
-export const GENESIS_SIWE_STATEMENT = "Nova Genesis Program authentication.";
+export const GENESIS_SIWE_STATEMENT =
+  "YAZIMAO Genesis Program authentication.";
 export const GENESIS_SIWE_VERSION = "1";
 /** Allow issuedAt clock skew (server vs wallet device) up to 5 minutes. */
 export const GENESIS_SIWE_MAX_CLOCK_SKEW_MS = 5 * 60_000;

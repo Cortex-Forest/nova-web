@@ -184,9 +184,9 @@ export function GenesisJoin() {
             Join the Genesis Program
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-mist-400">
-            Register with your email to receive your Nova ID and earn{" "}
+            Optional: register with your email to receive your Nova ID and earn{" "}
             <span className="text-nova-cyanSoft">+{REGISTER_POINTS} Genesis Points</span>{" "}
-            for joining the first generation of Nova ecosystem contributors.
+            for joining the first generation of YAZIMAO ecosystem contributors.
           </p>
 
           <form onSubmit={onSubmit} noValidate className="mt-8 space-y-5">

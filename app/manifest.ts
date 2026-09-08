@@ -2,13 +2,14 @@ import type { MetadataRoute } from "next";
 
 /**
  * Web App Manifest（移动端添加到主屏 / 主题色）。
+ * 品牌：YAZIMAO（中文：鸭子毛）。
  */
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Nova Layer1",
-    short_name: "Nova",
+    name: "YAZIMAO — Every Creation Matters.",
+    short_name: "YAZIMAO",
     description:
-      "Next Generation Decentralized Infrastructure — Layer1, storage, compute, gaming, and node network.",
+      "A public network for human creation. Every creation matters — writing, music, art, video, ideas and digital works.",
     start_url: "/",
     display: "standalone",
     background_color: "#04060B",

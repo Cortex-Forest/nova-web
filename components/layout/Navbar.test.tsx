@@ -5,7 +5,7 @@ import { Navbar } from "./Navbar";
 describe("Navbar", () => {
   it("renders brand with accessible label", () => {
     render(<Navbar />);
-    expect(screen.getByRole("link", { name: "Nova home" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "YAZIMAO home" })).toBeInTheDocument();
   });
 
   it("renders top-level navigation links", () => {

@@ -8,7 +8,7 @@ import { ReadinessBadge } from "@/components/ui/Badge";
 
 export const metadata: Metadata = pageSeo(
   "/roadmap",
-  "Nova roadmap — protocol development, testnet, mainnet, and ecosystem milestones.",
+  "YAZIMAO roadmap — protocol development, testnet, mainnet, and ecosystem milestones.",
   "Roadmap",
 );
 

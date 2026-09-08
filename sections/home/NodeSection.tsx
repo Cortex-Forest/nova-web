@@ -37,7 +37,7 @@ export function NodeSection() {
                   From your pocket to <span className="text-gradient">the network</span>
                 </>
               }
-              description="Nova is designed for a world of participants — not a world of data centers. Run a light node on your phone, a full node on your PC, or secure the network as a validator."
+              description="YAZIMAO is designed for a world of participants — not a world of data centers. Run a light node on your phone, a full node on your PC, or help secure the network as a validator."
             />
             <Reveal delay={0.15}>
               <div className="flex flex-col gap-3 sm:flex-row">

@@ -1,14 +1,21 @@
 import { describe, expect, it } from "vitest";
-import { siteConfig } from "./site";
+import { brand, siteConfig } from "./site";
 
 describe("siteConfig — Single Source of Truth", () => {
-  it("has correct brand identity", () => {
-    expect(siteConfig.name).toBe("Nova");
-    expect(siteConfig.tagline).toContain("Decentralized Infrastructure");
+  it("has correct brand identity (YAZIMAO / 鸭子毛)", () => {
+    expect(siteConfig.name).toBe("YAZIMAO");
+    expect(siteConfig.nameZh).toBe("鸭子毛");
+    expect(siteConfig.tagline).toContain("Every Creation Matters");
+    expect(siteConfig.positioning).toBe("A public network for human creation.");
+    expect(brand.story.length).toBeGreaterThan(20);
     expect(siteConfig.description.length).toBeGreaterThan(20);
   });
 
-  it("github points to Nova MAIN repository", () => {
+  it("brand must not pretend to be a live mainnet", () => {
+    expect(siteConfig.networkLabel).not.toMatch(/mainnet/i);
+  });
+
+  it("github points to the protocol MAIN repository", () => {
     expect(siteConfig.links.github).toBe("https://github.com/Cortex-Forest/nova");
   });
 

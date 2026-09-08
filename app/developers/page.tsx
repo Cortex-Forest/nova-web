@@ -24,7 +24,7 @@ import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = pageSeo(
   "/developers",
-  "Build on Nova — documentation, SDKs, APIs, GitHub, and the Nova developer platform.",
+  "Build on YAZIMAO — documentation, SDKs, APIs, GitHub, and the developer platform for a public network for human creation.",
   "Developers",
 );
 
@@ -72,7 +72,7 @@ export default function DevelopersPage() {
         eyebrow="Developers"
         title={
           <>
-            Build on <span className="text-gradient">Nova</span>
+            Build on <span className="text-gradient">YAZIMAO</span>
           </>
         }
         description="Everything you need to start building — documentation, SDKs, APIs, and an open-source protocol you can audit and contribute to."
@@ -343,7 +343,7 @@ export default function DevelopersPage() {
                   <h3 className="font-display text-lg font-semibold text-mist-100">Open Source</h3>
               </div>
               <p className="text-sm leading-relaxed text-mist-400 text-pretty">
-                The Nova protocol is developed in the open. Read the code, audit the
+                The YAZIMAO protocol is developed in the open. Read the code, audit the
                 decisions, and contribute. Transparency is part of the security model.
               </p>
               <div className="mt-6 flex flex-wrap gap-2">
@@ -387,8 +387,8 @@ export default function DevelopersPage() {
               </h2>
               <p className="mt-4 text-base leading-relaxed text-mist-400 text-pretty">
                 Wallets, games, storage apps, compute markets, and AI creator tools —
-                Nova is infrastructure for builders. Start with the docs, and join
-                the developer community.
+                YAZIMAO is infrastructure for builders and creators. Start with the
+                docs, and join the developer community.
               </p>
               <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                 <Button href="#docs" size="lg">

@@ -20,26 +20,26 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: siteConfig.url ? new URL(siteConfig.url) : undefined,
   title: {
-    default: `${siteConfig.name} Layer1 — ${siteConfig.tagline}`,
-    template: `%s | ${siteConfig.name} Layer1`,
+    default: `${siteConfig.name} — ${siteConfig.tagline}`,
+    template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   keywords: [
-    "Nova",
-    "Layer1",
+    "YAZIMAO",
+    "YAZIMAO Network",
+    "鸭子毛",
+    "Every Creation Matters",
+    "public network for human creation",
+    "creator economy",
     "blockchain",
-    "decentralized storage",
-    "decentralized compute",
-    "gaming",
-    "node network",
     "web3",
   ],
   openGraph: {
     type: "website",
     locale: "en_US",
     url: siteConfig.url || undefined,
-    siteName: `${siteConfig.name} Layer1`,
-    title: `${siteConfig.name} Layer1 — ${siteConfig.tagline}`,
+    siteName: siteConfig.name,
+    title: `${siteConfig.name} — ${siteConfig.tagline}`,
     description: siteConfig.description,
     // 域名未设置时省略图片，避免无效相对 URL 与构建警告
     ...(siteConfig.url
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} Layer1`,
+    title: `${siteConfig.name} — ${siteConfig.tagline}`,
     description: siteConfig.description,
     ...(siteConfig.url ? { images: [siteConfig.ogImage] } : {}),
   },

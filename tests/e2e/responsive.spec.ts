@@ -17,7 +17,9 @@ test.describe("responsive — desktop & mobile", () => {
       page.getByRole("link", { name: "Home", exact: true }),
     ).toBeVisible();
     await expect(page.locator("footer")).toBeVisible();
-    await expect(page.getByRole("link", { name: /Build On Nova/i }).first()).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: /Connect Wallet/i }).first(),
+    ).toBeVisible();
     expect(errors).toEqual([]);
   });
 

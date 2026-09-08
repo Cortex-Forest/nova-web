@@ -20,7 +20,7 @@ import {
 
 export const metadata: Metadata = pageSeo(
   "/technology",
-  "Nova Layer1 technology: consensus, network, storage, compute, execution and security.",
+  "YAZIMAO technology: consensus, network, storage, compute, execution and security — the protocol behind a public network for human creation.",
   "Technology",
 );
 
@@ -138,7 +138,7 @@ export default function TechnologyPage() {
             An architecture built on <span className="text-gradient">first principles</span>
           </>
         }
-        description="Nova’s stack is designed top-to-bottom: applications on open APIs, execution in a sandboxed runtime, and a consensus layer that separates transaction propagation from finality."
+        description="YAZIMAO’s stack is designed top-to-bottom: applications on open APIs, execution in a sandboxed runtime, and a consensus layer that separates transaction propagation from finality."
       />
 
       {/* 分层架构图 */}
@@ -163,7 +163,7 @@ export default function TechnologyPage() {
           </div>
           <Reveal delay={0.1}>
             <p className="mt-6 text-center text-xs leading-relaxed text-mist-500">
-              Conceptual stack — layer boundaries follow Nova’s protocol design
+              Conceptual stack — layer boundaries follow YAZIMAO’s protocol design
               (see the{" "}
               <span className="text-mist-300">architectural decision records</span>).
             </p>

@@ -32,11 +32,11 @@ test("each route has a primary CTA (internal navigation works)", async ({
   page,
 }) => {
   await gotoWithoutOverflow(page, "/");
-  // 首页 CTA（Hero 与底部 CTA 区块均含 Launch Testnet）
+  // 首页 Hero CTA（品牌：Explore the Network / Become a Creator）
   await expect(
-    page.getByRole("link", { name: /Launch Testnet/i }).first(),
+    page.getByRole("link", { name: "Explore the Network" }).first(),
   ).toBeVisible();
   await expect(
-    page.getByRole("link", { name: /Run Node/i }).first(),
+    page.getByRole("link", { name: "Become a Creator" }).first(),
   ).toBeVisible();
 });

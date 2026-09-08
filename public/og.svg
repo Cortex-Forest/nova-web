@@ -1,34 +1,54 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- YAZIMAO OG / Social Share（1200×630 源文件；与 public/og.png 对应） -->
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#04060B"/>
-      <stop offset="55%" stop-color="#0A0E17"/>
-      <stop offset="100%" stop-color="#070A11"/>
-    </linearGradient>
-    <linearGradient id="acc" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+    <radialGradient id="bgGlow" cx="50%" cy="38%" r="70%">
+      <stop offset="0%" stop-color="#0E1730"/>
+      <stop offset="55%" stop-color="#070A11"/>
+      <stop offset="100%" stop-color="#04060B"/>
+    </radialGradient>
+    <radialGradient id="cyanGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="violetGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#A78BFA" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#A78BFA" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="feather" x1="0" y1="0" x2="48" y2="48">
       <stop offset="0%" stop-color="#22D3EE"/>
       <stop offset="55%" stop-color="#A78BFA"/>
       <stop offset="100%" stop-color="#E879F9"/>
     </linearGradient>
-    <radialGradient id="glow" cx="50%" cy="40%" r="60%">
-      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.14"/>
-      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0"/>
-    </radialGradient>
+    <linearGradient id="word" x1="0" y1="0" x2="620" y2="0">
+      <stop offset="0%" stop-color="#F2F6FB"/>
+      <stop offset="50%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#DCE4F0"/>
+    </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" fill="url(#glow)"/>
-  <!-- 科技网格 -->
-  <g stroke="#94A3B8" stroke-opacity="0.06" stroke-width="1">
-    <path d="M0 90h1200M0 180h1200M0 270h1200M0 360h1200M0 450h1200M0 540h1200"/>
-    <path d="M100 0v630M250 0v630M400 0v630M550 0v630M700 0v630M850 0v630M1000 0v630M1150 0v630"/>
-  </g>
-  <!-- 星形标识 -->
-  <g transform="translate(80 315) scale(2.2)">
-    <circle cx="0" cy="0" r="21" stroke="url(#acc)" stroke-width="1.4" fill="none" opacity="0.5"/>
-    <circle cx="0" cy="0" r="14.5" stroke="url(#acc)" stroke-width="1" fill="none" opacity="0.35"/>
-    <path d="M0 -17l3.4 10.6 10.6 3.4-10.6 3.4L0 11l-3.4-10.6L-14 -3l10.6-3.4L0 -17z" fill="url(#acc)"/>
-  </g>
-  <text x="200" y="310" font-family="Arial, Helvetica, sans-serif" font-size="96" font-weight="700" fill="#F2F6FB">Nova</text>
-  <text x="202" y="368" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="#B9C5D8">Next Generation Decentralized Infrastructure</text>
-  <text x="202" y="416" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#6B7A93">Layer1 · Storage · Compute · Gaming · Node Network</text>
+
+  <rect width="1200" height="630" fill="url(#bgGlow)"/>
+  <ellipse cx="600" cy="330" rx="520" ry="330" fill="url(#cyanGlow)"/>
+  <ellipse cx="920" cy="120" rx="360" ry="260" fill="url(#violetGlow)"/>
+  <rect x="0" y="0" width="1200" height="2" fill="#22D3EE" opacity="0.5"/>
+
+  <!-- YAZIMAO Symbol（Feather + Network） -->
+  <svg x="540" y="62" width="120" height="120" viewBox="0 0 48 48">
+    <rect width="48" height="48" rx="11" fill="#070A11"/>
+    <g transform="translate(1 1) scale(2)">
+      <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z" fill="url(#feather)" stroke="url(#feather)" stroke-width="0.9" stroke-linejoin="round"/>
+      <line x1="16" y1="8" x2="2.4" y2="21.6" stroke="url(#feather)" stroke-width="2.6" stroke-linecap="round"/>
+      <circle cx="2.4" cy="21.6" r="1.5" fill="url(#feather)"/>
+      <circle cx="21.6" cy="16.8" r="1.05" fill="url(#feather)"/>
+      <circle cx="19.4" cy="5.6" r="0.9" fill="url(#feather)"/>
+      <circle cx="10.6" cy="4.2" r="0.75" fill="url(#feather)"/>
+    </g>
+  </svg>
+
+  <text x="600" y="288" text-anchor="middle" font-family="'Space Grotesk', 'Segoe UI', system-ui, sans-serif" font-size="102" font-weight="700" letter-spacing="4" fill="url(#word)">YAZIMAO</text>
+
+  <text x="600" y="376" text-anchor="middle" font-family="'Space Grotesk', 'Segoe UI', system-ui, sans-serif" font-size="46" font-weight="600" fill="#F2F6FB">Every Creation Matters.</text>
+
+  <text x="600" y="444" text-anchor="middle" font-family="'Inter', 'Segoe UI', system-ui, sans-serif" font-size="28" fill="#8E9CB3">A public network for human creation.</text>
+
+  <text x="600" y="540" text-anchor="middle" font-family="'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="30" font-weight="500" letter-spacing="14" fill="#B9C5D8">鸭子毛</text>
 </svg>

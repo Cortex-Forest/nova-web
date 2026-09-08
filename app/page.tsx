@@ -2,10 +2,15 @@ import type { Metadata } from "next";
 import { pageSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
 import { Hero } from "@/sections/home/Hero";
-import { Pillars } from "@/sections/home/Pillars";
+import { BrandStory } from "@/sections/home/BrandStory";
+import { CreatorSection } from "@/sections/home/CreatorSection";
+import { NetworkSection } from "@/sections/home/NetworkSection";
+import { VerifySection } from "@/sections/home/VerifySection";
+import { RecordSection } from "@/sections/home/RecordSection";
+import { BelongSection } from "@/sections/home/BelongSection";
 import { TechPreview } from "@/sections/home/TechPreview";
 import { NodeSection } from "@/sections/home/NodeSection";
-import { GamingSection } from "@/sections/home/GamingSection";
+import { EcosystemSection } from "@/sections/home/EcosystemSection";
 import { RoadmapPreview } from "@/sections/home/RoadmapPreview";
 import { CTA } from "@/sections/home/CTA";
 
@@ -16,10 +21,15 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <Pillars />
+      <BrandStory />
+      <CreatorSection />
+      <NetworkSection />
+      <VerifySection />
+      <RecordSection />
+      <BelongSection />
       <TechPreview />
       <NodeSection />
-      <GamingSection />
+      <EcosystemSection />
       <RoadmapPreview />
       <CTA />
     </>

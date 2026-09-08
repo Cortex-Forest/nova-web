@@ -89,7 +89,7 @@ export const footerNav = {
     { label: "Developers", href: "/developers" },
     { label: "Documentation", href: "/developers#docs" },
     { label: "GitHub", href: "/developers#github" },
-    { label: "Build On Nova", href: "/developers#build" },
+    { label: "Build on YAZIMAO", href: "/developers#build" },
   ],
   token: [
     { label: "Token", href: "/token" },

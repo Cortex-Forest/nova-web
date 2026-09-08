@@ -14,10 +14,10 @@ function firstRule(p: MetadataRoute.Robots) {
  */
 describe("resolveRobotsPolicy (MF-1)", () => {
   it("production → Allow / + Sitemap（引用正式域名）", () => {
-    const p = resolveRobotsPolicy("production", "https://nova-super.xyz");
+    const p = resolveRobotsPolicy("production", "https://yazimao.xyz");
     expect(firstRule(p)?.allow).toContain("/");
     expect(firstRule(p)?.disallow).toEqual(["/api/"]);
-    expect(p.sitemap).toBe("https://nova-super.xyz/sitemap.xml");
+    expect(p.sitemap).toBe("https://yazimao.xyz/sitemap.xml");
   });
 
   it("preview → Disallow /（无 sitemap）", () => {

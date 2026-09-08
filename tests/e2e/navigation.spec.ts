@@ -21,7 +21,10 @@ test.describe("internal navigation", () => {
 
   test("homepage hero CTAs navigate correctly", async ({ page }) => {
     await gotoWithoutOverflow(page, "/");
-    await page.getByRole("link", { name: /Launch Testnet/i }).first().click();
-    await expect(page).toHaveURL(/\/developers#testnet/);
+    await page.getByRole("link", { name: "Explore the Network" }).first().click();
+    await expect(page).toHaveURL(/\/technology/);
+    await gotoWithoutOverflow(page, "/");
+    await page.getByRole("link", { name: "Become a Creator" }).first().click();
+    await expect(page).toHaveURL(/\/early-access#register/);
   });
 });

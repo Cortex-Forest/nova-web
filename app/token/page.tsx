@@ -19,7 +19,7 @@ import { Badge, ReadinessBadge } from "@/components/ui/Badge";
 
 export const metadata: Metadata = pageSeo(
   "/token",
-  "Nova token economy, supply model, distribution, and incentive system.",
+  "YAZIMAO token economy, supply model, distribution, and incentive system. Parameters remain TBD.",
   "Token",
 );
 
@@ -38,7 +38,7 @@ export default function TokenPage() {
             An economy designed <span className="text-gradient">for the network</span>
           </>
         }
-        description="NOVA is the native token of the Nova network — used for fees, staking, and participation incentives. Final parameters are published with the Economics Specification; nothing on this page is speculative."
+        description="YZM is the provisional ticker for the native token of the YAZIMAO network — used for fees, staking, and participation incentives. Final parameters are published with the Economics Specification; nothing on this page is speculative and the ticker is not final."
       />
 
       {/* V1.1 状态声明：Tokenomics 未冻结，勿误解为可购买/可销售 */}
@@ -52,7 +52,8 @@ export default function TokenPage() {
               </div>
               <p className="text-sm leading-relaxed text-mist-400 text-pretty">
                 Nova’s economic model is currently under protocol design and has
-                not been finalized.
+                not been finalized. The provisional brand ticker is YZM — it is
+                not frozen and may change.
               </p>
             </div>
           </Reveal>
@@ -81,7 +82,7 @@ export default function TokenPage() {
               {
                 icon: Scale,
                 title: "Staking",
-                text: "Validators stake NOVA to secure the network. Weighted voting power, slashing protection.",
+                text: "Validators stake YZM to secure the network. Weighted voting power, slashing protection.",
               },
               {
                 icon: Boxes,
@@ -165,7 +166,7 @@ export default function TokenPage() {
                   </div>
                   <div className="space-y-3">
                     {[
-                      { label: "Total supply", unit: "NOVA" },
+                      { label: "Total supply", unit: "YZM" },
                       { label: "Genesis allocation", unit: "%" },
                       { label: "Validator emission", unit: "per era" },
                       { label: "Burn rate", unit: "% of fees" },

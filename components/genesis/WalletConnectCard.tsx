@@ -239,7 +239,7 @@ export function WalletConnectCard() {
         <div className="mt-5">
           <p className="text-sm leading-relaxed text-mist-400">
             Connect an EVM wallet such as MetaMask, Trust Wallet, OKX, Coinbase
-            Wallet, or Rabby to get started with a wallet-based Nova identity.
+            Wallet, or Rabby to get started with a wallet-based YAZIMAO identity.
           </p>
 
           <Button

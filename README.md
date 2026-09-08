@@ -1,8 +1,15 @@
-# Nova Layer1 — Official Website V1.0
+# YAZIMAO — Official Website
 
-Nova 官方官网。一个独立 Layer1 区块链项目 —— 高性能基础设施、去中心化存储、去中心化计算、游戏生态与节点网络。
+YAZIMAO（中文品牌：鸭子毛）官方官网。定位：A public network for human
+creation —— Every Creation Matters. 一个面向人类创造行为的公共网络。
 
-> **真实性原则**：本站不包含任何未经确认的数据。所有指标、供应量、奖励参数在正式发布前一律显示占位（TBD / Coming Soon / Planned / Testnet Only），绝不虚构。
+> **品牌/代号说明**：Nova 为协议内部开发代号。本仓库只承载 YAZIMAO 品牌层
+> （品牌呈现、叙事、文案、视觉、SEO、身份入口），不修改协议代码、Genesis、
+> chain_id、共识或 Tokenomics。
+>
+> **真实性原则**：本站不包含任何未经确认的数据。所有指标、供应量、奖励参数
+> 在正式发布前一律显示占位（TBD / Coming Soon / Planned），绝不虚构，也不将
+> 项目描述为已上线的 Mainnet。
 
 ## 技术栈
 

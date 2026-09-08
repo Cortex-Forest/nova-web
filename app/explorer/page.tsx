@@ -10,7 +10,7 @@ import { Card } from "@/components/ui/Card";
 
 export const metadata: Metadata = pageSeo(
   "/explorer",
-  "Nova Explorer — blocks, transactions, accounts, and validators, backed by real chain data.",
+  "Explorer — blocks, transactions, accounts, and validators, backed by real chain data on the YAZIMAO network.",
   "Explorer",
 );
 
@@ -47,7 +47,7 @@ export default function ExplorerPage() {
             See the chain, <span className="text-gradient">live</span>
           </>
         }
-        description="An Explorer built on real Nova data — blocks, transactions, accounts, and validators. When the network is live, this page is powered by the Nova Indexer."
+        description="An Explorer built on real chain data — blocks, transactions, accounts, and validators. When the network is live, this page is powered by the chain indexer."
       />
 
       <section className="relative pb-24 md:pb-28">
@@ -68,7 +68,7 @@ export default function ExplorerPage() {
                 Truth comes from the <span className="text-gradient">node</span>
               </>
             }
-            description="The Explorer is a window into the chain — never the source of truth. It reads from the Nova Indexer, which rebuilds from node state and stays consistent through reorgs."
+            description="The Explorer is a window into the chain — never the source of truth. It reads from the indexer, which rebuilds from node state and stays consistent through reorgs."
           />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {dataSources.map((s, i) => (

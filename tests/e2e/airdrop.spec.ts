@@ -18,7 +18,7 @@ test.describe("genesis — /airdrop page", () => {
     const { res, overflow } = await gotoWithoutOverflow(page, "/airdrop");
     expect(res?.status()).toBe(200);
     await expect(
-      page.getByRole("heading", { level: 1, name: "Nova Genesis Program" }),
+      page.getByRole("heading", { level: 1, name: "YAZIMAO Genesis Program" }),
     ).toBeVisible();
     expect(overflow).toBe(false);
     expect(errors).toEqual([]);

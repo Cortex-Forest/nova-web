@@ -21,7 +21,7 @@ import { ReadinessBadge, Badge } from "@/components/ui/Badge";
 
 export const metadata: Metadata = pageSeo(
   "/node",
-  "Run a Nova node — mobile node, PC node, or validator. Understand node rewards and download options.",
+  "Run a node — mobile node, PC node, or validator. Understand participation and download options on the YAZIMAO network.",
   "Node",
 );
 
@@ -48,7 +48,7 @@ const tiers = [
     subtitle: "Full participation",
     tag: "Full Node",
     description:
-      "A PC node relays, stores, and serves the network. From a laptop to a dedicated server — the backbone of Nova's availability.",
+      "A PC node relays, stores, and serves the network. From a laptop to a dedicated server — the backbone of the network's availability.",
     features: [
       "Full block & state storage",
       "Transaction relay & gossip",
@@ -86,7 +86,7 @@ export default function NodePage() {
             Run a node. <span className="text-gradient">Join the network.</span>
           </>
         }
-        description="Nova is designed for a world of participants. Choose the level of participation that fits — every node makes the network stronger."
+        description="YAZIMAO is designed for a world of participants. Choose the level of participation that fits — every node makes the network stronger."
       />
 
       {/* Node 类型 */}
@@ -181,7 +181,7 @@ export default function NodePage() {
             eyebrow="Node Download"
             title={
               <>
-                Download the <span className="text-gradient">Nova node</span>
+                Download the <span className="text-gradient">YAZIMAO node</span>
               </>
             }
             description="Node clients are not released yet. When available, downloads will be published here and on GitHub — always signed and checksummed."

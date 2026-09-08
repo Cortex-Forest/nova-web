@@ -1,4 +1,4 @@
-import { ArrowRight, Github, Server } from "lucide-react";
+import { FlaskConical, Github, Server } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/visual/Reveal";
@@ -6,6 +6,10 @@ import { GlowOrb } from "@/components/visual/GlowOrb";
 import { GridBackground } from "@/components/visual/GridBackground";
 import { siteConfig } from "@/config/site";
 
+/**
+ * 首页 12 —— Community / CTA
+ * Every Creation Matters. Build with YAZIMAO.
+ */
 export function CTA() {
   return (
     <section className="relative overflow-hidden py-24 md:py-32">
@@ -15,16 +19,17 @@ export function CTA() {
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="font-display text-3xl font-semibold tracking-tight text-mist-100 text-balance sm:text-5xl">
-              Be part of the <span className="text-gradient">next generation</span>
+              Every Creation <span className="text-gradient">Matters.</span>
             </h2>
             <p className="mt-5 text-base leading-relaxed text-mist-400 text-pretty sm:text-lg">
-              Whether you build, run a node, or simply explore — Nova is open to
-              everyone. The testnet is the first step.
+              Build with {siteConfig.name}. Whether you create, run a node, build
+              an application, or simply care about the network — there is a place
+              for you.
             </p>
             <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
               <Button href="/developers#testnet" size="lg">
-                Launch Testnet
-                <ArrowRight className="h-4 w-4" />
+                <FlaskConical className="h-4 w-4" />
+                Join Testnet Waitlist
               </Button>
               <Button href="/node" variant="secondary" size="lg">
                 <Server className="h-4 w-4" />
@@ -42,6 +47,11 @@ export function CTA() {
                 </Button>
               )}
             </div>
+            <p className="mt-6 text-xs leading-relaxed text-mist-500">
+              {siteConfig.name} is in protocol development — not yet a live
+              mainnet or public testnet. Progress is published openly as it
+              happens.
+            </p>
           </div>
         </Reveal>
       </Container>

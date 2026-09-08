@@ -21,7 +21,7 @@ async function fillForm(page: Page) {
   await page.getByLabel("Email").fill("user@example.com");
   await page.getByRole("checkbox", { name: "Creator" }).check();
   await page
-    .getByRole("checkbox", { name: "I agree to receive Nova project updates." })
+    .getByRole("checkbox", { name: "I agree to receive YAZIMAO project updates." })
     .check();
 }
 
@@ -40,7 +40,7 @@ test.describe("early-access — page & content", () => {
     const { res, overflow } = await gotoWithoutOverflow(page, "/early-access");
     expect(res?.status()).toBe(200);
     await expect(
-      page.getByRole("heading", { level: 1, name: "Nova Early Access" }),
+      page.getByRole("heading", { level: 1, name: "YAZIMAO Early Access" }),
     ).toBeVisible();
     expect(overflow).toBe(false);
     expect(errors).toEqual([]);
@@ -73,10 +73,9 @@ test.describe("early-access — page & content", () => {
     await expect(
       page.getByRole("heading", { name: /on the list/i }),
     ).toBeVisible();
-    await expect(page.getByRole("link", { name: /Back to Nova/i })).toHaveAttribute(
-      "href",
-      "/",
-    );
+    await expect(
+      page.getByRole("link", { name: /Back to YAZIMAO/i }),
+    ).toHaveAttribute("href", "/");
     await expect(
       page.getByRole("link", { name: /Explore Technology/i }),
     ).toHaveAttribute("href", "/technology");

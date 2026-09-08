@@ -10,7 +10,7 @@ function fillValidForm() {
   fireEvent.click(screen.getByRole("checkbox", { name: "Creator" }));
   fireEvent.click(
     screen.getByRole("checkbox", {
-      name: "I agree to receive Nova project updates.",
+      name: "I agree to receive YAZIMAO project updates.",
     }),
   );
 }
@@ -112,7 +112,7 @@ describe("EarlyAccessJoin", () => {
     expect(await screen.findByRole("heading", { name: /on the list/i }))
       .toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: /Back to Nova/i }),
+      screen.getByRole("link", { name: /Back to YAZIMAO/i }),
     ).toHaveAttribute("href", "/");
     expect(
       screen.getByRole("link", { name: /Explore Technology/i }),

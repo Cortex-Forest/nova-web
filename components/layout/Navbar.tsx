@@ -8,7 +8,7 @@ import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
 import { mainNav, navGroups } from "@/config/nav";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
-import { NovaMark } from "@/components/visual/NovaMark";
+import { YazimaoLogo } from "@/components/visual/YazimaoLogo";
 import { Button } from "@/components/ui/Button";
 
 export function Navbar() {
@@ -54,12 +54,16 @@ export function Navbar() {
         className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8 lg:h-[72px] lg:px-12"
         aria-label="Main"
       >
-        {/* Logo */}
-        <Link href="/" className="group flex items-center gap-2.5" aria-label="Nova home">
-          <NovaMark className="h-8 w-8 transition-transform duration-500 group-hover:rotate-[25deg]" />
-          <span className="font-display text-lg font-semibold tracking-tight text-white">
-            Nova
-          </span>
+        {/* Logo（桌面：Symbol + YAZIMAO；移动端：Symbol） */}
+        <Link
+          href="/"
+          className="group flex items-center gap-2.5"
+          aria-label="YAZIMAO home"
+        >
+          <YazimaoLogo
+            symbolClassName="h-8 w-8 transition-transform duration-500 group-hover:-translate-y-0.5"
+            textClassName="hidden sm:inline text-lg"
+          />
         </Link>
 
         {/* Desktop nav */}
@@ -87,8 +91,8 @@ export function Navbar() {
           <Button href="/node" variant="ghost" size="sm">
             Run Node
           </Button>
-          <Button href="/developers" size="sm">
-            Build On Nova
+          <Button href="/airdrop#join" size="sm">
+            Connect Wallet
             <ArrowUpRight className="h-4 w-4" />
           </Button>
         </div>
@@ -128,12 +132,12 @@ export function Navbar() {
                 <Button href="/node" variant="secondary" size="md">
                   Run Node
                 </Button>
-                <Button href="/developers" size="md">
-                  Build On Nova
+                <Button href="/airdrop#join" size="md">
+                  Connect Wallet
                 </Button>
               </div>
               <p className="mt-6 text-center text-xs text-mist-500">
-                {siteConfig.name} Layer1 · {siteConfig.networkLabel}
+                {siteConfig.name} · {siteConfig.networkLabel}
               </p>
             </div>
           </motion.div>

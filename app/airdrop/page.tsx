@@ -12,8 +12,8 @@ import { GenesisWallet } from "@/components/genesis/GenesisWallet";
 
 export const metadata: Metadata = pageSeo(
   "/airdrop",
-  "Join the Nova early community program. Earn Genesis Points through participation and contribution.",
-  "Nova Genesis Program",
+  "Join the YAZIMAO early community program. Earn Genesis Points through participation and contribution.",
+  "YAZIMAO Genesis Program",
 );
 
 /** 活动规则：Registration 已启用；其余为 Coming Soon / Planned（不产生积分） */
@@ -41,10 +41,10 @@ const ACTIVITIES = [
   },
   {
     icon: Wallet,
-    label: "Connect Wallet",
-    detail: "Wallet binding",
-    state: "Coming Soon",
-    note: "No wallet is required today.",
+    label: "Wallet Sign-in",
+    detail: "Verified identity",
+    state: "Available",
+    note: "Connect a wallet and sign to verify ownership in the Join section below.",
   },
 ];
 
@@ -65,12 +65,12 @@ export default function AirdropPage() {
             </Reveal>
             <Reveal delay={0.06}>
               <h1 className="font-display text-4xl font-semibold tracking-tight text-mist-100 text-balance sm:text-5xl lg:text-6xl">
-                Nova Genesis Program
+                YAZIMAO Genesis Program
               </h1>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-5 font-display text-xl text-mist-200 sm:text-2xl">
-                Join the first generation of Nova ecosystem contributors.
+                Join the first generation of YAZIMAO ecosystem contributors.
               </p>
             </Reveal>
             <Reveal delay={0.14}>
@@ -114,7 +114,7 @@ export default function AirdropPage() {
           <Reveal delay={0.1}>
             <p className="mt-4 text-base leading-relaxed text-mist-400 text-pretty">
               The Genesis Program is an early community contribution program for
-              Nova. Today it tracks participation with Genesis Points — it does
+              YAZIMAO. Today it tracks participation with Genesis Points — it does
               not sell tokens, is not an investment product, and makes no
               guarantee about future tokens, rewards, allocations, or airdrops.
             </p>
@@ -163,26 +163,38 @@ export default function AirdropPage() {
           <Reveal>
             <div className="mx-auto max-w-2xl text-center">
               <h2 className="font-display text-3xl font-semibold tracking-tight text-mist-100 text-balance sm:text-4xl">
-                Get your Nova ID
+                Join the Genesis Program
               </h2>
               <p className="mt-4 text-base leading-relaxed text-mist-400">
-                Registration is open today — one Nova ID per email. When you
-                register you earn{" "}
-                <span className="text-nova-cyanSoft">+20 Genesis Points</span>.
+                A wallet is the primary way to take part: connect, sign to verify
+                you own it, create a profile, then participate.
               </p>
+              <div className="mx-auto mt-6 flex flex-wrap items-center justify-center gap-2 text-xs text-mist-400">
+                {["Connect Wallet", "Sign / Verify", "Create Profile", "Participate"].map(
+                  (step, i, arr) => (
+                    <span key={step} className="flex items-center gap-2">
+                      <span className="rounded-full border border-nova-cyan/30 bg-nova-cyan/10 px-3 py-1 font-medium text-nova-cyanSoft">
+                        {step}
+                      </span>
+                      {i < arr.length - 1 && <span aria-hidden="true">→</span>}
+                    </span>
+                  ),
+                )}
+              </div>
             </div>
           </Reveal>
-          {/* Wallet connection (Phase 1 — connect only; Connected ≠ Authenticated) */}
+
+          {/* 主身份路径：Wallet（Connected ≠ Authenticated；签名后才验证） */}
           <Reveal delay={0.06}>
             <div className="mx-auto mt-10 max-w-lg">
               <div className="mb-4 text-center">
-                <p className="text-xs font-semibold uppercase tracking-widest text-mist-500">
-                  Wallet option
+                <p className="text-xs font-semibold uppercase tracking-widest text-nova-cyanSoft">
+                  Primary — connect your wallet
                 </p>
                 <p className="mt-2 text-sm text-mist-400">
                   Connect your wallet and sign a short message to verify you own
-                  it and join with a wallet-based Nova identity. Connecting alone
-                  does not verify or register you — the signature step completes
+                  it and join with a wallet-based identity. Connecting alone does
+                  not verify or register you — the signature step completes
                   verification.
                 </p>
               </div>
@@ -190,11 +202,16 @@ export default function AirdropPage() {
             </div>
           </Reveal>
 
+          {/* 可选辅助：Email（recovery 未完成，如实标记） */}
           <Reveal delay={0.08}>
-            <div className="mx-auto mt-10 max-w-lg">
+            <div className="mx-auto mt-8 max-w-lg">
               <div className="mb-4 text-center">
                 <p className="text-xs font-semibold uppercase tracking-widest text-mist-500">
-                  Or register with email
+                  Optional — email sign-up
+                </p>
+                <p className="mt-2 text-xs text-mist-500">
+                  Email is an optional alternative today. Email as a recovery
+                  method for your profile is not built yet — Coming soon.
                 </p>
               </div>
               <GenesisJoin />
@@ -209,11 +226,11 @@ export default function AirdropPage() {
           <p className="mx-auto flex max-w-3xl items-start justify-center gap-2 text-center text-xs leading-relaxed text-mist-500">
             <Sparkles className="mt-0.5 h-3.5 w-3.5 shrink-0 text-nova-cyanSoft" />
             <span>
-              Nova Genesis Program is a project participation program. It is not
-              a token sale, an investment product, or an offer of financial
+              YAZIMAO Genesis Program is a project participation program. It is
+              not a token sale, an investment product, or an offer of financial
               returns. Future network participation, token distribution, rewards,
               or ecosystem programs may be subject to separate protocol, legal,
-              and eligibility requirements. Nova is in development — it is not
+              and eligibility requirements. YAZIMAO is in development — it is not
               running on a live mainnet or public testnet yet.
             </span>
           </p>

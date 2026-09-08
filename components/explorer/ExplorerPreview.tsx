@@ -53,7 +53,7 @@ export function ExplorerPreview() {
       <div className="flex flex-col gap-4 border-b border-white/8 p-5 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-2 text-sm font-semibold text-mist-100">
           <Box className="h-4 w-4 text-nova-cyanSoft" />
-          Nova Explorer
+          YAZIMAO Explorer
           <span className="rounded-full border border-white/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-widest text-mist-500">
             Preview
           </span>

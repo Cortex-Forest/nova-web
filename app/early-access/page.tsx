@@ -11,8 +11,8 @@ import { EarlyAccessJoin } from "@/components/early-access/EarlyAccessJoin";
 
 export const metadata: Metadata = pageSeo(
   "/early-access",
-  "Join Nova Early Access and follow the development of a decentralized creator-focused blockchain as it moves toward testnet.",
-  "Nova Early Access",
+  "Join YAZIMAO Early Access and follow the development of a public network for human creation as it moves toward testnet.",
+  "YAZIMAO Early Access",
 );
 
 /** Section 2 —— 参与方向清单 */
@@ -40,19 +40,19 @@ export default function EarlyAccessPage() {
             </Reveal>
             <Reveal delay={0.06}>
               <h1 className="font-display text-4xl font-semibold tracking-tight text-mist-100 text-balance sm:text-5xl lg:text-6xl">
-                Nova Early Access
+                YAZIMAO Early Access
               </h1>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-5 font-display text-xl text-mist-200 sm:text-2xl">
-                Join the early Nova community.
+                Join the early YAZIMAO community.
               </p>
             </Reveal>
             <Reveal delay={0.14}>
               <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-mist-400 text-pretty sm:text-lg">
-                Nova is building a decentralized creator-focused blockchain
+                YAZIMAO is building a public network for human creation —
                 designed around community participation, creator economics, and
-                mobile-friendly network participation. Nova is currently in
+                mobile-friendly network participation. YAZIMAO is currently in
                 protocol development and testnet preparation.
               </p>
             </Reveal>
@@ -64,7 +64,7 @@ export default function EarlyAccessPage() {
                 </Button>
                 <Button href="/" variant="secondary" size="lg">
                   <Compass className="h-4 w-4" />
-                  Explore Nova
+                  Explore YAZIMAO
                 </Button>
               </div>
             </Reveal>
@@ -88,7 +88,7 @@ export default function EarlyAccessPage() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-4 text-base leading-relaxed text-mist-400 text-pretty sm:text-lg">
-                Early Access allows people interested in Nova to register their
+                Early Access allows people interested in YAZIMAO to register their
                 interest and follow the project’s development.
               </p>
             </Reveal>
@@ -132,7 +132,7 @@ export default function EarlyAccessPage() {
         <Container size="narrow">
           <div className="mx-auto max-w-3xl">
             <p className="text-center text-xs leading-relaxed text-mist-500 text-pretty">
-              Nova Early Access is a project participation registration program. It
+              YAZIMAO Early Access is a project participation registration program. It
               is not a token sale, investment product, or offer of financial
               returns. Future network participation, token distribution, rewards,
               or ecosystem programs may be subject to separate protocol, legal, and
