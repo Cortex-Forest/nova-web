@@ -51,9 +51,9 @@ export default function TokenPage() {
                 <Badge tone="neutral">Not Finalized</Badge>
               </div>
               <p className="text-sm leading-relaxed text-mist-400 text-pretty">
-                Nova’s economic model is currently under protocol design and has
-                not been finalized. The provisional brand ticker is YZM — it is
-                not frozen and may change.
+                YAZIMAO’s economic model is currently under protocol design and
+                has not been finalized. The provisional brand ticker is YZM —
+                it is not frozen and may change.
               </p>
             </div>
           </Reveal>

@@ -179,7 +179,7 @@ export function WalletConnectCard() {
               </p>
               <dl className="mt-3 space-y-1 text-sm">
                 <div className="flex items-center justify-between gap-3">
-                  <dt className="text-mist-500">Nova ID</dt>
+                  <dt className="text-mist-500">Genesis ID</dt>
                   <dd className="font-mono text-nova-cyanSoft">{profile.novaId}</dd>
                 </div>
                 <div className="flex items-center justify-between gap-3">

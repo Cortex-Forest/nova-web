@@ -107,13 +107,13 @@ export function GenesisJoin() {
             Welcome to the Genesis Program.
           </h2>
           <p className="mt-3 text-sm text-mist-400">
-            Your Nova ID has been created and your registration reward is
+            Your Genesis ID has been created and your registration reward is
             applied.
           </p>
 
           <div className="mx-auto mt-6 max-w-sm rounded-xl border border-nova-cyan/25 bg-ink-950/50 p-5">
             <p className="text-xs uppercase tracking-widest text-mist-500">
-              Nova ID
+              Genesis ID
             </p>
             <div className="mt-1 flex items-center justify-center gap-2">
               <span className="font-mono text-2xl font-semibold text-nova-cyanSoft">
@@ -122,7 +122,7 @@ export function GenesisJoin() {
               <button
                 type="button"
                 onClick={copyNovaId}
-                aria-label="Copy Nova ID"
+                aria-label="Copy Genesis ID"
                 className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 text-mist-400 transition-colors hover:text-white"
               >
                 {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
@@ -184,7 +184,7 @@ export function GenesisJoin() {
             Join the Genesis Program
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-mist-400">
-            Optional: register with your email to receive your Nova ID and earn{" "}
+            Optional: register with your email to receive your Genesis ID and earn{" "}
             <span className="text-nova-cyanSoft">+{REGISTER_POINTS} Genesis Points</span>{" "}
             for joining the first generation of YAZIMAO ecosystem contributors.
           </p>
@@ -235,7 +235,7 @@ export function GenesisJoin() {
               )}
               {view === "duplicate" && (
                 <p className="rounded-xl border border-nova-cyan/25 bg-nova-cyan/5 px-4 py-3 text-sm text-nova-cyanSoft">
-                  This email is already registered. One Nova ID per email.
+                  This email is already registered. One Genesis ID per email.
                 </p>
               )}
               {view === "error" && (

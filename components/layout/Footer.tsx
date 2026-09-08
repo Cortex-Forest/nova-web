@@ -39,9 +39,6 @@ export function Footer() {
               connected, verified and preserved together. One creation may be
               small; together they build something much bigger.
             </p>
-            <p className="mt-3 text-xs text-mist-600">
-              Nova is the internal development codename for the protocol.
-            </p>
             {/* V1.1：Early Access 生态参与预登记入口 */}
             <div className="mt-6">
               <Button href="/early-access" variant="secondary" size="sm">

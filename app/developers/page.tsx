@@ -45,7 +45,7 @@ const tools: {
   {
     icon: Boxes,
     title: "SDKs",
-    description: "Client libraries for building on Nova — TypeScript, Rust, and more.",
+    description: "Client libraries for building on YAZIMAO — TypeScript, Rust, and more.",
     state: "Planned",
     href: "#sdk",
   },
@@ -186,15 +186,15 @@ export default function DevelopersPage() {
                 <pre className="overflow-x-auto p-5 text-[13px] leading-relaxed">
                   <code className="font-mono">
                     <span className="text-nova-violetSoft">import</span>{" "}
-                    <span className="text-mist-100">{"{ NovaClient }"}</span>{" "}
+                    <span className="text-mist-100">{"{ YazimaoClient }"}</span>{" "}
                     <span className="text-nova-violetSoft">from</span>{" "}
-                    <span className="text-nova-cyanSoft">{'"@nova/sdk"'}</span>
+                    <span className="text-nova-cyanSoft">{"'@yazimao/sdk'"}</span>
                     {"\n\n"}
                     <span className="text-nova-violetSoft">const</span>{" "}
                     <span className="text-mist-100">client</span>{" "}
                     <span className="text-mist-300">=</span>{" "}
                     <span className="text-nova-violetSoft">new</span>{" "}
-                    <span className="text-mist-100">NovaClient</span>
+                    <span className="text-mist-100">YazimaoClient</span>
                     <span className="text-mist-300">{"{"}</span>
                     {"\n  "}
                     <span className="text-mist-300">rpcUrl: process.env.</span>
@@ -214,7 +214,7 @@ export default function DevelopersPage() {
                     <span className="text-mist-100">client</span>
                     <span className="text-mist-300">.transfer{"{"}</span>
                     {"\n  "}
-                    <span className="text-mist-300">{'to: "nova1'}</span>
+                    <span className="text-mist-300">{"to: \"yazimao1"}</span>
                     <span className="text-mist-100">{'",'}</span>
                     {"\n  "}
                     <span className="text-mist-300">{'amount: "1000000",'}</span>
