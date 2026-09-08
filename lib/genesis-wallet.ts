@@ -30,7 +30,7 @@ export const NONCE_HEX_RE = /^[0-9a-f]{64}$/;
 
 /** Trusted origins for the Genesis signing context (host, no scheme/port). */
 export const TRUSTED_GENESIS_HOSTS = new Set<string>([
-  "nova-super.xyz", // production
+  "yazimao.xyz", // production（旧域 nova-super.xyz 已迁移 → Vercel 301）
   "localhost", // local development
   "127.0.0.1", // local development
 ]);

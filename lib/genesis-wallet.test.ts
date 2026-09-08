@@ -87,9 +87,9 @@ describe("deriveSigningContext", () => {
   it("accepts trusted hosts (production + localhost)", () => {
     expect(
       deriveSigningContext(
-        fakeHeaders({ host: "nova-super.xyz", "x-forwarded-proto": "https" }),
+        fakeHeaders({ host: "yazimao.xyz", "x-forwarded-proto": "https" }),
       ),
-    ).toEqual({ domain: "nova-super.xyz", uri: "https://nova-super.xyz" });
+    ).toEqual({ domain: "yazimao.xyz", uri: "https://yazimao.xyz" });
     expect(
       deriveSigningContext(fakeHeaders({ host: "localhost:3000" })),
     ).toEqual({ domain: "localhost", uri: "http://localhost:3000" });
@@ -109,6 +109,15 @@ describe("deriveSigningContext", () => {
     expect(deriveSigningContext(fakeHeaders({ host: "attacker.com" }))).toBeNull();
     expect(deriveSigningContext(fakeHeaders({ host: "evil.example" }))).toBeNull();
     expect(deriveSigningContext(fakeHeaders({}))).toBeNull();
+  });
+
+  it("rejects the retired production host (nova-super.xyz → yazimao.xyz)", () => {
+    // 安全负例：迁移后旧生产域必须被拒绝，不能继续生成有效 SIWE 上下文。
+    expect(
+      deriveSigningContext(
+        fakeHeaders({ host: "nova-super.xyz", "x-forwarded-proto": "https" }),
+      ),
+    ).toBeNull();
   });
 });
 

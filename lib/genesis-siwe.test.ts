@@ -13,14 +13,14 @@ const PK_B = ("0x" + "cd".repeat(32)) as `0x${string}`;
 const ACCOUNT_A = privateKeyToAccount(PK_A);
 const ACCOUNT_B = privateKeyToAccount(PK_B);
 
-const TRUSTED = { domain: "nova-super.xyz", uri: "https://nova-super.xyz" };
+const TRUSTED = { domain: "yazimao.xyz", uri: "https://yazimao.xyz" };
 const NONCE = "c".repeat(64);
 
 function baseFields(over: Partial<Record<string, unknown>> = {}) {
   const now = new Date();
   return {
-    domain: "nova-super.xyz",
-    uri: "https://nova-super.xyz",
+    domain: "yazimao.xyz",
+    uri: "https://yazimao.xyz",
     address: ACCOUNT_A.address,
     chainId: 1,
     nonce: NONCE,
@@ -47,10 +47,10 @@ function rawMessage(fields: {
   expirationTime?: string;
 }) {
   const f = {
-    domain: "nova-super.xyz",
+    domain: "yazimao.xyz",
     address: ACCOUNT_A.address,
-    statement: "Nova Genesis Program authentication.",
-    uri: "https://nova-super.xyz",
+    statement: "YAZIMAO Genesis Program authentication.",
+    uri: "https://yazimao.xyz",
     version: "1",
     chainId: 1,
     nonce: NONCE,
