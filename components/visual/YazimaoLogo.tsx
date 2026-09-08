@@ -21,7 +21,12 @@ export function YazimaoLogo({
   className?: string;
 }) {
   return (
-    <span className={cn("inline-flex items-center gap-2.5", className)}>
+    <span
+      className={cn(
+        "inline-flex items-center gap-2.5 text-white",
+        className,
+      )}
+    >
       <YazimaoSymbol className={symbolClassName} />
       <span
         className={cn(

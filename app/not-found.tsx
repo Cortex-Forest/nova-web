@@ -9,7 +9,7 @@ import { YazimaoSymbol } from "@/components/visual/YazimaoSymbol";
 export default function NotFound() {
   return (
     <Container className="flex min-h-screen flex-col items-center justify-center py-32 text-center">
-      <YazimaoSymbol className="h-14 w-14" />
+      <YazimaoSymbol className="h-14 w-14 text-white" />
       <p className="mt-8 font-mono text-xs uppercase tracking-widest text-nova-cyanSoft">
         404 — Not found
       </p>
