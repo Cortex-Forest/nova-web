@@ -45,7 +45,7 @@ export function Hero() {
         <motion.div variants={reduce ? undefined : item} className="mb-6">
           <Badge tone="cyan" className="shadow-glow">
             <Feather className="mr-1.5 h-3.5 w-3.5 text-nova-cyanSoft" aria-hidden="true" />
-            {siteConfig.nameZh} · {siteConfig.name}
+            {siteConfig.positioning}
           </Badge>
         </motion.div>
 
@@ -62,8 +62,9 @@ export function Hero() {
           variants={reduce ? undefined : item}
           className="mt-6 max-w-xl text-base leading-relaxed text-mist-400 text-pretty sm:text-lg"
         >
-          {siteConfig.positioning} A single creation may be small — together,
-          creations can build something much bigger.
+          A single creation may be small — a piece of writing, a song, a
+          drawing, a video, an idea. Together, creations can build something
+          much bigger.
         </motion.p>
 
         <motion.div

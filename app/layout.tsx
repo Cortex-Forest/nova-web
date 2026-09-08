@@ -27,7 +27,6 @@ export const metadata: Metadata = {
   keywords: [
     "YAZIMAO",
     "YAZIMAO Network",
-    "鸭子毛",
     "Every Creation Matters",
     "public network for human creation",
     "creator economy",

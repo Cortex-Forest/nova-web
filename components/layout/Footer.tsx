@@ -40,7 +40,7 @@ export function Footer() {
               small; together they build something much bigger.
             </p>
             <p className="mt-3 text-xs text-mist-600">
-              中文品牌：鸭子毛 · Nova 是协议内部开发代号
+              Nova is the internal development codename for the protocol.
             </p>
             {/* V1.1：Early Access 生态参与预登记入口 */}
             <div className="mt-6">

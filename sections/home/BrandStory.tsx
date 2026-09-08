@@ -2,7 +2,6 @@ import { Feather } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/visual/Reveal";
-import { siteConfig } from "@/config/site";
 
 /**
  * 首页 02 —— Brand Story（品牌故事）
@@ -25,7 +24,7 @@ export function BrandStory() {
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[480px] w-[720px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(167,139,250,0.08),transparent_70%)] blur-2xl" />
       <Container className="relative">
         <SectionHeading
-          eyebrow={`${siteConfig.nameZh} · Why the name`}
+          eyebrow="Why the name"
           title={
             <>
               A single creation may be{" "}
@@ -36,10 +35,12 @@ export function BrandStory() {
           description={
             <>
               <span className="font-display text-mist-200">
-                “一根鸭毛，很轻。”
+                A feather is light — and so is a single creation.
               </span>{" "}
-              一个人的文字、一首歌、一幅画、一段视频、一个想法，看起来都很小。
-              但当无数人的创造被记录、连接、验证并汇聚起来，微小的贡献可以形成一个属于所有人的公共网络。
+              A piece of writing, a song, a drawing, a video, an idea: each one
+              may seem small. But when many people’s creations are recorded,
+              connected, verified and preserved, small contributions can form a
+              public network that belongs to everyone.
             </>
           }
         />
