@@ -15,7 +15,7 @@
 -- index are the final DB guards against concurrent double-registration.
 --
 -- NOT in this phase (per owner freeze): session/cookie, Supabase Auth, email
--- recovery, points semantics changes, Nova chain id definition.
+-- recovery, points semantics changes, YAZIMAO chain id definition.
 -- Signature verification itself is intentionally performed in the API layer
 -- (viem); this function never trusts a client-supplied wallet on its own.
 -- ============================================================================

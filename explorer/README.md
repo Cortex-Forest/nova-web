@@ -7,7 +7,7 @@
 ## 未来接入方案
 
 1. **Indexer 服务上线后**，在 `app/api/explorer/` 下实现各资源的 route handler，
-   转发到 Nova Indexer（或直接 fetch Indexer 服务）。
+   转发到 YAZIMAO Indexer（或直接 fetch Indexer 服务）。
 2. 在 `explorer/` 下实现 `client.ts`：封装分页、错误处理、重试与缓存。
 3. `components/explorer/ExplorerPreview.tsx` 中的占位表格改为渲染真实数据。
 

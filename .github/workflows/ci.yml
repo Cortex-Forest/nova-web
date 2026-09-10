@@ -8,7 +8,7 @@ on:
 # 禁止 continue-on-error；任何关键步骤失败即 CI = FAIL
 jobs:
   ci:
-    name: Nova Web CI
+    name: YAZIMAO Web CI
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:

@@ -12,7 +12,7 @@
 -- Explicitly NOT in this phase (per owner freeze):
 --   - no SIWE / signature verification / consume / session / cookie
 --   - no wallet registration / no Genesis profile creation / no points changes
---   - no Nova chain id definition; `chain_id` below is ONLY the EVM
+--   - no YAZIMAO chain id definition; `chain_id` below is ONLY the EVM
 --     authentication signing context (metadata), never a Nova network id.
 --
 -- Identity model:

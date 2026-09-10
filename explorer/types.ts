@@ -2,7 +2,7 @@
  * Explorer 数据层（预留模块）
  *
  * 本目录用于 Explorer 页面的数据访问层。当前仅定义类型契约，
- * 不包含任何虚构数据。真实数据来自 Nova Indexer（见 app/api/explorer）。
+ * 不包含任何虚构数据。真实数据来自 YAZIMAO Indexer（见 app/api/explorer）。
  *
  * 设计约束：
  *  - 状态字段严格对齐协议最终性模型：pending / accepted / confirmed / finalized

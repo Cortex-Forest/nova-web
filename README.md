@@ -85,7 +85,7 @@ npx wrangler pages deploy out
 
 ## 未来 API 接入
 
-1. **Explorer**：`/api/explorer/*` → Nova Indexer 服务。类型契约见 `explorer/types.ts`。
+1. **Explorer**：`/api/explorer/*` → YAZIMAO Indexer 服务。类型契约见 `explorer/types.ts`。
 2. **Wallet**：`wallet/types.ts` 定义适配器接口，接入后实现签名流程。
 3. **Node Dashboard**：`node/types.ts` 定义节点指标，接入后替换 `/node` 占位预览。
 4. **Token 数据**：Economics Specification 定稿后，从单一数据源接入，替换 TBD 占位。

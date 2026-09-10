@@ -15,7 +15,7 @@ import { injected } from "@wagmi/core";
  *
  * Honesty / network notes:
  * - Nova does NOT yet run a live mainnet or public testnet, and Nova has no
- *   final chain id. Therefore NO "Nova chain" is defined here and no existing
+ *   final chain id. Therefore NO "YAZIMAO chain" is defined here and no existing
  *   chain id is claimed as Nova's.
  * - `mainnet` below is used ONLY as a neutral transport anchor to satisfy
  *   wagmi's config requirement (a chain + transport pair). It is never

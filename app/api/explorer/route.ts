@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 /**
  * Explorer API —— 预留路由（示例）。
  *
- * 真实数据将由 Nova Indexer 服务提供。上线前此接口返回明确的
+ * 真实数据将由 YAZIMAO Indexer 服务提供。上线前此接口返回明确的
  * 503 + Coming Soon 状态，绝不返回虚构数据。
  *
  * 未来接入方式（README 见 /api/README.md）：
@@ -17,7 +17,7 @@ export async function GET(request: Request) {
     {
       code: "COMING_SOON",
       message:
-        "The Nova Explorer API is not live yet. It will serve blocks, transactions, accounts, and validators from the Nova Indexer when the network is available.",
+        "The YAZIMAO Explorer API is not live yet. It will serve blocks, transactions, accounts, and validators from the YAZIMAO Indexer when the network is available.",
       resource: resource ?? null,
       docs: "/developers#api",
     },

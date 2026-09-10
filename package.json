@@ -2,7 +2,7 @@
   "name": "nova-web",
   "version": "0.1.0",
   "private": true,
-  "description": "Nova Layer1 - Official Website",
+  "description": "YAZIMAO Layer1 - Official Website",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -11,7 +11,7 @@
 | `/api/explorer/accounts` | 账户查询 | Coming Soon |
 | `/api/explorer/validators` | 验证人列表 | Coming Soon |
 
-真实数据来自 **Nova Indexer 服务**（由 Nova Node State 重建，可断点恢复、幂等、支持 reorg-finality）。
+真实数据来自 **YAZIMAO Indexer 服务**（由 Nova Node State 重建，可断点恢复、幂等、支持 reorg-finality）。
 
 ## 当前状态
 

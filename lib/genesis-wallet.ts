@@ -10,7 +10,7 @@
  *   chain_id       = authentication signing context (metadata, NOT identity)
  *   email          = optional recovery mechanism (future)
  *
- * Note: `chain_id` is NEVER a Nova chain id here. Nova has no live network and
+ * Note: `chain_id` is NEVER a YAZIMAO chain id here. Nova has no live network and
  * no final chain id; this phase only records the signing context reported by
  * the client wallet. The chain allowlist / authentication policy is deferred
  * to Phase 2-B2.
