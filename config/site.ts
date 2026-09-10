@@ -76,7 +76,7 @@ export const siteConfig: {
   description:
     "YAZIMAO is a public network for human creation. Every creation matters — writing, music, art, video, ideas and digital works are recorded, connected, verified, and preserved together. A single creation may be small; together, they can build something much bigger.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "",
-  ogImage: "/og.png", // 1200×630 PNG（品牌资产：YAZIMAO Symbol + 文案）
+  ogImage: "/og.png", // 1200×630 PNG（品牌资产：羽毛 logo + 文案）
   // 诚实状态：Nova/YAZIMAO 处于协议开发阶段（Protocol Development），
   // 尚未运行公共主网或公开测试网。禁止展示 "Mainnet"。
   networkLabel: process.env.NEXT_PUBLIC_NETWORK_LABEL ?? "Protocol Development",
