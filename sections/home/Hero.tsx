@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
-import { ArrowRight, Feather, PenLine } from "lucide-react";
+import { ArrowRight, Cpu, Feather } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { GridBackground } from "@/components/visual/GridBackground";
@@ -42,11 +42,15 @@ export function Hero() {
         animate={reduce ? undefined : "show"}
         className="relative z-10 mx-auto w-full max-w-6xl px-5 sm:px-8 lg:px-12"
       >
-        <motion.div variants={reduce ? undefined : item} className="mb-6">
+        <motion.div
+          variants={reduce ? undefined : item}
+          className="mb-6 flex flex-wrap items-center gap-2"
+        >
           <Badge tone="cyan" className="shadow-glow">
             <Feather className="mr-1.5 h-3.5 w-3.5 text-nova-cyanSoft" aria-hidden="true" />
-            {siteConfig.positioning}
+            {siteConfig.name}
           </Badge>
+          <Badge tone="neutral">{siteConfig.networkLabel}</Badge>
         </motion.div>
 
         <motion.h1
@@ -58,9 +62,17 @@ export function Hero() {
           <span className="text-gradient">Matters.</span>
         </motion.h1>
 
+        {/* 定位（Positioning） */}
         <motion.p
           variants={reduce ? undefined : item}
-          className="mt-6 max-w-xl text-base leading-relaxed text-mist-400 text-pretty sm:text-lg"
+          className="mt-5 font-display text-lg font-medium text-mist-200 sm:text-xl"
+        >
+          {siteConfig.positioning}
+        </motion.p>
+
+        <motion.p
+          variants={reduce ? undefined : item}
+          className="mt-4 max-w-xl text-base leading-relaxed text-mist-400 text-pretty sm:text-lg"
         >
           A single creation may be small — a piece of writing, a song, a
           drawing, a video, an idea. Together, creations can build something
@@ -71,13 +83,13 @@ export function Hero() {
           variants={reduce ? undefined : item}
           className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"
         >
-          <Button href="/technology" size="lg">
-            Explore the Network
+          <Button href="/airdrop#join" size="lg">
+            Join Genesis Program
             <ArrowRight className="h-4 w-4" />
           </Button>
-          <Button href="/early-access#register" variant="secondary" size="lg">
-            <PenLine className="h-4 w-4" />
-            Become a Creator
+          <Button href="/technology" variant="secondary" size="lg">
+            <Cpu className="h-4 w-4" />
+            Explore Technology
           </Button>
         </motion.div>
 

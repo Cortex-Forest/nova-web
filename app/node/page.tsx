@@ -76,6 +76,38 @@ const tiers = [
   },
 ];
 
+/**
+ * Node Guide 步骤（诚实口径：客户端未发布，今日无可安装内容）
+ * 不声明任何收益数字 / 资格 / 时间表。
+ */
+const guideSteps: { title: string; text: string; state: string }[] = [
+  {
+    title: "Understand the participation models",
+    text: "Mobile, PC and validator participation differ in resources and responsibility. Read the three tiers above before choosing.",
+    state: "Available",
+  },
+  {
+    title: "Prepare hardware and an operating system",
+    text: "PC nodes will target Linux, macOS and Windows; mobile participation targets iOS and Android. Nothing needs to be purchased today.",
+    state: "Planned",
+  },
+  {
+    title: "Wait for a signed client release",
+    text: "Clients will be published here and in the repository, signed and checksummed. Until then there is no node software to run.",
+    state: "Coming Soon",
+  },
+  {
+    title: "Run, monitor and stay current",
+    text: "Once released, operators will follow the onboarding guide and use the node dashboard to monitor sync and health.",
+    state: "Planned",
+  },
+  {
+    title: "Validators: keys, uptime and slashing",
+    text: "Validator operation adds key management, uptime requirements and slashing rules. The specification will be published before validators can join.",
+    state: "Planned",
+  },
+];
+
 export default function NodePage() {
   return (
     <>
@@ -214,6 +246,78 @@ export default function NodePage() {
               subscribe via the developer channels for release announcements.
             </p>
           </Reveal>
+        </Container>
+      </section>
+
+      {/* Node Guide */}
+      <section
+        id="guide"
+        className="relative border-t border-white/5 bg-ink-900/40 py-24 md:py-28"
+      >
+        <Container>
+          <SectionHeading
+            eyebrow="Node Guide"
+            title={
+              <>
+                Getting ready to <span className="text-gradient">run a node</span>
+              </>
+            }
+            description="Node clients are not released yet, so there is nothing to install today. This guide describes what participation will involve so you can prepare — it is not a download page."
+          />
+          <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
+            <ol className="space-y-5">
+              {guideSteps.map((s, i) => (
+                <li key={s.title} className="flex gap-4">
+                  <span className="mt-0.5 font-mono text-xs text-mist-500">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <h3 className="font-display text-sm font-semibold text-mist-100">
+                        {s.title}
+                      </h3>
+                      <ReadinessBadge
+                        label={s.state}
+                        tone={s.state === "Available" ? "cyan" : "neutral"}
+                      />
+                    </div>
+                    <p className="mt-1 text-sm leading-relaxed text-mist-400 text-pretty">
+                      {s.text}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            <Reveal delay={0.08}>
+              <div className="rounded-2xl border border-white/8 bg-ink-800/50 p-6 md:p-7">
+                <Badge tone="amber" className="mb-4">
+                  Before you start
+                </Badge>
+                <ul className="space-y-3 text-sm leading-relaxed text-mist-400">
+                  <li>
+                    No node client is released yet — do not install anything
+                    claiming to be a YAZIMAO node.
+                  </li>
+                  <li>
+                    Reward figures, eligibility and slashing parameters are not
+                    claimed before the incentive specification is published.
+                  </li>
+                  <li>
+                    Any client release will be published here and in the
+                    repository, signed and checksummed.
+                  </li>
+                </ul>
+                <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                  <Button href="/developers#docs" variant="secondary" size="sm">
+                    Node documentation
+                  </Button>
+                  <Button href="/developers#architecture" variant="ghost" size="sm">
+                    Architecture
+                  </Button>
+                </div>
+              </div>
+            </Reveal>
+          </div>
         </Container>
       </section>
 

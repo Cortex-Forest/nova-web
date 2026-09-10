@@ -1,6 +1,14 @@
 import Link from "next/link";
-import { ArrowRight, Github, MessageCircle, Twitter, type LucideIcon } from "lucide-react";
-import { footerNav } from "@/config/nav";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Github,
+  MessageCircle,
+  Send,
+  Twitter,
+  type LucideIcon,
+} from "lucide-react";
+import { footerChannels, footerNav } from "@/config/nav";
 import { siteConfig } from "@/config/site";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -8,11 +16,12 @@ import { YazimaoLogo } from "@/components/visual/YazimaoLogo";
 
 type Social = { label: string; href: string; icon: LucideIcon };
 
-// 仅保留已提供真实地址的社区链接；项目方未提供前一律为空 → 渲染 Coming Soon
+// 仅保留已提供真实地址的社区链接；项目方未提供前一律为空 → 渲梁 Coming Soon
 const socials: Social[] = (
   [
     { label: "GitHub", href: siteConfig.links.github, icon: Github },
     { label: "X / Twitter", href: siteConfig.links.x, icon: Twitter },
+    { label: "Telegram", href: siteConfig.links.telegram, icon: Send },
     { label: "Discord", href: siteConfig.links.discord, icon: MessageCircle },
   ] as { label: string; href: string | null; icon: LucideIcon }[]
 ).filter((s): s is Social => s.href !== null);
@@ -22,7 +31,7 @@ export function Footer() {
     <footer className="relative border-t border-white/8 bg-ink-900">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-nova-cyan/30 to-transparent" />
       <Container className="py-14 md:py-20">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[1.5fr_repeat(5,1fr)]">
           {/* Brand */}
           <div>
             <Link href="/" className="inline-flex items-center gap-2.5" aria-label="YAZIMAO home">
@@ -75,6 +84,7 @@ export function Footer() {
           {(
             [
               { title: "Network", items: footerNav.network },
+              { title: "Community", items: footerNav.community },
               { title: "Developers", items: footerNav.developers },
               { title: "Token", items: footerNav.token },
             ] as const
@@ -97,6 +107,42 @@ export function Footer() {
               </ul>
             </nav>
           ))}
+
+          {/* Official Channels（官方渠道；外部链接新窗口打开） */}
+          <nav aria-label="Official Channels">
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-mist-500">
+              Official Channels
+            </h3>
+            <ul className="mt-4 space-y-2.5">
+              {footerChannels
+                .filter(
+                  (c): c is { label: string; href: string; external: boolean } =>
+                    c.href !== null,
+                )
+                .map((c) => (
+                  <li key={c.label}>
+                    {c.external ? (
+                      <a
+                        href={c.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="link-underline inline-flex items-center gap-1 text-sm text-mist-400 transition-colors hover:text-white"
+                      >
+                        {c.label}
+                        <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                      </a>
+                    ) : (
+                      <Link
+                        href={c.href}
+                        className="link-underline text-sm text-mist-400 transition-colors hover:text-white"
+                      >
+                        {c.label}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+            </ul>
+          </nav>
         </div>
 
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/8 pt-6 text-xs text-mist-500 sm:flex-row">

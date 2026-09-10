@@ -107,8 +107,8 @@ export function GenesisJoin() {
             Welcome to the Genesis Program.
           </h2>
           <p className="mt-3 text-sm text-mist-400">
-            Your Genesis ID has been created and your registration reward is
-            applied.
+            Your Genesis ID has been created and your registration points have
+            been applied.
           </p>
 
           <div className="mx-auto mt-6 max-w-sm rounded-xl border border-nova-cyan/25 bg-ink-950/50 p-5">

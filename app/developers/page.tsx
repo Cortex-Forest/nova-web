@@ -9,6 +9,7 @@ import {
   FileJson,
   FlaskConical,
   Github,
+  Layers,
   Rocket,
   TerminalSquare,
   type LucideIcon,
@@ -57,11 +58,83 @@ const tools: {
     href: "#api",
   },
   {
+    icon: TerminalSquare,
+    title: "Node Guide",
+    description:
+      "What running a node involves — hardware, onboarding steps, and how validator participation will work.",
+    state: "In Development",
+    href: "/node#guide",
+  },
+  {
+    icon: Layers,
+    title: "Architecture",
+    description:
+      "The layer stack behind the network — consensus, P2P, execution and storage, from top to bottom.",
+    state: "In Development",
+    href: "#architecture",
+  },
+  {
     icon: Github,
     title: "GitHub",
     description: "Open-source protocol, node, and tools — audit and contribute.",
     state: "Live",
     href: "#github",
+  },
+];
+
+/** 架构分层（与 /technology 的 stack 口径一致，不新增技术承诺） */
+const architecture: { label: string; note: string }[] = [
+  { label: "Application layer", note: "Wallets · Explorer · dApps" },
+  { label: "API / SDK", note: "RPC · SDKs · developer tools" },
+  { label: "WASM execution", note: "Sandboxed contracts · metered gas" },
+  { label: "State transition", note: "Deterministic · auditable" },
+  { label: "Consensus", note: "PoS · DAG · BFT finality" },
+  { label: "P2P network", note: "Gossip · discovery · encrypted transport" },
+  { label: "Storage", note: "Verifiable state · content-addressed data" },
+];
+
+/** 开发者路线图（与 /roadmap 阶段口径一致；不承诺任何日期） */
+const devRoadmap: {
+  phase: string;
+  title: string;
+  state: string;
+  items: string[];
+}[] = [
+  {
+    phase: "Phase 1",
+    title: "Protocol & consensus design",
+    state: "Design Frozen",
+    items: [
+      "Architecture & protocol design",
+      "Canonical encoding & test vectors",
+    ],
+  },
+  {
+    phase: "Phase 2",
+    title: "Core implementation",
+    state: "In Progress",
+    items: [
+      "Transaction & state-transition execution",
+      "Node coordination, P2P & sync primitives",
+    ],
+  },
+  {
+    phase: "Phase 3",
+    title: "Genesis · Devnet · Testnet",
+    state: "Coming Soon",
+    items: [
+      "Public RPC, faucet, explorer, wallets",
+      "Validator & node onboarding guides",
+    ],
+  },
+  {
+    phase: "Phase 4",
+    title: "Mainnet & developer ecosystem",
+    state: "Planned",
+    items: [
+      "SDKs & versioned APIs",
+      "Builder & creator programs",
+    ],
   },
 ];
 
@@ -78,10 +151,19 @@ export default function DevelopersPage() {
         description="Everything you need to start building — documentation, SDKs, APIs, and an open-source protocol you can audit and contribute to."
       />
 
-      {/* 工具网格 */}
-      <section className="relative pb-24 md:pb-28">
+      {/* Developer Hub —— 信息架构（入口总览） */}
+      <section id="developer-hub" className="relative pb-24 md:pb-28">
         <Container>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <SectionHeading
+            eyebrow="Developer Hub"
+            title={
+              <>
+                One place to <span className="text-gradient">start building</span>
+              </>
+            }
+            description="The developer surface of YAZIMAO: documentation, SDKs, APIs, node onboarding, architecture and the open-source repository. Every entry states honestly what is available today."
+          />
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {tools.map((t, i) => (
               <Card key={t.title} delay={i * 0.05} className="flex flex-col p-6">
                 <div className="mb-5 flex items-center justify-between">
@@ -106,6 +188,60 @@ export default function DevelopersPage() {
                 </a>
               </Card>
             ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Architecture overview */}
+      <section
+        id="architecture"
+        className="relative border-t border-white/5 bg-ink-900/40 py-24 md:py-28"
+      >
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <SectionHeading
+                align="left"
+                eyebrow="Architecture"
+                title={
+                  <>
+                    Architecture <span className="text-gradient">overview</span>
+                  </>
+                }
+                description="How the layers fit together, from the application layer down to storage. This is the intended architecture — components ship progressively, and nothing here runs on a public network yet."
+              />
+              <Reveal delay={0.12}>
+                <div className="flex flex-wrap gap-2">
+                  <ReadinessBadge label="In Development" tone="neutral" />
+                  <ReadinessBadge label="No public testnet yet" tone="amber" />
+                </div>
+              </Reveal>
+            </div>
+            <Reveal delay={0.08}>
+              <div className="rounded-2xl border border-white/8 bg-ink-800/50 p-6">
+                <div className="mb-4 flex items-center gap-2 text-xs text-mist-500">
+                  <Layers className="h-4 w-4" />
+                  Layer stack (top → bottom)
+                </div>
+                <ul className="space-y-3">
+                  {architecture.map((l, i) => (
+                    <li key={l.label} className="flex items-start gap-3">
+                      <span className="font-mono text-xs text-mist-500">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span>
+                        <span className="block text-sm font-medium text-mist-100">
+                          {l.label}
+                        </span>
+                        <span className="mt-0.5 block text-xs text-mist-500">
+                          {l.note}
+                        </span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
           </div>
         </Container>
       </section>
@@ -326,10 +462,21 @@ export default function DevelopersPage() {
                   </Badge>
                 ))}
               </div>
-              <div className="mt-auto pt-7">
+              <div className="mt-auto space-y-3 pt-7">
                 <Button href="#docs" variant="secondary" size="md" className="w-full">
                   Documentation
                 </Button>
+                {siteConfig.links.protocolDocs && (
+                  <Button
+                    href={siteConfig.links.protocolDocs}
+                    variant="ghost"
+                    size="md"
+                    className="w-full"
+                  >
+                    Protocol docs on GitHub
+                    <ExternalLink className="h-4 w-4" />
+                  </Button>
+                )}
               </div>
               </Card>
             </div>
@@ -373,7 +520,58 @@ export default function DevelopersPage() {
         </Container>
       </section>
 
-      {/* Build On Nova */}
+      {/* Developer roadmap */}
+      <section
+        id="developer-roadmap"
+        className="relative border-t border-white/5 bg-ink-900/40 py-24 md:py-28"
+      >
+        <Container>
+          <SectionHeading
+            eyebrow="Developer roadmap"
+            title={
+              <>
+                What ships <span className="text-gradient">next</span>
+              </>
+            }
+            description="The developer surface follows the protocol. No dates are promised — only sequencing, published honestly as work lands."
+          />
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {devRoadmap.map((p, i) => (
+              <Card key={p.phase} delay={i * 0.05} className="flex flex-col p-6">
+                <div className="mb-4 flex items-center justify-between">
+                  <span className="font-mono text-xs text-mist-500">{p.phase}</span>
+                  <ReadinessBadge
+                    label={p.state}
+                    tone={p.state === "In Progress" ? "cyan" : "neutral"}
+                  />
+                </div>
+                <h3 className="font-display text-base font-semibold text-mist-100">
+                  {p.title}
+                </h3>
+                <ul className="mt-3 flex-1 space-y-2">
+                  {p.items.map((it) => (
+                    <li
+                      key={it}
+                      className="flex items-start gap-2 text-sm text-mist-400"
+                    >
+                      <Code2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-nova-cyan" />
+                      {it}
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            ))}
+          </div>
+          <Reveal delay={0.1}>
+            <p className="mx-auto mt-8 max-w-2xl text-center text-xs leading-relaxed text-mist-500">
+              Full milestone detail lives on the roadmap. Testnet participation is
+              not open yet — nothing here can be joined today.
+            </p>
+          </Reveal>
+        </Container>
+      </section>
+
+      {/* Build on YAZIMAO（开发者入口 CTA） */}
       <section id="build" className="relative overflow-hidden border-t border-white/5 py-24 md:py-28">
         <div className="pointer-events-none absolute left-1/2 top-1/2 h-[360px] w-[640px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.1),transparent_70%)] blur-2xl" />
         <Container className="relative">
@@ -382,6 +580,9 @@ export default function DevelopersPage() {
               <span className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-nova-cyan/25 bg-nova-cyan/10">
                 <Rocket className="h-6 w-6 text-nova-cyanSoft" />
               </span>
+              <div className="mb-4">
+                <Badge tone="cyan">Build on YAZIMAO</Badge>
+              </div>
               <h2 className="font-display text-3xl font-semibold tracking-tight text-mist-100 text-balance sm:text-4xl">
                 Build the next generation of <span className="text-gradient">open apps</span>
               </h2>

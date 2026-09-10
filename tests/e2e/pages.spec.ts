@@ -11,6 +11,8 @@ const routes = [
   "/roadmap",
   "/early-access",
   "/airdrop",
+  "/community",
+  "/faq",
 ];
 
 test.describe("page rendering — all routes", () => {
@@ -32,11 +34,11 @@ test("each route has a primary CTA (internal navigation works)", async ({
   page,
 }) => {
   await gotoWithoutOverflow(page, "/");
-  // 首页 Hero CTA（品牌：Explore the Network / Become a Creator）
+  // 首页 Hero CTA（P3：Join Genesis Program / Explore Technology）
   await expect(
-    page.getByRole("link", { name: "Explore the Network" }).first(),
+    page.getByRole("link", { name: "Join Genesis Program" }).first(),
   ).toBeVisible();
   await expect(
-    page.getByRole("link", { name: "Become a Creator" }).first(),
+    page.getByRole("link", { name: "Explore Technology" }).first(),
   ).toBeVisible();
 });

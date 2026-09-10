@@ -7,6 +7,8 @@ const navTargets = [
   { label: "Token", path: "/token" },
   { label: "Roadmap", path: "/roadmap" },
   { label: "Early Access", path: "/early-access" },
+  { label: "Community", path: "/community" },
+  { label: "FAQ", path: "/faq" },
 ];
 
 test.describe("internal navigation", () => {
@@ -21,10 +23,13 @@ test.describe("internal navigation", () => {
 
   test("homepage hero CTAs navigate correctly", async ({ page }) => {
     await gotoWithoutOverflow(page, "/");
-    await page.getByRole("link", { name: "Explore the Network" }).first().click();
-    await expect(page).toHaveURL(/\/technology/);
+    await page
+      .getByRole("link", { name: "Join Genesis Program" })
+      .first()
+      .click();
+    await expect(page).toHaveURL(/\/airdrop#join/);
     await gotoWithoutOverflow(page, "/");
-    await page.getByRole("link", { name: "Become a Creator" }).first().click();
-    await expect(page).toHaveURL(/\/early-access#register/);
+    await page.getByRole("link", { name: "Explore Technology" }).first().click();
+    await expect(page).toHaveURL(/\/technology/);
   });
 });

@@ -37,7 +37,7 @@ const ACTIVITIES = [
     label: "Invite Friends",
     detail: "+5 Points",
     state: "Coming Soon",
-    note: "Reward activates after the invited email registers.",
+    note: "Points are credited after the invited email registers.",
   },
   {
     icon: Wallet,

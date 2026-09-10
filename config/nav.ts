@@ -8,6 +8,8 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
+import { siteConfig } from "./site";
+
 export type NavItem = {
   label: string;
   href: string;
@@ -24,8 +26,11 @@ export const mainNav: NavItem[] = [
   { label: "Roadmap", href: "/roadmap" },
   // V1.1：生态参与预登记入口（非 Token Sale / ICO）
   { label: "Early Access", href: "/early-access" },
-  // V1.3：Genesis Program 早期社区积分入口（Points only，非 Token）
-  { label: "Airdrop", href: "/airdrop" },
+  // V1.3 / P3：Genesis Program 早期社区参与计划（Points only，非 Token；路由保持 /airdrop）
+  { label: "Genesis Program", href: "/airdrop" },
+  // P3：官方社区与常见问题
+  { label: "Community", href: "/community" },
+  { label: "FAQ", href: "/faq" },
 ];
 
 /** 导航下拉（"产品/网络" 分组），桌面端 hover 展示 */
@@ -85,10 +90,17 @@ export const footerNav = {
     { label: "Explorer", href: "/explorer" },
     { label: "Roadmap", href: "/roadmap" },
   ],
+  community: [
+    { label: "Community", href: "/community" },
+    { label: "FAQ", href: "/faq" },
+    { label: "Genesis Program", href: "/airdrop" },
+    { label: "Early Access", href: "/early-access" },
+  ],
   developers: [
     { label: "Developers", href: "/developers" },
     { label: "Documentation", href: "/developers#docs" },
-    { label: "GitHub", href: "/developers#github" },
+    { label: "Architecture", href: "/developers#architecture" },
+    { label: "Node Guide", href: "/node#guide" },
     { label: "Build on YAZIMAO", href: "/developers#build" },
   ],
   token: [
@@ -98,3 +110,19 @@ export const footerNav = {
     { label: "Incentives", href: "/token#incentives" },
   ],
 };
+
+/**
+ * Official Channels（官方渠道）—— 页脚专用。
+ * 仅收录已由项目方提供的真实地址；未提供（null）的渠道不渲染。
+ * external=true 的条目在新窗口打开，并使用 rel="noopener noreferrer"。
+ */
+export const footerChannels: {
+  label: string;
+  href: string | null;
+  external: boolean;
+}[] = [
+  { label: "X", href: siteConfig.links.x, external: true },
+  { label: "Telegram", href: siteConfig.links.telegram, external: true },
+  { label: "GitHub", href: siteConfig.links.github, external: true },
+  { label: "Docs", href: "/developers#docs", external: false },
+];

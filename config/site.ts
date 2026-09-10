@@ -33,6 +33,11 @@ export interface SiteLinks {
   github: string | null;
   /** 官网自身源码仓库（Website Source 语义） */
   websiteRepo: string | null;
+  /**
+   * 协议文档（L1 仓库 docs/ 目录；官网仅做只读引用，不复制内容）
+   * 已核实：Cortex-Forest/nova 默认分支为 main，且存在 docs/ 目录
+   */
+  protocolDocs: string | null;
   x: string | null;
   discord: string | null;
   telegram: string | null;
@@ -80,13 +85,17 @@ export const siteConfig: {
   // 诚实状态：Nova/YAZIMAO 处于协议开发阶段（Protocol Development），
   // 尚未运行公共主网或公开测试网。禁止展示 "Mainnet"。
   networkLabel: process.env.NEXT_PUBLIC_NETWORK_LABEL ?? "Protocol Development",
-  // GitHub 架构（P2）：用户入口→主仓库 nova；官网源码→nova-web；其余社区待提供仍为 null
+  // 官方社区渠道（项目方提供，P3 上线）
+  // - X / Twitter：https://x.com/yazimao_network（handle @yazimao_network）
+  // - Telegram   ：https://t.me/yazimo
+  // - Discord    ：尚未提供 → 保持 null，UI 渲染 Coming Soon（禁止编造地址）
   links: {
     github: "https://github.com/Cortex-Forest/nova",
     websiteRepo: "https://github.com/Cortex-Forest/nova-web",
-    x: null,
+    protocolDocs: "https://github.com/Cortex-Forest/nova/tree/main/docs",
+    x: "https://x.com/yazimao_network",
     discord: null,
-    telegram: null,
+    telegram: "https://t.me/yazimo",
   },
 };
 

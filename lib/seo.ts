@@ -22,10 +22,14 @@ export function pageSeo(
       ? {
           alternates: { canonical: absolute },
           openGraph: {
+            // 页面级 openGraph 会整体替换 layout 的 openGraph，
+            // 因此必须在此补齐 type / locale / siteName / images，否则 og:site_name 会丢失
+            type: "website",
+            locale: "en_US",
+            siteName: siteConfig.name,
             url: absolute,
             description,
             ...(title ? { title } : {}),
-            // 页面级 openGraph 会替换 layout 的 openGraph，因此必须在此补充 og:image
             images: [
               { url: siteConfig.ogImage, width: 1200, height: 630, alt: siteConfig.name },
             ],

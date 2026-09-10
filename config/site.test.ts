@@ -31,10 +31,31 @@ describe("siteConfig — Single Source of Truth", () => {
     expect(siteConfig.links.github).not.toBe(siteConfig.links.websiteRepo);
   });
 
+  it("official community channels point to the provided addresses", () => {
+    expect(siteConfig.links.x).toBe("https://x.com/yazimao_network");
+    expect(siteConfig.links.telegram).toBe("https://t.me/yazimo");
+  });
+
+  it("all provided community links use https", () => {
+    for (const href of [
+      siteConfig.links.github,
+      siteConfig.links.websiteRepo,
+      siteConfig.links.protocolDocs,
+      siteConfig.links.x,
+      siteConfig.links.telegram,
+    ]) {
+      expect(href).toMatch(/^https:\/\//);
+    }
+  });
+
+  it("protocol docs link points inside the main repository", () => {
+    expect(siteConfig.links.protocolDocs).toBe(
+      "https://github.com/Cortex-Forest/nova/tree/main/docs",
+    );
+  });
+
   it("unprovided community links remain null (no fabricated addresses)", () => {
-    expect(siteConfig.links.x).toBeNull();
     expect(siteConfig.links.discord).toBeNull();
-    expect(siteConfig.links.telegram).toBeNull();
   });
 
   it("contains no fabricated chain metrics", () => {

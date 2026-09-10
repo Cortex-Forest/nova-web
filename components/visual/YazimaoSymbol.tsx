@@ -28,6 +28,9 @@ export function YazimaoSymbol({
       aria-hidden="true"
       width={LOGO_WIDTH}
       height={LOGO_HEIGHT}
+      // 当前调用尺寸：导航 32px / 页脚 36px / 404 56px → 取最大值。
+      // 显式 sizes 避免浏览器按 100vw 预加载未使用的大尺寸变体（控制台 preload 警告）。
+      sizes="56px"
       loading="eager"
       className={cn("object-contain", className)}
     />

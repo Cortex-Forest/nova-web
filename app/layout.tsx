@@ -17,6 +17,11 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
+/** 从官方 X 链接派生 @handle（单一来源：siteConfig.links.x） */
+const xHandle = siteConfig.links.x
+  ? `@${siteConfig.links.x.replace(/\/+$/, "").split("/").pop()}`
+  : undefined;
+
 export const metadata: Metadata = {
   metadataBase: siteConfig.url ? new URL(siteConfig.url) : undefined,
   title: {
@@ -27,6 +32,7 @@ export const metadata: Metadata = {
   keywords: [
     "YAZIMAO",
     "YAZIMAO Network",
+    "YAZIMAO community",
     "Every Creation Matters",
     "public network for human creation",
     "creator economy",
@@ -53,6 +59,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${siteConfig.name} — ${siteConfig.tagline}`,
     description: siteConfig.description,
+    // 官方 X handle 由 siteConfig.links.x（单一来源）派生，未提供时遗漏
+    ...(xHandle ? { site: xHandle, creator: xHandle } : {}),
     ...(siteConfig.url ? { images: [siteConfig.ogImage] } : {}),
   },
   robots: { index: true, follow: true },

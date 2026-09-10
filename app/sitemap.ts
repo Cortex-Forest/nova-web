@@ -22,5 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/roadmap`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${base}/early-access`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/airdrop`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/community`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${base}/faq`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
   ];
 }

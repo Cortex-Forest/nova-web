@@ -4,12 +4,32 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
+import {
+  ArrowUpRight,
+  ChevronDown,
+  Github,
+  Menu,
+  Send,
+  Twitter,
+  X,
+  type LucideIcon,
+} from "lucide-react";
 import { mainNav, navGroups } from "@/config/nav";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { YazimaoLogo } from "@/components/visual/YazimaoLogo";
 import { Button } from "@/components/ui/Button";
+
+type CommunityLink = { label: string; href: string; icon: LucideIcon };
+
+/** 官方社区入口（仅渲染已提供真实地址的渠道；未提供保持隐藏） */
+const communityLinks: CommunityLink[] = (
+  [
+    { label: "X / Twitter", href: siteConfig.links.x, icon: Twitter },
+    { label: "Telegram", href: siteConfig.links.telegram, icon: Send },
+    { label: "GitHub", href: siteConfig.links.github, icon: Github },
+  ] as { label: string; href: string | null; icon: LucideIcon }[]
+).filter((c): c is CommunityLink => c.href !== null);
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -87,7 +107,21 @@ export function Navbar() {
             ))}
         </div>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-2 lg:flex">
+          <div className="flex items-center gap-0.5 pr-1">
+            {communityLinks.map((c) => (
+              <a
+                key={c.label}
+                href={c.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={c.label}
+                className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-mist-400 transition-colors hover:bg-white/5 hover:text-white"
+              >
+                <c.icon className="h-4 w-4" />
+              </a>
+            ))}
+          </div>
           <Button href="/node" variant="ghost" size="sm">
             Run Node
           </Button>
@@ -136,7 +170,21 @@ export function Navbar() {
                   Connect Wallet
                 </Button>
               </div>
-              <p className="mt-6 text-center text-xs text-mist-500">
+              <div className="mt-6 flex items-center justify-center gap-2">
+                {communityLinks.map((c) => (
+                  <a
+                    key={c.label}
+                    href={c.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={c.label}
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 text-mist-300 transition-colors hover:border-nova-cyan/40 hover:text-nova-cyanSoft"
+                  >
+                    <c.icon className="h-4 w-4" />
+                  </a>
+                ))}
+              </div>
+              <p className="mt-4 text-center text-xs text-mist-500">
                 {siteConfig.name} · {siteConfig.networkLabel}
               </p>
             </div>
