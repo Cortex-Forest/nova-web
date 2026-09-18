@@ -47,7 +47,7 @@ export const navGroups: { title: string; items: NavItem[] }[] = [
       {
         label: "Node Network",
         href: "/node",
-        description: "Mobile & PC nodes, validator rewards",
+        description: "Mobile & PC nodes, validator participation",
         icon: Network,
       },
       {

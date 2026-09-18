@@ -184,7 +184,7 @@ export function GenesisJoin() {
             Join the Genesis Program
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-mist-400">
-            Optional: register with your email to receive your Genesis ID and earn{" "}
+            Optional: register with your email to receive your Genesis ID and be credited with{" "}
             <span className="text-nova-cyanSoft">+{REGISTER_POINTS} Genesis Points</span>{" "}
             for joining the first generation of YAZIMAO ecosystem contributors.
           </p>

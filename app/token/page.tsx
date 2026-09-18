@@ -276,7 +276,7 @@ export default function TokenPage() {
               {
                 icon: Boxes,
                 title: "Storage",
-                text: "Rewards tied to real, verifiable storage contributions.",
+                text: "Incentives tied to real, verifiable storage contributions.",
               },
               {
                 icon: TrendingUp,
@@ -286,7 +286,7 @@ export default function TokenPage() {
               {
                 icon: Coins,
                 title: "Anti-abuse",
-                text: "Contribution proofs, reward caps, and sybil resistance.",
+                text: "Contribution proofs, incentive caps, and sybil resistance.",
               },
             ].map((c, i) => (
               <Card key={c.title} delay={i * 0.05} className="p-6">
@@ -303,7 +303,7 @@ export default function TokenPage() {
               <PieChart className="h-5 w-5 shrink-0 text-amber-400" />
               <p className="text-sm leading-relaxed text-mist-400">
                 <span className="font-semibold text-mist-200">No numbers, yet.</span>{" "}
-                Supply, allocation, emission, and reward formulas are finalized in the
+                Supply, allocation, emission, and incentive formulas are finalized in the
                 Economics Specification. When they are, this page is updated from a
                 single source of truth — never hardcoded marketing figures.
               </p>

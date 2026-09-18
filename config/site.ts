@@ -53,6 +53,11 @@ export const brand = {
   slogan: "Every Creation Matters.",
   /** 一句话定位 */
   positioning: "A public network for human creation.",
+  /**
+   * 网络定位（V2 P0）：明确「Layer 1」与「社区所有」。
+   * 用于 Hero 第一屏，避免泛化的 "public network" 表述弱化协议定位。
+   */
+  networkPositioning: "A Community-Owned Layer 1 Network.",
   /** 品牌故事（克制、不直译生硬） */
   story:
     "One creation may be small. Together, creations can build something much bigger.",
@@ -66,6 +71,8 @@ export const siteConfig: {
   nameZh: string;
   tagline: string;
   positioning: string;
+  /** 网络定位：Community-Owned Layer 1 Network（V2 P0） */
+  networkPositioning: string;
   description: string;
   /** 真实站点域名（部署后通过 NEXT_PUBLIC_SITE_URL 注入）；未设置时为空 */
   url: string;
@@ -78,8 +85,9 @@ export const siteConfig: {
   nameZh: brand.nameZh,
   tagline: brand.slogan,
   positioning: brand.positioning,
+  networkPositioning: brand.networkPositioning,
   description:
-    "YAZIMAO is a public network for human creation. Every creation matters — writing, music, art, video, ideas and digital works are recorded, connected, verified, and preserved together. A single creation may be small; together, they can build something much bigger.",
+    "YAZIMAO is building a community-owned Layer 1 network for human creation. Every creation matters — writing, music, art, video, ideas and digital works are recorded, connected, verified, and preserved together. A single creation may be small; together, they can build something much bigger. The protocol is in development — there is no public mainnet or testnet yet.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "",
   ogImage: "/og.png", // 1200×630 PNG（品牌资产：羽毛 logo + 文案）
   // 诚实状态：Nova/YAZIMAO 处于协议开发阶段（Protocol Development），

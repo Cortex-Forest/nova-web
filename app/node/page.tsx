@@ -67,7 +67,7 @@ const tiers = [
       "Validators stake to secure the network and produce finality. They require the strongest security posture and commitment to uptime.",
     features: [
       "Produce & finalize blocks",
-      "Earn staking rewards",
+      "Participate in consensus security",
       "Slashing-protected operation",
       "Community & ecosystem incentives",
     ],
@@ -155,26 +155,26 @@ export default function NodePage() {
         </Container>
       </section>
 
-      {/* Node Rewards */}
+      {/* Node Participation（V2 P0：经济模型未冻结，不出现收益承诺） */}
       <section
-        id="rewards"
+        id="participation"
         className="relative border-t border-white/5 bg-ink-900/40 py-24 md:py-28"
       >
         <Container>
           <SectionHeading
-            eyebrow="Node Rewards"
+            eyebrow="Node Participation"
             title={
               <>
-                Rewards for <span className="text-gradient">participation</span>
+                Incentives for <span className="text-gradient">participation</span>
               </>
             }
-            description="Participants are rewarded for securing and serving the network. Specific reward parameters will be published with the incentive specification — no figures are claimed before they are finalized."
+            description="Incentive design for securing and serving the network is not finalized. Parameters will be published with the incentive specification — no figures are claimed before they are finalized."
           />
           <div className="grid gap-4 sm:grid-cols-3">
             {[
               {
                 title: "Validators",
-                text: "Staking rewards for producing and finalizing blocks, with penalty mechanisms to keep behavior honest.",
+                text: "Producing and finalizing blocks is expected to carry incentives, with penalty mechanisms to keep behavior honest. Parameters are pending.",
               },
               {
                 title: "Full nodes",
@@ -198,8 +198,9 @@ export default function NodePage() {
             <div className="mt-8 flex items-center gap-3 rounded-2xl border border-white/8 bg-ink-800/40 p-5">
               <Badge tone="amber">Coming Soon</Badge>
               <p className="text-sm text-mist-400">
-                The full Node Rewards specification — emission curves, eligibility,
-                and slashing — will be published before rewards go live.
+                The full Node Participation incentive specification — emission
+                curves, eligibility, and slashing — will be published before any
+                incentives go live.
               </p>
             </div>
           </Reveal>
@@ -299,7 +300,7 @@ export default function NodePage() {
                     claiming to be a YAZIMAO node.
                   </li>
                   <li>
-                    Reward figures, eligibility and slashing parameters are not
+                    Incentive figures, eligibility and slashing parameters are not
                     claimed before the incentive specification is published.
                   </li>
                   <li>
@@ -334,7 +335,7 @@ export default function NodePage() {
                     Watch your node <span className="text-gradient">at a glance</span>
                   </>
                 }
-                description="A dedicated dashboard for operators is planned — uptime, rewards, peers, and health, in one place. This page will connect to the node dashboard when it ships."
+                description="A dedicated dashboard for operators is planned — uptime, peers, and node health, in one place. This page will connect to the node dashboard when it ships."
               />
               <Reveal delay={0.12}>
                 <div className="flex flex-wrap items-center gap-3">
@@ -352,7 +353,7 @@ export default function NodePage() {
                     Node Dashboard Preview
                   </div>
                   <div className="grid grid-cols-3 gap-3">
-                    {["Uptime", "Peers", "Rewards"].map((k) => (
+                    {["Uptime", "Peers", "Incentives"].map((k) => (
                       <div key={k} className="rounded-xl border border-white/8 bg-ink-900/60 p-4">
                         <p className="text-[11px] uppercase tracking-widest text-mist-500">{k}</p>
                         <p className="mt-2 font-mono text-lg text-mist-500">—</p>

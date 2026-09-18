@@ -53,6 +53,15 @@ export function Hero() {
           <Badge tone="neutral">{siteConfig.networkLabel}</Badge>
         </motion.div>
 
+        {/* V2 P0 定位：Community-Owned Layer 1 Network（单一来源：siteConfig.networkPositioning）。
+            H1 保留品牌 slogan，定位行负责表达协议层身份。 */}
+        <motion.p
+          variants={reduce ? undefined : item}
+          className="mb-4 font-mono text-[11px] font-semibold uppercase tracking-[0.24em] text-nova-cyanSoft sm:text-xs"
+        >
+          {siteConfig.networkPositioning}
+        </motion.p>
+
         <motion.h1
           variants={reduce ? undefined : item}
           className="font-display text-[2.9rem] font-semibold leading-[1.05] tracking-tight text-mist-100 text-balance sm:text-6xl lg:text-[5.5rem]"

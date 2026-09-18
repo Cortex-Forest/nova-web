@@ -12,7 +12,7 @@ import { GenesisWallet } from "@/components/genesis/GenesisWallet";
 
 export const metadata: Metadata = pageSeo(
   "/airdrop",
-  "Join the YAZIMAO early community program. Earn Genesis Points through participation and contribution.",
+  "Join the YAZIMAO early community program. Track your participation, creation and contribution with Genesis Points.",
   "YAZIMAO Genesis Program",
 );
 
@@ -75,9 +75,9 @@ export default function AirdropPage() {
             </Reveal>
             <Reveal delay={0.14}>
               <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-mist-400 text-pretty sm:text-lg">
-                Earn Genesis Points through participation, creation and
-                contribution. Genesis Points are participation points only — they
-                do not represent, guarantee, or promise any future token
+                Track your participation, creation and contribution with Genesis
+                Points. Genesis Points are participation points only — they do
+                not represent, guarantee, or promise any future token
                 allocation.
               </p>
             </Reveal>

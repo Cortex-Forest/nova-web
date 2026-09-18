@@ -5,24 +5,19 @@ import { Reveal } from "@/components/visual/Reveal";
 
 const phases = [
   {
-    phase: "Phase 1",
-    title: "Protocol & Consensus Design",
-    desc: "Architecture, protocol, and consensus design are complete and frozen.",
+    phase: "Completed",
+    title: "Layer 1 foundations",
+    desc: "Consensus, node runtime, P2P and storage foundations — plus single-node production loop and two-node TCP height sync validation.",
   },
   {
-    phase: "Phase 2",
-    title: "Core Implementation",
-    desc: "Protocol, storage, and consensus implementation — in progress.",
+    phase: "Development",
+    title: "Public testnet preparation",
+    desc: "In progress toward a public testnet — developer tools and the Explorer. Nothing in this stage is launched yet.",
   },
   {
-    phase: "Phase 3",
-    title: "Genesis · Devnet · Testnet",
-    desc: "Network preparation — not launched; no public devnet or testnet yet.",
-  },
-  {
-    phase: "Phase 4",
-    title: "Mainnet & Ecosystem",
-    desc: "Future milestones — production launch and the open ecosystem.",
+    phase: "Upcoming",
+    title: "Ecosystem & community",
+    desc: "Planned after the testnet — ecosystem expansion and community growth. Mainnet and token remain unlaunched.",
   },
 ];
 
@@ -54,7 +49,7 @@ export function RoadmapPreview() {
           </Reveal>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {phases.map((p, i) => (
             <Reveal key={p.phase} delay={i * 0.07}>
               <div className="relative h-full rounded-2xl border border-white/8 bg-ink-800/40 p-6">

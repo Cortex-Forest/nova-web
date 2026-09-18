@@ -7,8 +7,12 @@ describe("siteConfig — Single Source of Truth", () => {
     expect(siteConfig.nameZh).toBe("亚兹毛");
     expect(siteConfig.tagline).toContain("Every Creation Matters");
     expect(siteConfig.positioning).toBe("A public network for human creation.");
+    // V2 P0：网络定位必须明确 Layer 1 + 社区所有（Hero 第一屏文案来源）
+    expect(siteConfig.networkPositioning).toBe("A Community-Owned Layer 1 Network.");
     expect(brand.story.length).toBeGreaterThan(20);
     expect(siteConfig.description.length).toBeGreaterThan(20);
+    // V2 P0：站点描述必须包含 Layer 1 定位（SEO）
+    expect(siteConfig.description).toMatch(/Layer 1/);
   });
 
   it("brand must not pretend to be a live mainnet", () => {

@@ -10,7 +10,7 @@ import { Card } from "@/components/ui/Card";
 
 export const metadata: Metadata = pageSeo(
   "/explorer",
-  "Explorer — blocks, transactions, accounts, and validators, backed by real chain data on the YAZIMAO network.",
+  "Explorer — under development. Blocks, transactions, accounts, and validators will be served by the YAZIMAO indexer when the public testnet ships.",
   "Explorer",
 );
 
@@ -44,10 +44,10 @@ export default function ExplorerPage() {
         eyebrow="Explorer"
         title={
           <>
-            See the chain, <span className="text-gradient">live</span>
+            Explorer <span className="text-gradient">Coming Soon</span>
           </>
         }
-        description="An Explorer built on real chain data — blocks, transactions, accounts, and validators. When the network is live, this page is powered by the chain indexer."
+        description="Under development. Available with the public testnet — blocks, transactions, accounts, and validators will be served by the YAZIMAO indexer."
       />
 
       <section className="relative pb-24 md:pb-28">
@@ -68,7 +68,7 @@ export default function ExplorerPage() {
                 Truth comes from the <span className="text-gradient">node</span>
               </>
             }
-            description="The Explorer is a window into the chain — never the source of truth. It reads from the indexer, which rebuilds from node state and stays consistent through reorgs."
+            description="The Explorer is a window into the chain — never the source of truth. It will read from the indexer, which rebuilds from node state and stays consistent through reorgs."
           />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {dataSources.map((s, i) => (
@@ -92,7 +92,7 @@ export default function ExplorerPage() {
                 {
                   icon: Plug,
                   title: "API-ready",
-                  text: "Exposed through a versioned Indexer API — the same API that powers dashboards and dApps.",
+                  text: "Will be exposed through a versioned Indexer API — the same API that powers dashboards and dApps.",
                 },
                 {
                   icon: ShieldCheck,

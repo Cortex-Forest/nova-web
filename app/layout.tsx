@@ -32,6 +32,9 @@ export const metadata: Metadata = {
   keywords: [
     "YAZIMAO",
     "YAZIMAO Network",
+    "YAZIMAO L1",
+    "YAZIMAO Layer 1",
+    "community-owned Layer 1 network",
     "YAZIMAO community",
     "Every Creation Matters",
     "public network for human creation",

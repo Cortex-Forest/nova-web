@@ -19,7 +19,7 @@ const tiers = [
   {
     icon: ShieldCheck,
     title: "Validator",
-    text: "Secured validators that produce and finalize blocks, earning rewards while securing the network.",
+    text: "Secured validators that produce and finalize blocks, participating in consensus while securing the network.",
   },
 ];
 
@@ -45,8 +45,8 @@ export function NodeSection() {
                   Run a Node
                   <ArrowRight className="h-4 w-4" />
                 </Button>
-                <Button href="/node#rewards" variant="secondary" size="md">
-                  Node Rewards
+                <Button href="/node#participation" variant="secondary" size="md">
+                  Node Participation
                 </Button>
               </div>
             </Reveal>
