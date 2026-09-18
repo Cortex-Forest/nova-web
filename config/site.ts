@@ -1,8 +1,8 @@
 /**
- * YAZIMAO（中文品牌：鸭子毛）—— 站点级配置（P1 集中配置源）
+ * YAZIMAO（中文品牌：亚兹毛）—— 站点级配置（P1 集中配置源）
  *
  * 品牌层事实来源：
- * - 英文品牌：YAZIMAO；中文品牌：鸭子毛
+ * - 英文品牌：YAZIMAO；中文品牌：亚兹毛
  * - Slogan：Every Creation Matters.
  * - 定位：A public network for human creation.
  * - 核心理念：一根鸭毛很轻，一个人的创造也很小；当无数人的创造被记录、
@@ -43,12 +43,12 @@ export interface SiteLinks {
   telegram: string | null;
 }
 
-/** 品牌层（YAZIMAO / 鸭子毛）—— 全站唯一文案来源之一 */
+/** 品牌层（YAZIMAO / 亚兹毛）—— 全站唯一文案来源之一 */
 export const brand = {
   /** 英文品牌 */
   name: "YAZIMAO",
   /** 中文品牌 */
-  nameZh: "鸭子毛",
+  nameZh: "亚兹毛",
   /** Slogan */
   slogan: "Every Creation Matters.",
   /** 一句话定位 */

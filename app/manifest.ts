@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 /**
  * Web App Manifest（移动端添加到主屏 / 主题色）。
- * 品牌：YAZIMAO（中文：鸭子毛）。
+ * 品牌：YAZIMAO（中文：亚兹毛）。
  */
 export default function manifest(): MetadataRoute.Manifest {
   return {

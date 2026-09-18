@@ -1,6 +1,6 @@
 # YAZIMAO — Official Website
 
-YAZIMAO（中文品牌：鸭子毛）官方官网。定位：A public network for human
+YAZIMAO（中文品牌：亚兹毛）官方官网。定位：A public network for human
 creation —— Every Creation Matters. 一个面向人类创造行为的公共网络。
 
 > **品牌/代号说明**：Nova 为协议内部开发代号。本仓库只承载 YAZIMAO 品牌层

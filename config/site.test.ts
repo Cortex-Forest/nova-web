@@ -2,9 +2,9 @@ import { describe, expect, it } from "vitest";
 import { brand, siteConfig } from "./site";
 
 describe("siteConfig — Single Source of Truth", () => {
-  it("has correct brand identity (YAZIMAO / 鸭子毛)", () => {
+  it("has correct brand identity (YAZIMAO / 亚兹毛)", () => {
     expect(siteConfig.name).toBe("YAZIMAO");
-    expect(siteConfig.nameZh).toBe("鸭子毛");
+    expect(siteConfig.nameZh).toBe("亚兹毛");
     expect(siteConfig.tagline).toContain("Every Creation Matters");
     expect(siteConfig.positioning).toBe("A public network for human creation.");
     expect(brand.story.length).toBeGreaterThan(20);
