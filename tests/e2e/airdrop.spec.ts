@@ -110,9 +110,10 @@ test.describe("genesis — responsive + navigation", () => {
   test("desktop header exposes Airdrop link", async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto("/", { waitUntil: "domcontentloaded" });
+    // 导航标签已从 "Airdrop" 更名为 "Genesis Program"（路由仍为 /airdrop）
     const link = page
       .locator("header")
-      .getByRole("link", { name: "Airdrop", exact: true });
+      .getByRole("link", { name: "Genesis Program", exact: true });
     await expect(link).toBeVisible();
     await expect(link).toHaveAttribute("href", "/airdrop");
   });
