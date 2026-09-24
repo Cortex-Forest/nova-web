@@ -71,23 +71,24 @@ export function Navbar() {
       )}
     >
       <nav
-        className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8 lg:h-[72px] lg:px-12"
+        className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8 lg:h-[72px] lg:px-8 xl:max-w-[1400px] xl:px-12"
         aria-label="Main"
       >
-        {/* Logo（桌面：Symbol + YAZIMAO；移动端：Symbol） */}
+        {/* Logo（桌面：Symbol + YAZIMAO；移动端：Symbol）
+            shrink-0 + whitespace-nowrap：防止导航拥挤时 logo 被压缩、字标溢出压到导航项上 */}
         <Link
           href="/"
-          className="group flex items-center gap-2.5"
+          className="group flex shrink-0 items-center gap-2.5"
           aria-label="YAZIMAO home"
         >
           <YazimaoLogo
-            symbolClassName="h-8 w-8 transition-transform duration-500 group-hover:-translate-y-0.5"
-            textClassName="hidden sm:inline text-lg"
+            symbolClassName="h-8 w-8 shrink-0 transition-transform duration-500 group-hover:-translate-y-0.5"
+            textClassName="hidden whitespace-nowrap text-lg sm:inline"
           />
         </Link>
 
-        {/* Desktop nav */}
-        <div className="hidden items-center gap-1 lg:flex">
+        {/* Desktop nav（≥1280：导航项较多，xl 以下改用汉堡菜单） */}
+        <div className="hidden items-center gap-1 xl:flex">
           <NavItem href="/" active={pathname === "/"}>
             Home
           </NavItem>
@@ -107,8 +108,11 @@ export function Navbar() {
             ))}
         </div>
 
-        <div className="hidden items-center gap-2 lg:flex">
-          <div className="flex items-center gap-0.5 pr-1">
+        <div className="hidden shrink-0 items-center gap-2 lg:flex">
+          {/* 社媒图标仅 ≥2xl(1536) 展示：
+              1280–1535 已经排满（桌面导航 + Run Node + Connect Wallet），
+              再放图标会把 CTA 挤出容器。窄屏仍可从移动菜单 / 页脚进入。 */}
+          <div className="hidden items-center gap-0.5 pr-1 2xl:flex">
             {communityLinks.map((c) => (
               <a
                 key={c.label}
@@ -134,7 +138,7 @@ export function Navbar() {
         {/* Mobile toggle */}
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-mist-200 hover:bg-white/5 lg:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-mist-200 hover:bg-white/5 xl:hidden"
           onClick={() => setMobileOpen((v) => !v)}
           aria-expanded={mobileOpen}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -151,9 +155,9 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="border-b border-white/8 bg-ink-950/98 backdrop-blur-xl lg:hidden"
+            className="border-b border-white/8 bg-ink-950/98 backdrop-blur-xl xl:hidden"
           >
-            <div className="max-h-[calc(100dvh-4rem)] overflow-y-auto px-5 py-6">
+            <div className="max-h-[calc(100dvh-4rem)] overflow-y-auto px-5 py-6 lg:max-h-[calc(100dvh-4.5rem)]">
               <ul className="space-y-1">
                 <MobileLink href="/">Home</MobileLink>
                 {mainNav.map((item) => (
@@ -208,7 +212,7 @@ function NavItem({
     <Link
       href={href}
       className={cn(
-        "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+        "whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium transition-colors",
         active ? "text-white" : "text-mist-400 hover:text-white",
       )}
     >
@@ -229,7 +233,7 @@ function GroupNav({ active }: { active: boolean }) {
       <button
         type="button"
         className={cn(
-          "flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+          "flex items-center gap-1 whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium transition-colors",
           active || open ? "text-white" : "text-mist-400 hover:text-white",
         )}
         aria-expanded={open}
