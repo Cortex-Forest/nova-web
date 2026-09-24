@@ -27,7 +27,7 @@ import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = pageSeo(
   "/community",
-  "Official YAZIMAO community channels — X, Telegram, GitHub, and the developer community. Contribute early to a public network for human creation.",
+  "Official YAZIMAO community channels — X, Telegram, GitHub, and the developer community. Contribute early to a community-owned Layer 1 network for human creation.",
   "Community",
 );
 
@@ -208,7 +208,7 @@ export default function CommunityPage() {
             Join the <span className="text-gradient">YAZIMAO</span> community
           </>
         }
-        description="A public network for human creation is built by the people who use it. Follow the official channels, ask questions, and contribute early."
+            description="A community-owned Layer 1 network is built by the people who use it. Follow the official channels, ask questions, and contribute early."
       >
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
           <Button href="/airdrop" size="lg">

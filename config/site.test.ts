@@ -13,6 +13,10 @@ describe("siteConfig — Single Source of Truth", () => {
     expect(siteConfig.description.length).toBeGreaterThan(20);
     // V2 P0：站点描述必须包含 Layer 1 定位（SEO）
     expect(siteConfig.description).toMatch(/Layer 1/);
+    // V2 叙事重构：名称来源 + 标识含义必须是可引用的单一事实源
+    expect(siteConfig.story.length).toBeGreaterThan(40);
+    expect(siteConfig.markMeaning).toMatch(/open ring/i);
+    expect(siteConfig.markMeaning).toMatch(/no centre/i);
   });
 
   it("brand must not pretend to be a live mainnet", () => {

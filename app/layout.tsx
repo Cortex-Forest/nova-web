@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     "community-owned Layer 1 network",
     "YAZIMAO community",
     "Every Creation Matters",
-    "public network for human creation",
+    "community-owned Layer 1 for human creation",
     "creator economy",
     "blockchain",
     "web3",

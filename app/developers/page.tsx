@@ -25,7 +25,7 @@ import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = pageSeo(
   "/developers",
-  "Build on YAZIMAO — documentation, SDKs, APIs, GitHub, and the developer platform for a public network for human creation.",
+  "Build on YAZIMAO — documentation, SDKs, APIs, GitHub, and the developer platform for a community-owned Layer 1 network for human creation.",
   "Developers",
 );
 

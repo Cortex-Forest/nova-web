@@ -41,12 +41,12 @@ export function Footer() {
               Every Creation Matters.
             </p>
             <p className="mt-1 text-sm text-mist-400">
-              A public network for human creation.
+              A community-owned Layer 1 for human creation.
             </p>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-mist-500">
               Writing, music, art, video, ideas and digital works — recorded,
-              connected, verified and preserved together. One creation may be
-              small; together they build something much bigger.
+              connected, verified and preserved together. An open ring: no
+              centre, no sealed edge, always room for whoever joins next.
             </p>
             {/* V1.1：Early Access 生态参与预登记入口 */}
             <div className="mt-6">

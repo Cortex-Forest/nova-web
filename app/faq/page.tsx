@@ -3,7 +3,7 @@ import {
   Activity,
   ChevronDown,
   Coins,
-  Feather,
+  Orbit,
   Server,
   ShieldCheck,
   type LucideIcon,
@@ -28,15 +28,19 @@ type FaqGroup = { title: string; icon: LucideIcon; items: FaqItem[] };
 const groups: FaqGroup[] = [
   {
     title: "What is YAZIMAO?",
-    icon: Feather,
+    icon: Orbit,
     items: [
       {
         q: "What is YAZIMAO?",
-        a: "YAZIMAO is a public network for human creation. Writing, music, art, video, ideas and digital works are recorded, connected, verified and preserved together, so that many small individual creations can add up to something much bigger.",
+        a: "YAZIMAO is a community-owned Layer 1 network for human creation. Writing, music, art, video, ideas and digital works are recorded, connected, verified and preserved together, so that many small contributions can add up to something their participants hold in common.",
       },
       {
         q: "What does “Every Creation Matters.” mean?",
-        a: "It is the design principle of the network. A single creation may be small — a note, a sketch, a line of code — but if it is recorded and verifiable, it can be connected to the work of others and become part of something larger.",
+        a: "It is the design principle of the network. A single creation may be small — a note, a sketch, a line of code — but once it is recorded and verifiable it can be connected to the work of others, and the ring stays open for whoever joins next.",
+      },
+      {
+        q: "What does the logo represent?",
+        a: "An open ring, tilted like an orbit: no centre and no sealed edge, so an opening always remains for whoever joins next. It stands for a network its participants hold in common.",
       },
       {
         q: "Is YAZIMAO open source?",

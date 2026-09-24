@@ -4,9 +4,12 @@
  * 品牌层事实来源：
  * - 英文品牌：YAZIMAO；中文品牌：亚兹毛
  * - Slogan：Every Creation Matters.
- * - 定位：A public network for human creation.
- * - 核心理念：一根鸭毛很轻，一个人的创造也很小；当无数人的创造被记录、
- *   连接、验证并汇聚起来，微小的贡献可以形成一个属于所有人的公共网络。
+ * - 一句话定位：A public network for human creation.
+ * - 网络定位：A Community-Owned Layer 1 Network.
+ * - 叙事主脊：① 名称来源——一根羽毛很轻，一个人的创造也很小，轻的东西容易被忽略，
+ *   但足够多的创造汇聚起来就有分量；② 标识含义——开放的环，没有中心也没有封口，
+ *   永远给后来者留一个缺口；③ 在建的东西——社区所有的 Layer 1，
+ *   创造被记录、连接、验证，并由参与者共同持有。
  *
  * 品牌/代号边界：
  * - Nova 仍为「内部开发代号」：所有协议级/代码级标识（GitHub 仓库 nova /
@@ -58,9 +61,15 @@ export const brand = {
    * 用于 Hero 第一屏，避免泛化的 "public network" 表述弱化协议定位。
    */
   networkPositioning: "A Community-Owned Layer 1 Network.",
-  /** 品牌故事（克制、不直译生硬） */
+  /**
+   * 品牌叙事主脊（V2 叙事重构）：名称来源。
+   * 单一事实源：BrandStory 引用此处，禁止在组件里另写一份。
+   */
   story:
-    "One creation may be small. Together, creations can build something much bigger.",
+    "The name comes from a simple image: a single feather is light — and so is a single creation. Light things are easy to overlook. Gather enough of them and they hold weight.",
+  /** 标识含义（开放环）：无中心、无封口，永远给后来者留一个缺口。 */
+  markMeaning:
+    "The mark is an open ring, tilted like an orbit. It has no centre and no sealed edge — an opening always remains for whoever joins next. That is the network we are building: a community-owned Layer 1 that its participants hold in common.",
   /** 内部开发代号说明（品牌/协议边界） */
   internalCodenameNote:
     "Nova is the internal development codename for the protocol.",
@@ -73,6 +82,10 @@ export const siteConfig: {
   positioning: string;
   /** 网络定位：Community-Owned Layer 1 Network（V2 P0） */
   networkPositioning: string;
+  /** 品牌叙事主脊（名称来源） */
+  story: string;
+  /** 标识含义（开放环：无中心、无封口） */
+  markMeaning: string;
   description: string;
   /** 真实站点域名（部署后通过 NEXT_PUBLIC_SITE_URL 注入）；未设置时为空 */
   url: string;
@@ -86,10 +99,12 @@ export const siteConfig: {
   tagline: brand.slogan,
   positioning: brand.positioning,
   networkPositioning: brand.networkPositioning,
+  story: brand.story,
+  markMeaning: brand.markMeaning,
   description:
-    "YAZIMAO is building a community-owned Layer 1 network for human creation. Every creation matters — writing, music, art, video, ideas and digital works are recorded, connected, verified, and preserved together. A single creation may be small; together, they can build something much bigger. The protocol is in development — there is no public mainnet or testnet yet.",
+    "YAZIMAO is building a community-owned Layer 1 network for human creation. Writing, music, art, video, ideas and digital works are recorded, connected, verified and preserved together, so that many small creations can add up to something their participants hold in common. The protocol is in development — there is no public mainnet or testnet yet.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "",
-  ogImage: "/og.png", // 1200×630 PNG（品牌资产：羽毛 logo + 文案）
+  ogImage: "/og.png", // 1200×630 PNG（品牌资产：图形 logo + 文案）
   // 诚实状态：Nova/YAZIMAO 处于协议开发阶段（Protocol Development），
   // 尚未运行公共主网或公开测试网。禁止展示 "Mainnet"。
   networkLabel: process.env.NEXT_PUBLIC_NETWORK_LABEL ?? "Protocol Development",

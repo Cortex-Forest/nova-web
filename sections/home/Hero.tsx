@@ -1,9 +1,10 @@
 "use client";
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
-import { ArrowRight, Cpu, Feather } from "lucide-react";
+import { ArrowRight, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
+import { YazimaoSymbol } from "@/components/visual/YazimaoSymbol";
 import { GridBackground } from "@/components/visual/GridBackground";
 import { GlowOrb } from "@/components/visual/GlowOrb";
 import { NodeNetwork } from "@/components/visual/NodeNetwork";
@@ -47,7 +48,7 @@ export function Hero() {
           className="mb-6 flex flex-wrap items-center gap-2"
         >
           <Badge tone="cyan" className="shadow-glow">
-            <Feather className="mr-1.5 h-3.5 w-3.5 text-nova-cyanSoft" aria-hidden="true" />
+            <YazimaoSymbol className="mr-1.5 h-3.5 w-3.5" />
             {siteConfig.name}
           </Badge>
           <Badge tone="neutral">{siteConfig.networkLabel}</Badge>
@@ -84,8 +85,8 @@ export function Hero() {
           className="mt-4 max-w-xl text-base leading-relaxed text-mist-400 text-pretty sm:text-lg"
         >
           A single creation may be small — a piece of writing, a song, a
-          drawing, a video, an idea. Together, creations can build something
-          much bigger.
+          drawing, a video, an idea. Recorded on a community-owned Layer 1,
+          small things hold weight.
         </motion.p>
 
         <motion.div

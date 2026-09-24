@@ -20,7 +20,7 @@ import {
 
 export const metadata: Metadata = pageSeo(
   "/technology",
-  "YAZIMAO technology: consensus, network, storage, compute, execution and security — the protocol behind a public network for human creation.",
+  "YAZIMAO technology: consensus, network, storage, compute, execution and security — the protocol behind a community-owned Layer 1 network for human creation.",
   "Technology",
 );
 

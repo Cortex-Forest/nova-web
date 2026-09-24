@@ -9,7 +9,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "YAZIMAO — Every Creation Matters.",
     short_name: "YAZIMAO",
     description:
-      "A public network for human creation. Every creation matters — writing, music, art, video, ideas and digital works.",
+      "A community-owned Layer 1 for human creation. Every creation matters — writing, music, art, video, ideas and digital works.",
     start_url: "/",
     display: "standalone",
     background_color: "#04060B",

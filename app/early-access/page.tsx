@@ -11,7 +11,7 @@ import { EarlyAccessJoin } from "@/components/early-access/EarlyAccessJoin";
 
 export const metadata: Metadata = pageSeo(
   "/early-access",
-  "Join YAZIMAO Early Access and follow the development of a public network for human creation as it moves toward testnet.",
+  "Join YAZIMAO Early Access and follow the development of a community-owned Layer 1 network for human creation as it moves toward testnet.",
   "YAZIMAO Early Access",
 );
 
@@ -50,10 +50,10 @@ export default function EarlyAccessPage() {
             </Reveal>
             <Reveal delay={0.14}>
               <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-mist-400 text-pretty sm:text-lg">
-                YAZIMAO is building a public network for human creation —
-                designed around community participation, creator economics, and
-                mobile-friendly network participation. YAZIMAO is currently in
-                protocol development and testnet preparation.
+                YAZIMAO is building a community-owned Layer 1 network for human
+                creation — designed around community participation, creator
+                economics, and mobile-friendly network participation. YAZIMAO is
+                currently in protocol development and testnet preparation.
               </p>
             </Reveal>
             <Reveal delay={0.2}>
