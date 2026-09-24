@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="YAZIMAO symbol variant, upright feather held by two geometric hands">
+  <title>YAZIMAO symbol — upright variant</title>
+  <desc>Alternative composition: perfectly symmetrical upright feather over the mirrored hand cradle. Best silhouette clarity at 16 to 24px.</desc>
+
+  <defs>
+    <linearGradient id="vu-hand" x1="0" y1="0" x2="0.85" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.5" stop-color="#E7ECF6"/>
+      <stop offset="1" stop-color="#A3B1C7"/>
+    </linearGradient>
+    <linearGradient id="vu-feather" x1="0.15" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.58" stop-color="#F5F8FF"/>
+      <stop offset="1" stop-color="#B4C1D6"/>
+    </linearGradient>
+    <linearGradient id="vu-cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7DF9FF"/>
+      <stop offset="1" stop-color="#22D3EE"/>
+    </linearGradient>
+    <radialGradient id="vu-aura" cx="0.5" cy="0.42" r="0.55">
+      <stop offset="0" stop-color="#22D3EE" stop-opacity="0.26"/>
+      <stop offset="0.55" stop-color="#22D3EE" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="vu-bloom" x="-140%" y="-140%" width="380%" height="380%">
+      <feGaussianBlur stdDeviation="1.8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <ellipse cx="60" cy="52" rx="40" ry="44" fill="url(#vu-aura)"/>
+
+  <!-- hands: mirrored cradle, centre (60,74), outer r 40, inner r 31 -->
+  <g fill="url(#vu-hand)">
+    <path d="M28.48 98.63 A40 40 0 0 0 51.68 113.12 L53.55 104.32 A31 31 0 0 1 35.57 93.09 Z"/>
+    <path d="M91.52 98.63 A40 40 0 0 1 68.32 113.12 L66.45 104.32 A31 31 0 0 0 84.43 93.09 Z"/>
+  </g>
+
+  <!-- feather: upright and symmetrical -->
+  <path d="M60 12 C 47 32, 44.5 64, 60 94 C 75.5 64, 73 32, 60 12 Z" fill="url(#vu-feather)"/>
+
+  <g stroke="#8FA0B8" stroke-width="0.95" stroke-linecap="round" opacity="0.5">
+    <path d="M60 36 L52.5 32"/>
+    <path d="M60 36 L67.5 32"/>
+    <path d="M60 60 L52.5 56"/>
+    <path d="M60 60 L67.5 56"/>
+  </g>
+
+  <path d="M60 88 L60 16" stroke="#7C8AA3" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+
+  <g stroke="url(#vu-cyan)" stroke-width="1" stroke-linecap="round" opacity="0.95">
+    <path d="M62.6 30 L57.4 45"/>
+    <path d="M57.4 45 L62.6 60"/>
+    <path d="M62.6 60 L57.4 75"/>
+  </g>
+  <g fill="url(#vu-cyan)" filter="url(#vu-bloom)">
+    <circle cx="62.6" cy="30" r="2"/>
+    <circle cx="57.4" cy="45" r="2"/>
+    <circle cx="62.6" cy="60" r="2"/>
+    <circle cx="57.4" cy="75" r="2"/>
+  </g>
+</svg>

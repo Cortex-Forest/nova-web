@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>YAZIMAO — orbit symbol comparison</title>
+<style>
+  body { margin:0; background:#04060B; color:#E8EEF9; font-family: Inter,"Segoe UI",system-ui,sans-serif; padding:32px; }
+  h1 { font-size:13px; letter-spacing:.26em; text-transform:uppercase; color:#8FA0B8; margin:0 0 18px; }
+  .row { display:flex; gap:18px; align-items:flex-start; flex-wrap:nowrap; }
+  .cell { border:1px solid rgba(255,255,255,.10); border-radius:16px; padding:14px; background:#070A11; }
+  .cap { font-size:11px; color:#5F6F86; letter-spacing:.08em; margin-top:10px; text-align:center; }
+  img { display:block; background:#000; border-radius:10px; }
+  .strip { display:flex; gap:18px; align-items:flex-end; margin-top:6px; }
+</style>
+</head>
+<body>
+  <h1>1 · Reference vs generated vector</h1>
+  <div class="row">
+    <div class="cell">
+      <img src="tools/_ref-crop.png" width="420" height="420" alt="reference">
+      <div class="cap">REFERENCE (16656.jpg, cropped)</div>
+    </div>
+    <div class="cell">
+      <img src="yazimao-symbol-orbit.svg" width="420" height="420" alt="generated">
+      <div class="cap">GENERATED (yazimao-symbol-orbit.svg)</div>
+    </div>
+  </div>
+
+  <h1 style="margin-top:34px">2 · Small sizes</h1>
+  <div class="cell">
+    <div class="strip">
+      <img src="yazimao-symbol-orbit.svg" width="128" height="128" alt="">
+      <img src="yazimao-symbol-orbit.svg" width="64" height="64" alt="">
+      <img src="yazimao-symbol-orbit.svg" width="48" height="48" alt="">
+      <img src="yazimao-symbol-orbit.svg" width="32" height="32" alt="">
+      <img src="yazimao-symbol-orbit.svg" width="24" height="24" alt="">
+      <img src="yazimao-symbol-orbit.svg" width="16" height="16" alt="">
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,695 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>YAZIMAO Genesis Gauntlet — review sheet</title>
+<style>
+  :root { --ink:#04060B; --line:rgba(255,255,255,.10); --cyan:#22D3EE; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--ink); color:#E8EEF9; font-family:Inter,"Segoe UI",system-ui,sans-serif; padding:40px; }
+  h1 { font-size:15px; letter-spacing:.28em; text-transform:uppercase; color:#8FA0B8; font-weight:600; margin:0 0 6px; }
+  h2 { font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:#5F6F86; font-weight:600; margin:34px 0 12px; }
+  .panel { border:1px solid var(--line); border-radius:18px; padding:26px; background:#070A11; }
+  .hero { display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:26px; align-items:start; }
+  #gg-anim { width:100%; height:auto; display:block; }
+  .static svg { width:100%; height:auto; display:block; }
+  .ctl { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  button { background:#0C1220; color:#CFE0F5; border:1px solid var(--line); border-radius:999px;
+           padding:7px 14px; font-size:12px; cursor:pointer; font-variant-numeric:tabular-nums; }
+  button:hover { border-color:rgba(34,211,238,.5); color:#fff; }
+  button.on { border-color:var(--cyan); color:#fff; background:rgba(34,211,238,.12); }
+  table { border-collapse:collapse; width:100%; font-size:12.5px; }
+  th,td { text-align:left; padding:7px 10px; border-bottom:1px solid rgba(255,255,255,.07); vertical-align:top; }
+  th { color:#7C8CA6; font-weight:600; font-size:11px; letter-spacing:.14em; text-transform:uppercase; }
+  code { background:#0C1220; border:1px solid var(--line); border-radius:6px; padding:1px 6px; font-size:12px; }
+  .row { display:flex; align-items:flex-end; gap:26px; flex-wrap:wrap; }
+  .lbl { font-size:11px; color:#5F6F86; margin-top:8px; text-align:center; }
+  .note { font-size:12.5px; color:#8FA0B8; line-height:1.6; }
+  .dot { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:8px; }
+</style>
+</head>
+<body>
+  <h1>YAZIMAO — Genesis Gauntlet · hero animation review</h1>
+  <p class="note">Static identity source: <code>export/primary-512.svg</code> (unchanged geometry). This sheet only adds motion.</p>
+
+  <h2>1 · Animated hero (18s loop)</h2>
+  <div class="panel hero">
+    <div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 -30 180 180" width="1024" height="1024"
+     id="gg-anim" role="img" aria-label="YAZIMAO Genesis Gauntlet, animated: a genesis hand emerges from particles, assembles into a creation gauntlet, seven genesis nodes ignite and form a constellation, and the feather appears in the energy core">
+  <title>YAZIMAO Genesis Gauntlet (animated)</title>
+  <desc>18 second hero loop. Particles converge, the two halves of the gauntlet assemble, seven genesis crystals ignite in order 1 to 7 and link into a decentralized constellation, then the YAZIMAO feather materialises inside the energy core.</desc>
+
+  <style>
+    /* ambient particle drift, 18s cycle keeps it in sync with the build */
+    .gg-p {
+      transform-box: fill-box;
+      animation: gg-drift 18s linear infinite;
+    }
+    @keyframes gg-drift {
+      0%   { opacity: 0;    transform: translate(var(--dx), var(--dy)) scale(0.5); }
+      14%  { opacity: 0.85; }
+      52%  { opacity: 0.5;  transform: translate(calc(var(--dx) * 0.25), calc(var(--dy) * 0.25)) scale(0.95); }
+      88%  { opacity: 0.12; transform: translate(0px, 0px) scale(1); }
+      100% { opacity: 0;    transform: translate(0px, 0px) scale(1); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .gg-p { animation: none; opacity: 0; }
+    }
+  </style>
+
+  <defs>
+    <linearGradient id="gg-plate" x1="0.1" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.48" stop-color="#D3DCEC"/>
+      <stop offset="1" stop-color="#8B9CB6"/>
+    </linearGradient>
+    <linearGradient id="gg-plate2" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#EEF3FB"/>
+      <stop offset="1" stop-color="#9DB0C9"/>
+    </linearGradient>
+    <radialGradient id="gg-aura" cx="0.5" cy="0.42" r="0.56">
+      <stop offset="0" stop-color="#22D3EE" stop-opacity="0.24"/>
+      <stop offset="0.55" stop-color="#A78BFA" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gg-core" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#7DF9FF" stop-opacity="0.75"/>
+      <stop offset="0.42" stop-color="#22D3EE" stop-opacity="0.30"/>
+      <stop offset="0.75" stop-color="#A78BFA" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gg-halo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#04060B" stop-opacity="0.6"/>
+      <stop offset="0.7" stop-color="#04060B" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#04060B" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gg-feather" x1="0.15" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.58" stop-color="#F5F8FF"/>
+      <stop offset="1" stop-color="#B4C1D6"/>
+    </linearGradient>
+    <linearGradient id="gg-cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7DF9FF"/>
+      <stop offset="1" stop-color="#22D3EE"/>
+    </linearGradient>
+    <linearGradient id="gg-violet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#C4B5FD"/>
+      <stop offset="1" stop-color="#A78BFA"/>
+    </linearGradient>
+
+    <filter id="gg-bloom" x="-160%" y="-160%" width="420%" height="420%">
+      <feGaussianBlur stdDeviation="1.6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="gg-bloom-soft" x="-160%" y="-160%" width="420%" height="420%">
+      <feGaussianBlur stdDeviation="2.6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <path id="gg-hex" d="M0 -3.4 L2.94 -1.7 L2.94 1.7 L0 3.4 L-2.94 1.7 L-2.94 -1.7 Z"/>
+
+    <!-- two halves of the same gauntlet: clipped, then slid in from both sides -->
+    <clipPath id="gg-clip-left"><rect x="-40" y="-40" width="100" height="200"/></clipPath>
+    <clipPath id="gg-clip-right"><rect x="60" y="-40" width="100" height="200"/></clipPath>
+
+    <!-- gauntlet body (geometry identical to brand/genesis-gauntlet/export/primary-512.svg) -->
+    <g id="gg-body">
+      <g fill="url(#gg-plate)">
+        <path d="M31.5 64.5 L31.5 34 L35.5 30 L40.5 30 L44.5 34 L44.5 64.5 Z"/>
+        <path d="M64.5 64.5 L64.5 30 L68.5 26 L73.5 26 L77.5 30 L77.5 64.5 Z"/>
+        <path d="M81 64.5 L81 42 L85 38 L90 38 L94 42 L94 64.5 Z"/>
+      </g>
+      <g fill="url(#gg-plate2)">
+        <path d="M48 64.5 L48 26 L52 22 L57 22 L61 26 L61 64.5 Z"/>
+      </g>
+      <path fill="url(#gg-plate)" d="M34 67 L34 76 L28.5 81.5 L28.5 87 L34.5 94.5 L85.5 94.5 L91.5 87 L91.5 81.5 L86 76 L86 67 Z"/>
+      <path fill="url(#gg-plate)" d="M35 97 L30 103 L30 111 L36.5 118 L83.5 118 L90 111 L90 103 L85 97 Z"/>
+
+      <!-- seven genesis nodes; each ignites in order 1..7 -->
+      <g filter="url(#gg-bloom)">
+        <use href="#gg-hex" transform="translate(38 36)" fill="#22D3EE">
+          <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+                   keyTimes="0;0.2778;0.2889;0.92;1" values="0;0;1;1;0"
+                   keySplines="0 0 1 1;0.2 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+          <animateTransform attributeName="transform" type="scale" additive="sum" dur="18s" repeatCount="indefinite" calcMode="spline"
+                   keyTimes="0;0.2778;0.2889;0.3056;0.92;1" values="0.3;0.3;1.18;1;1;0.3"
+                   keySplines="0 0 1 1;0.2 0 0.2 1;0.3 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+        </use>
+        <use href="#gg-hex" transform="translate(54.5 28)" fill="#22D3EE">
+          <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+                   keyTimes="0;0.3094;0.3206;0.92;1" values="0;0;1;1;0"
+                   keySplines="0 0 1 1;0.2 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+          <animateTransform attributeName="transform" type="scale" additive="sum" dur="18s" repeatCount="indefinite" calcMode="spline"
+                   keyTimes="0;0.3094;0.3206;0.3372;0.92;1" values="0.3;0.3;1.18;1;1;0.3"
+                   keySplines="0 0 1 1;0.2 0 0.2 1;0.3 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+        </use>
+        <use href="#gg-hex" transform="translate(71 32)" fill="#22D3EE">
+          <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+                   keyTimes="0;0.3411;0.3522;0.92;1" values="0;0;1;1;0"
+                   keySplines="0 0 1 1;0.2 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+          <animateTransform attributeName="transform" type="scale" additive="sum" dur="18s" repeatCount="indefinite" calcMode="spline"
+                   keyTimes="0;0.3411;0.3522;0.3689;0.92;1" values="0.3;0.3;1.18;1;1;0.3"
+                   keySplines="0 0 1 1;0.2 0 0.2 1;0.3 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+        </use>
+        <use href="#gg-hex" transform="translate(87.5 44)" fill="#22D3EE">
+          <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+                   keyTimes="0;0.3728;0.3839;0.92;1" values="0;0;1;1;0"
+                   keySplines="0 0 1 1;0.2 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+          <animateTransform attributeName="transform" type="scale" additive="sum" dur="18s" repeatCount="indefinite" calcMode="spline"
+                   keyTimes="0;0.3728;0.3839;0.4006;0.92;1" values="0.3;0.3;1.18;1;1;0.3"
+                   keySplines="0 0 1 1;0.2 0 0.2 1;0.3 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+        </use>
+        <use href="#gg-hex" transform="translate(42 86)" fill="#A78BFA">
+          <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+                   keyTimes="0;0.4044;0.4156;0.92;1" values="0;0;1;1;0"
+                   keySplines="0 0 1 1;0.2 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+          <animateTransform attributeName="transform" type="scale" additive="sum" dur="18s" repeatCount="indefinite" calcMode="spline"
+                   keyTimes="0;0.4044;0.4156;0.4322;0.92;1" values="0.3;0.3;1.18;1;1;0.3"
+                   keySplines="0 0 1 1;0.2 0 0.2 1;0.3 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+        </use>
+        <use href="#gg-hex" transform="translate(78 86)" fill="#A78BFA">
+          <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+                   keyTimes="0;0.4361;0.4472;0.92;1" values="0;0;1;1;0"
+                   keySplines="0 0 1 1;0.2 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+          <animateTransform attributeName="transform" type="scale" additive="sum" dur="18s" repeatCount="indefinite" calcMode="spline"
+                   keyTimes="0;0.4361;0.4472;0.4639;0.92;1" values="0.3;0.3;1.18;1;1;0.3"
+                   keySplines="0 0 1 1;0.2 0 0.2 1;0.3 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+        </use>
+        <use href="#gg-hex" transform="translate(60 107)" fill="#A78BFA">
+          <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+                   keyTimes="0;0.4678;0.4789;0.92;1" values="0;0;1;1;0"
+                   keySplines="0 0 1 1;0.2 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+          <animateTransform attributeName="transform" type="scale" additive="sum" dur="18s" repeatCount="indefinite" calcMode="spline"
+                   keyTimes="0;0.4678;0.4789;0.4956;0.92;1" values="0.3;0.3;1.18;1;1;0.3"
+                   keySplines="0 0 1 1;0.2 0 0.2 1;0.3 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+        </use>
+      </g>
+    </g>
+  </defs>
+
+  <!-- ============================================================
+       STAGE
+       ============================================================ -->
+  <ellipse cx="60" cy="56" rx="43" ry="46" fill="url(#gg-aura)"/>
+
+  <!-- 3 · energy core glow sits BEHIND the armour so the plates keep their silver fill -->
+  <g filter="url(#gg-bloom-soft)">
+    <circle cx="60" cy="48" r="30" fill="url(#gg-core)">
+      <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+        keyTimes="0;0.1889;0.2778;0.9167;1" values="0;0;0.72;0.72;0"
+        keySplines="0 0 1 1;0.25 0.1 0.25 1;0 0 1 1;0.4 0 0.6 1"/>
+    </circle>
+  </g>
+
+  <!-- 1 · particles emerge and converge -->
+  <g fill="#BFE9F5">
+    <circle class="gg-p" cx="8"   cy="18"  r="0.9" style="--dx:-16px; --dy:-14px; animation-delay:-0.4s"/>
+    <circle class="gg-p" cx="-6"  cy="46"  r="0.7" style="--dx:-22px; --dy:2px;   animation-delay:-2.1s"/>
+    <circle class="gg-p" cx="4"   cy="82"  r="1"   style="--dx:-18px; --dy:16px;  animation-delay:-4.6s"/>
+    <circle class="gg-p" cx="18"  cy="112" r="0.8" style="--dx:-12px; --dy:22px;  animation-delay:-7.2s"/>
+    <circle class="gg-p" cx="46"  cy="132" r="0.9" style="--dx:-2px;  --dy:26px;  animation-delay:-9.4s"/>
+    <circle class="gg-p" cx="84"  cy="134" r="0.7" style="--dx:6px;   --dy:26px;  animation-delay:-3.3s"/>
+    <circle class="gg-p" cx="114" cy="116" r="1"   style="--dx:14px;  --dy:22px;  animation-delay:-6.1s"/>
+    <circle class="gg-p" cx="132" cy="86"  r="0.8" style="--dx:20px;  --dy:14px;  animation-delay:-11.5s"/>
+    <circle class="gg-p" cx="140" cy="50"  r="0.9" style="--dx:24px;  --dy:2px;   animation-delay:-8.3s"/>
+    <circle class="gg-p" cx="126" cy="16"  r="0.7" style="--dx:18px;  --dy:-14px; animation-delay:-13.1s"/>
+    <circle class="gg-p" cx="92"  cy="-2"  r="1"   style="--dx:10px;  --dy:-20px; animation-delay:-1.5s"/>
+    <circle class="gg-p" cx="54"  cy="-10" r="0.8" style="--dx:0px;   --dy:-24px; animation-delay:-5.4s"/>
+    <circle class="gg-p" cx="22"  cy="-2"  r="0.9" style="--dx:-10px; --dy:-20px; animation-delay:-10.2s"/>
+    <circle class="gg-p" cx="12"  cy="60"  r="0.6" style="--dx:-18px; --dy:6px;   animation-delay:-14.8s"/>
+    <circle class="gg-p" cx="108" cy="62"  r="0.6" style="--dx:18px;  --dy:6px;   animation-delay:-16.3s"/>
+    <circle class="gg-p" cx="60"  cy="146" r="0.7" style="--dx:0px;   --dy:22px;  animation-delay:-12.2s"/>
+  </g>
+
+  <!-- 2 · the hand assembles: left half, right half, thumb plate -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" dur="18s" repeatCount="indefinite" calcMode="spline"
+      keyTimes="0;0.0667;0.2667;0.9167;1" values="-24 12;-24 12;0 0;0 0;-24 12"
+      keySplines="0 0 1 1;0.22 0.08 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+    <g>
+      <animateTransform attributeName="transform" type="rotate" dur="18s" repeatCount="indefinite" calcMode="spline"
+        keyTimes="0;0.0667;0.2667;0.9167;1" values="-4 60 60;-4 60 60;0 60 60;0 60 60;-4 60 60"
+        keySplines="0 0 1 1;0.22 0.08 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+      <g>
+        <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+          keyTimes="0;0.0667;0.2222;0.9167;1" values="0;0;1;1;0"
+          keySplines="0 0 1 1;0.3 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+        <g clip-path="url(#gg-clip-left)"><use href="#gg-body"/></g>
+      </g>
+    </g>
+  </g>
+  <g>
+    <animateTransform attributeName="transform" type="translate" dur="18s" repeatCount="indefinite" calcMode="spline"
+      keyTimes="0;0.0667;0.2667;0.9167;1" values="24 12;24 12;0 0;0 0;24 12"
+      keySplines="0 0 1 1;0.22 0.08 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+    <g>
+      <animateTransform attributeName="transform" type="rotate" dur="18s" repeatCount="indefinite" calcMode="spline"
+        keyTimes="0;0.0667;0.2667;0.9167;1" values="4 60 60;4 60 60;0 60 60;0 60 60;4 60 60"
+        keySplines="0 0 1 1;0.22 0.08 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+      <g>
+        <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+          keyTimes="0;0.0667;0.2222;0.9167;1" values="0;0;1;1;0"
+          keySplines="0 0 1 1;0.3 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+        <g clip-path="url(#gg-clip-right)"><use href="#gg-body"/></g>
+      </g>
+    </g>
+  </g>
+  <g>
+    <animateTransform attributeName="transform" type="translate" dur="18s" repeatCount="indefinite" calcMode="spline"
+      keyTimes="0;0.1444;0.3111;0.9167;1" values="-14 16;-14 16;0 0;0 0;-14 16"
+      keySplines="0 0 1 1;0.22 0.08 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+    <g transform="rotate(-9 16 70)">
+      <animateTransform attributeName="transform" type="rotate" dur="18s" repeatCount="indefinite" calcMode="spline" additive="sum"
+        keyTimes="0;0.1444;0.3111;0.9167;1" values="-9 16 70;-9 16 70;0 16 70;0 16 70;-9 16 70"
+        keySplines="0 0 1 1;0.22 0.08 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+      <g>
+        <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+          keyTimes="0;0.1444;0.2778;0.9167;1" values="0;0;1;1;0"
+          keySplines="0 0 1 1;0.3 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+        <path fill="url(#gg-plate2)" d="M24.5 82.5 L5 63 L8.5 56 L27.5 70 Z"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- energy core rings: thin lines kept above the armour -->
+  <g id="gg-core-group">
+    <g>
+      <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+        keyTimes="0;0.2;0.2889;0.9167;1" values="0;0;0.9;0.9;0"
+        keySplines="0 0 1 1;0.3 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+      <circle cx="60" cy="48" r="25.5" fill="none" stroke="url(#gg-cyan)" stroke-width="0.7" opacity="0.85" pathLength="1"
+              stroke-dasharray="1 1">
+        <animate attributeName="stroke-dashoffset" dur="18s" repeatCount="indefinite" calcMode="spline"
+          keyTimes="0;0.2333;0.3111;0.9167;1" values="1;1;0;0;1"
+          keySplines="0 0 1 1;0.3 0 0.25 1;0 0 1 1;0.4 0 0.6 1"/>
+      </circle>
+      <g>
+        <animateTransform attributeName="transform" type="rotate" dur="54s" repeatCount="indefinite"
+          from="0 60 48" to="360 60 48"/>
+        <circle cx="60" cy="48" r="31" fill="none" stroke="#7DF9FF" stroke-width="0.45" opacity="0.4"
+                stroke-dasharray="1.6 5.4" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- 4 · the seven lights link into a decentralized constellation -->
+  <g stroke="url(#gg-cyan)" stroke-width="0.42" stroke-linecap="round" pathLength="1" fill="none">
+    <line x1="38" y1="36" x2="54.5" y2="28" stroke-dasharray="1 1">
+      <animate attributeName="stroke-dashoffset" dur="18s" repeatCount="indefinite" calcMode="spline"
+        keyTimes="0;0.3167;0.3667;0.9167;1" values="1;1;0;0;1"
+        keySplines="0 0 1 1;0.3 0 0.25 1;0 0 1 1;0.4 0 0.6 1"/>
+      <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+        keyTimes="0;0.3167;0.3222;0.9167;1" values="0;0;1;1;0"
+        keySplines="0 0 1 1;0.3 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+    </line>
+    <line x1="54.5" y1="28" x2="71" y2="32" stroke-dasharray="1 1">
+      <animate attributeName="stroke-dashoffset" dur="18s" repeatCount="indefinite" calcMode="spline"
+        keyTimes="0;0.3483;0.3983;0.9167;1" values="1;1;0;0;1"
+        keySplines="0 0 1 1;0.3 0 0.25 1;0 0 1 1;0.4 0 0.6 1"/>
+      <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+        keyTimes="0;0.3483;0.3539;0.9167;1" values="0;0;1;1;0"
+        keySplines="0 0 1 1;0.3 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+    </line>
+    <line x1="71" y1="32" x2="87.5" y2="44" stroke-dasharray="1 1">
+      <animate attributeName="stroke-dashoffset" dur="18s" repeatCount="indefinite" calcMode="spline"
+        keyTimes="0;0.38;0.43;0.9167;1" values="1;1;0;0;1"
+        keySplines="0 0 1 1;0.3 0 0.25 1;0 0 1 1;0.4 0 0.6 1"/>
+      <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+        keyTimes="0;0.38;0.3856;0.9167;1" values="0;0;1;1;0"
+        keySplines="0 0 1 1;0.3 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+    </line>
+    <line x1="87.5" y1="44" x2="78" y2="86" stroke-dasharray="1 1">
+      <animate attributeName="stroke-dashoffset" dur="18s" repeatCount="indefinite" calcMode="spline"
+        keyTimes="0;0.4444;0.4944;0.9167;1" values="1;1;0;0;1"
+        keySplines="0 0 1 1;0.3 0 0.25 1;0 0 1 1;0.4 0 0.6 1"/>
+      <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+        keyTimes="0;0.4444;0.45;0.9167;1" values="0;0;1;1;0"
+        keySplines="0 0 1 1;0.3 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+    </line>
+    <line x1="78" y1="86" x2="60" y2="107" stroke-dasharray="1 1">
+      <animate attributeName="stroke-dashoffset" dur="18s" repeatCount="indefinite" calcMode="spline"
+        keyTimes="0;0.475;0.525;0.9167;1" values="1;1;0;0;1"
+        keySplines="0 0 1 1;0.3 0 0.25 1;0 0 1 1;0.4 0 0.6 1"/>
+      <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+        keyTimes="0;0.475;0.4806;0.9167;1" values="0;0;1;1;0"
+        keySplines="0 0 1 1;0.3 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+    </line>
+    <line x1="60" y1="107" x2="42" y2="86" stroke-dasharray="1 1">
+      <animate attributeName="stroke-dashoffset" dur="18s" repeatCount="indefinite" calcMode="spline"
+        keyTimes="0;0.4833;0.5333;0.9167;1" values="1;1;0;0;1"
+        keySplines="0 0 1 1;0.3 0 0.25 1;0 0 1 1;0.4 0 0.6 1"/>
+      <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+        keyTimes="0;0.4833;0.4889;0.9167;1" values="0;0;1;1;0"
+        keySplines="0 0 1 1;0.3 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+    </line>
+    <line x1="42" y1="86" x2="38" y2="36" stroke-dasharray="1 1">
+      <animate attributeName="stroke-dashoffset" dur="18s" repeatCount="indefinite" calcMode="spline"
+        keyTimes="0;0.4167;0.4667;0.9167;1" values="1;1;0;0;1"
+        keySplines="0 0 1 1;0.3 0 0.25 1;0 0 1 1;0.4 0 0.6 1"/>
+      <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+        keyTimes="0;0.4167;0.4222;0.9167;1" values="0;0;1;1;0"
+        keySplines="0 0 1 1;0.3 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+    </line>
+  </g>
+  <!-- cross links: a mesh, not a chain -->
+  <g stroke="url(#gg-violet)" stroke-width="0.34" stroke-linecap="round" pathLength="1" fill="none" opacity="0.85">
+    <line x1="54.5" y1="28" x2="78" y2="86" stroke-dasharray="1 1">
+      <animate attributeName="stroke-dashoffset" dur="18s" repeatCount="indefinite" calcMode="spline"
+        keyTimes="0;0.5;0.55;0.9167;1" values="1;1;0;0;1"
+        keySplines="0 0 1 1;0.3 0 0.25 1;0 0 1 1;0.4 0 0.6 1"/>
+      <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+        keyTimes="0;0.5;0.5056;0.9167;1" values="0;0;1;1;0"
+        keySplines="0 0 1 1;0.3 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+    </line>
+    <line x1="71" y1="32" x2="42" y2="86" stroke-dasharray="1 1">
+      <animate attributeName="stroke-dashoffset" dur="18s" repeatCount="indefinite" calcMode="spline"
+        keyTimes="0;0.5111;0.5611;0.9167;1" values="1;1;0;0;1"
+        keySplines="0 0 1 1;0.3 0 0.25 1;0 0 1 1;0.4 0 0.6 1"/>
+      <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+        keyTimes="0;0.5111;0.5167;0.9167;1" values="0;0;1;1;0"
+        keySplines="0 0 1 1;0.3 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+    </line>
+    <line x1="87.5" y1="44" x2="60" y2="107" stroke-dasharray="1 1">
+      <animate attributeName="stroke-dashoffset" dur="18s" repeatCount="indefinite" calcMode="spline"
+        keyTimes="0;0.5222;0.5722;0.9167;1" values="1;1;0;0;1"
+        keySplines="0 0 1 1;0.3 0 0.25 1;0 0 1 1;0.4 0 0.6 1"/>
+      <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+        keyTimes="0;0.5222;0.5278;0.9167;1" values="0;0;1;1;0"
+        keySplines="0 0 1 1;0.3 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+    </line>
+  </g>
+
+  <!-- 5 · the feather appears inside the energy core -->
+  <g>
+    <!-- dark silhouette hugging the feather outline: separation without dimming the plates -->
+    <path d="M60 12 C 47 32, 44.5 64, 60 94 C 75.5 64, 73 32, 60 12 Z"
+          transform="translate(27 18.4) scale(0.55)" fill="#04060B" stroke="#04060B" stroke-width="6">
+      <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+        keyTimes="0;0.5444;0.5778;0.9167;1" values="0;0;0.82;0.82;0"
+        keySplines="0 0 1 1;0.3 0 0.25 1;0 0 1 1;0.4 0 0.6 1"/>
+    </path>
+
+    <g transform="translate(27 18.4) scale(0.55)">
+      <!-- outline drawn first -->
+      <g>
+        <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+          keyTimes="0;0.55;0.5722;0.9167;1" values="0;0;1;1;0"
+          keySplines="0 0 1 1;0.3 0 0.25 1;0 0 1 1;0.4 0 0.6 1"/>
+        <path d="M60 12 C 47 32, 44.5 64, 60 94 C 75.5 64, 73 32, 60 12 Z" fill="none"
+              stroke="#DCE6F5" stroke-width="2.2" pathLength="1" stroke-dasharray="1 1">
+          <animate attributeName="stroke-dashoffset" dur="18s" repeatCount="indefinite" calcMode="spline"
+            keyTimes="0;0.5556;0.6778;0.9167;1" values="1;1;0;0;1"
+            keySplines="0 0 1 1;0.32 0.06 0.24 1;0 0 1 1;0.4 0 0.6 1"/>
+        </path>
+      </g>
+      <!-- then the body fills in -->
+      <g>
+        <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+          keyTimes="0;0.6778;0.7444;0.9167;1" values="0;0;1;1;0"
+          keySplines="0 0 1 1;0.3 0 0.25 1;0 0 1 1;0.4 0 0.6 1"/>
+        <path d="M60 12 C 47 32, 44.5 64, 60 94 C 75.5 64, 73 32, 60 12 Z" fill="url(#gg-feather)"/>
+        <g stroke="#8FA0B8" stroke-width="0.95" stroke-linecap="round" opacity="0.5">
+          <path d="M60 38 L52.5 34"/>
+          <path d="M60 38 L67.5 34"/>
+          <path d="M60 62 L52.5 58"/>
+          <path d="M60 62 L67.5 58"/>
+        </g>
+        <path d="M60 88 L60 16" stroke="#7C8AA3" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+      </g>
+      <!-- recorded, connected, verified -->
+      <g stroke="url(#gg-cyan)" stroke-width="1" stroke-linecap="round" opacity="0.95">
+        <path d="M62.6 30 L57.4 45" pathLength="1" stroke-dasharray="1 1">
+          <animate attributeName="stroke-dashoffset" dur="18s" repeatCount="indefinite" calcMode="spline"
+            keyTimes="0;0.7222;0.7667;0.9167;1" values="1;1;0;0;1"
+            keySplines="0 0 1 1;0.3 0 0.25 1;0 0 1 1;0.4 0 0.6 1"/>
+        </path>
+        <path d="M57.4 45 L62.6 60" pathLength="1" stroke-dasharray="1 1">
+          <animate attributeName="stroke-dashoffset" dur="18s" repeatCount="indefinite" calcMode="spline"
+            keyTimes="0;0.7444;0.7889;0.9167;1" values="1;1;0;0;1"
+            keySplines="0 0 1 1;0.3 0 0.25 1;0 0 1 1;0.4 0 0.6 1"/>
+        </path>
+        <path d="M62.6 60 L57.4 75" pathLength="1" stroke-dasharray="1 1">
+          <animate attributeName="stroke-dashoffset" dur="18s" repeatCount="indefinite" calcMode="spline"
+            keyTimes="0;0.7667;0.8111;0.9167;1" values="1;1;0;0;1"
+            keySplines="0 0 1 1;0.3 0 0.25 1;0 0 1 1;0.4 0 0.6 1"/>
+        </path>
+      </g>
+      <g fill="url(#gg-cyan)" filter="url(#gg-bloom)">
+        <circle cx="62.6" cy="30" r="2">
+          <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+            keyTimes="0;0.7222;0.7333;0.9167;1" values="0;0;1;1;0"
+            keySplines="0 0 1 1;0.3 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+        </circle>
+        <circle cx="57.4" cy="45" r="2">
+          <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+            keyTimes="0;0.7444;0.7556;0.9167;1" values="0;0;1;1;0"
+            keySplines="0 0 1 1;0.3 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+        </circle>
+        <circle cx="62.6" cy="60" r="2">
+          <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+            keyTimes="0;0.7667;0.7778;0.9167;1" values="0;0;1;1;0"
+            keySplines="0 0 1 1;0.3 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+        </circle>
+        <circle cx="57.4" cy="75" r="2">
+          <animate attributeName="opacity" dur="18s" repeatCount="indefinite" calcMode="spline"
+            keyTimes="0;0.7889;0.8;0.9167;1" values="0;0;1;1;0"
+            keySplines="0 0 1 1;0.3 0 0.2 1;0 0 1 1;0.4 0 0.6 1"/>
+        </circle>
+      </g>
+    </g>
+  </g>
+</svg>
+
+      <div class="ctl">
+        <button id="play" class="on">▮▮ pause</button>
+        <button data-t="0">0s · particles</button>
+        <button data-t="3">3s · assembling</button>
+        <button data-t="5.6">5.6s · 1st + 2nd node</button>
+        <button data-t="7.3">7.3s · 5th node</button>
+        <button data-t="8.5">8.5s · 7th node</button>
+        <button data-t="10">10s · constellation</button>
+        <button data-t="13">13s · feather core</button>
+        <button data-t="15.5">15.5s · hold</button>
+      </div>
+      <p class="note" style="margin-top:12px">Scrub with the buttons (uses <code>setCurrentTime</code>). Autoplay runs the real SMIL timeline.</p>
+    </div>
+    <div>
+      <p class="note"><b>Sequence</b></p>
+      <table>
+        <tr><th>t</th><th>beat</th></tr>
+        <tr><td>0.0–3.0s</td><td>Genesis hand emerges from drifting particles</td></tr>
+        <tr><td>1.2–5.0s</td><td>Two halves slide in and lock into the gauntlet</td></tr>
+        <tr><td>2.6–5.6s</td><td>Thumb plate seats; plate gaps never open</td></tr>
+        <tr><td>3.4–5.6s</td><td>Energy core ignites, ring draws</td></tr>
+        <tr><td>5.0–9.3s</td><td>Seven genesis crystals ignite, 1st → 7th (0.57s apart)</td></tr>
+        <tr><td>5.7–10.3s</td><td>Constellation draws: 7 links + 3 cross links</td></tr>
+        <tr><td>10.0–13.4s</td><td>Feather outline draws, then fills, inside the core</td></tr>
+        <tr><td>13.0–14.6s</td><td>Feather node chain ignites (recorded → connected → verified)</td></tr>
+        <tr><td>14.6–16.5s</td><td>Hold (breathing core, drifting particles)</td></tr>
+        <tr><td>16.5–18.0s</td><td>Ease out, loop</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h2>2 · Seven genesis nodes — ignition order</h2>
+  <div class="panel">
+    <table>
+      <tr><th>#</th><th>position (120-unit)</th><th>colour</th><th>ignites at</th></tr>
+      <tr><td>1</td><td>38, 36 — index finger plate</td><td><span class="dot" style="background:#22D3EE"></span>cyan</td><td>5.00s</td></tr>
+      <tr><td>2</td><td>54.5, 28 — middle finger plate</td><td><span class="dot" style="background:#22D3EE"></span>cyan</td><td>5.57s</td></tr>
+      <tr><td>3</td><td>71, 32 — ring finger plate</td><td><span class="dot" style="background:#22D3EE"></span>cyan</td><td>6.14s</td></tr>
+      <tr><td>4</td><td>87.5, 44 — little finger plate</td><td><span class="dot" style="background:#22D3EE"></span>cyan</td><td>6.71s</td></tr>
+      <tr><td>5</td><td>42, 86 — hand plate (left)</td><td><span class="dot" style="background:#A78BFA"></span>violet</td><td>7.28s</td></tr>
+      <tr><td>6</td><td>78, 86 — hand plate (right)</td><td><span class="dot" style="background:#A78BFA"></span>violet</td><td>7.85s</td></tr>
+      <tr><td>7</td><td>60, 107 — forearm cuff</td><td><span class="dot" style="background:#A78BFA"></span>violet</td><td>8.42s</td></tr>
+    </table>
+    <p class="note" style="margin-top:12px">Crystals are one hexagon (<code>#gg-hex</code>) reused seven times, so the ignition order is the only thing that changes per node.</p>
+  </div>
+
+  <h2>3 · Final state (static, for reduced motion / posters)</h2>
+  <div class="panel static" style="max-width:520px">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 -30 180 180" width="1024" height="1024"
+     role="img" aria-label="YAZIMAO Genesis Gauntlet, final state">
+  <title>YAZIMAO Genesis Gauntlet (final state)</title>
+  <desc>Static final frame of the Genesis Gauntlet hero animation: gauntlet assembled, seven genesis nodes lit and linked, feather inside the energy core.</desc>
+
+  <defs>
+    <linearGradient id="fs-plate" x1="0.1" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.48" stop-color="#D3DCEC"/>
+      <stop offset="1" stop-color="#8B9CB6"/>
+    </linearGradient>
+    <linearGradient id="fs-plate2" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#EEF3FB"/>
+      <stop offset="1" stop-color="#9DB0C9"/>
+    </linearGradient>
+    <radialGradient id="fs-aura" cx="0.5" cy="0.42" r="0.56">
+      <stop offset="0" stop-color="#22D3EE" stop-opacity="0.24"/>
+      <stop offset="0.55" stop-color="#A78BFA" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="fs-core" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#7DF9FF" stop-opacity="0.7"/>
+      <stop offset="0.42" stop-color="#22D3EE" stop-opacity="0.28"/>
+      <stop offset="0.75" stop-color="#A78BFA" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="fs-halo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#04060B" stop-opacity="0.5"/>
+      <stop offset="0.72" stop-color="#04060B" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#04060B" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fs-feather" x1="0.15" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.58" stop-color="#F5F8FF"/>
+      <stop offset="1" stop-color="#B4C1D6"/>
+    </linearGradient>
+    <linearGradient id="fs-cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7DF9FF"/>
+      <stop offset="1" stop-color="#22D3EE"/>
+    </linearGradient>
+    <linearGradient id="fs-violet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#C4B5FD"/>
+      <stop offset="1" stop-color="#A78BFA"/>
+    </linearGradient>
+    <filter id="fs-bloom" x="-160%" y="-160%" width="420%" height="420%">
+      <feGaussianBlur stdDeviation="1.6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="fs-bloom-soft" x="-160%" y="-160%" width="420%" height="420%">
+      <feGaussianBlur stdDeviation="2.6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <path id="fs-hex" d="M0 -3.4 L2.94 -1.7 L2.94 1.7 L0 3.4 L-2.94 1.7 L-2.94 -1.7 Z"/>
+  </defs>
+
+  <ellipse cx="60" cy="56" rx="43" ry="46" fill="url(#fs-aura)"/>
+
+  <!-- energy core glow sits BEHIND the armour so the plates keep their silver fill -->
+  <g filter="url(#fs-bloom-soft)">
+    <circle cx="60" cy="48" r="30" fill="url(#fs-core)" opacity="0.72"/>
+  </g>
+
+  <!-- constellation: seven lights, one decentralized mesh -->
+  <g stroke="url(#fs-cyan)" stroke-width="0.42" stroke-linecap="round" fill="none">
+    <line x1="38" y1="36" x2="54.5" y2="28"/>
+    <line x1="54.5" y1="28" x2="71" y2="32"/>
+    <line x1="71" y1="32" x2="87.5" y2="44"/>
+    <line x1="87.5" y1="44" x2="78" y2="86"/>
+    <line x1="78" y1="86" x2="60" y2="107"/>
+    <line x1="60" y1="107" x2="42" y2="86"/>
+    <line x1="42" y1="86" x2="38" y2="36"/>
+  </g>
+  <g stroke="url(#fs-violet)" stroke-width="0.34" stroke-linecap="round" fill="none" opacity="0.85">
+    <line x1="54.5" y1="28" x2="78" y2="86"/>
+    <line x1="71" y1="32" x2="42" y2="86"/>
+    <line x1="87.5" y1="44" x2="60" y2="107"/>
+  </g>
+
+  <!-- gauntlet -->
+  <g fill="url(#fs-plate)">
+    <path d="M31.5 64.5 L31.5 34 L35.5 30 L40.5 30 L44.5 34 L44.5 64.5 Z"/>
+    <path d="M64.5 64.5 L64.5 30 L68.5 26 L73.5 26 L77.5 30 L77.5 64.5 Z"/>
+    <path d="M81 64.5 L81 42 L85 38 L90 38 L94 42 L94 64.5 Z"/>
+  </g>
+  <g fill="url(#fs-plate2)">
+    <path d="M48 64.5 L48 26 L52 22 L57 22 L61 26 L61 64.5 Z"/>
+  </g>
+  <path fill="url(#fs-plate)" d="M34 67 L34 76 L28.5 81.5 L28.5 87 L34.5 94.5 L85.5 94.5 L91.5 87 L91.5 81.5 L86 76 L86 67 Z"/>
+  <path fill="url(#fs-plate2)" d="M24.5 82.5 L5 63 L8.5 56 L27.5 70 Z"/>
+  <path fill="url(#fs-plate)" d="M35 97 L30 103 L30 111 L36.5 118 L83.5 118 L90 111 L90 103 L85 97 Z"/>
+
+  <!-- energy core rings stay above the armour -->
+  <circle cx="60" cy="48" r="25.5" fill="none" stroke="url(#fs-cyan)" stroke-width="0.7" opacity="0.85"/>
+  <circle cx="60" cy="48" r="31" fill="none" stroke="#7DF9FF" stroke-width="0.45" opacity="0.4"
+          stroke-dasharray="1.6 5.4" stroke-linecap="round"/>
+  <circle cx="60" cy="48" r="26" fill="url(#fs-halo)" opacity="0.55"/>
+
+  <g transform="translate(27 18.4) scale(0.55)">
+    <path d="M60 12 C 47 32, 44.5 64, 60 94 C 75.5 64, 73 32, 60 12 Z" fill="#04060B" stroke="#04060B" stroke-width="6" opacity="0.82"/>
+    <path d="M60 12 C 47 32, 44.5 64, 60 94 C 75.5 64, 73 32, 60 12 Z" fill="url(#fs-feather)"/>
+    <g stroke="#8FA0B8" stroke-width="0.95" stroke-linecap="round" opacity="0.5">
+      <path d="M60 38 L52.5 34"/>
+      <path d="M60 38 L67.5 34"/>
+      <path d="M60 62 L52.5 58"/>
+      <path d="M60 62 L67.5 58"/>
+    </g>
+    <path d="M60 88 L60 16" stroke="#7C8AA3" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+    <g stroke="url(#fs-cyan)" stroke-width="1" stroke-linecap="round" opacity="0.95">
+      <path d="M62.6 30 L57.4 45"/>
+      <path d="M57.4 45 L62.6 60"/>
+      <path d="M62.6 60 L57.4 75"/>
+    </g>
+    <g fill="url(#fs-cyan)" filter="url(#fs-bloom)">
+      <circle cx="62.6" cy="30" r="2"/>
+      <circle cx="57.4" cy="45" r="2"/>
+      <circle cx="62.6" cy="60" r="2"/>
+      <circle cx="57.4" cy="75" r="2"/>
+    </g>
+  </g>
+
+  <!-- seven genesis nodes -->
+  <g filter="url(#fs-bloom)">
+    <use href="#fs-hex" transform="translate(38 36)" fill="#22D3EE"/>
+    <use href="#fs-hex" transform="translate(54.5 28)" fill="#22D3EE"/>
+    <use href="#fs-hex" transform="translate(71 32)" fill="#22D3EE"/>
+    <use href="#fs-hex" transform="translate(87.5 44)" fill="#22D3EE"/>
+    <use href="#fs-hex" transform="translate(42 86)" fill="#A78BFA"/>
+    <use href="#fs-hex" transform="translate(78 86)" fill="#A78BFA"/>
+    <use href="#fs-hex" transform="translate(60 107)" fill="#A78BFA"/>
+  </g>
+</svg>
+
+  </div>
+
+  <h2>4 · Sizes (animated, live)</h2>
+  <div class="panel row">
+    <div><img src="yazimao-genesis-gauntlet.svg" width="256" height="256" alt=""><div class="lbl">256px</div></div>
+    <div><img src="yazimao-genesis-gauntlet.svg" width="160" height="160" alt=""><div class="lbl">160px</div></div>
+    <div><img src="yazimao-genesis-gauntlet.svg" width="96" height="96" alt=""><div class="lbl">96px</div></div>
+    <div><img src="yazimao-genesis-gauntlet.svg" width="64" height="64" alt=""><div class="lbl">64px</div></div>
+  </div>
+
+  <h2>5 · Notes</h2>
+  <div class="panel note">
+    <p>· <b>Not game UI</b>: single easing family (ease-in-out, no bounce), 0.57s node cadence, no HUD, no counters, no sound.</p>
+    <p>· <b>Reduced motion</b>: the particle layer is CSS and is switched off under <code>prefers-reduced-motion</code>. For a full opt-out, render <code>gauntlet-static.svg</code> instead of the animated file.</p>
+    <p>· <b>Loop</b>: every SMIL animation is <code>dur="18s" repeatCount="indefinite"</code>, so the whole build stays in sync and returns to the particle state.</p>
+  </div>
+
+  <script>
+    const svg = document.getElementById('gg-anim');
+    const playBtn = document.getElementById('play');
+    let playing = true;
+    document.querySelectorAll('[data-t]').forEach(b => {
+      b.addEventListener('click', () => {
+        const t = parseFloat(b.dataset.t);
+        svg.setCurrentTime(t);
+        document.querySelectorAll('[data-t]').forEach(x => x.classList.remove('on'));
+        b.classList.add('on');
+        if (!playing) { svg.unpauseAnimations(); playing = true; playBtn.textContent = '▮▮ pause'; playBtn.classList.add('on'); }
+      });
+    });
+    playBtn.addEventListener('click', () => {
+      if (playing) { svg.pauseAnimations(); playBtn.textContent = '▶ play'; }
+      else { svg.unpauseAnimations(); playBtn.textContent = '▮▮ pause'; }
+      playing = !playing;
+      playBtn.classList.toggle('on', playing);
+    });
+  </script>
+</body>
+</html>
+

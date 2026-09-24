@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="YAZIMAO, a community-owned Layer 1 network">
+  <title>YAZIMAO — Open Graph card</title>
+  <desc>Social share card 1200x630 using the selected symbol (variant C) plus wordmark.</desc>
+
+  <defs>
+    <linearGradient id="og-bg" x1="0" y1="0" x2="0.7" y2="1">
+      <stop offset="0" stop-color="#080C16"/>
+      <stop offset="0.55" stop-color="#05080F"/>
+      <stop offset="1" stop-color="#04060B"/>
+    </linearGradient>
+    <radialGradient id="og-glow" cx="0.28" cy="0.5" r="0.42">
+      <stop offset="0" stop-color="#22D3EE" stop-opacity="0.26"/>
+      <stop offset="0.55" stop-color="#22D3EE" stop-opacity="0.07"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="og-hand" x1="0" y1="0" x2="0.85" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.5" stop-color="#E7ECF6"/>
+      <stop offset="1" stop-color="#A3B1C7"/>
+    </linearGradient>
+    <linearGradient id="og-feather" x1="0.15" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.58" stop-color="#F5F8FF"/>
+      <stop offset="1" stop-color="#B4C1D6"/>
+    </linearGradient>
+    <linearGradient id="og-cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7DF9FF"/>
+      <stop offset="1" stop-color="#22D3EE"/>
+    </linearGradient>
+    <filter id="og-bloom" x="-140%" y="-140%" width="380%" height="380%">
+      <feGaussianBlur stdDeviation="1.9" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#og-bg)"/>
+  <rect width="1200" height="630" fill="url(#og-glow)"/>
+
+  <!-- selected symbol (variant C), scaled 3.2 -->
+  <g transform="translate(120, 124) scale(3.2)">
+    <g transform="translate(-4,-1)">
+      <g fill="url(#og-hand)">
+        <path d="M28.48 98.63 A40 40 0 0 0 51.68 113.12 L53.55 104.32 A31 31 0 0 1 35.57 93.09 Z"/>
+        <path d="M91.52 98.63 A40 40 0 0 1 68.32 113.12 L66.45 104.32 A31 31 0 0 0 84.43 93.09 Z"/>
+      </g>
+      <g transform="rotate(24 60 94)">
+        <path d="M60 12 C 47 32, 44.5 64, 60 94 C 75.5 64, 73 32, 60 12 Z" fill="url(#og-feather)"/>
+        <g stroke="#8FA0B8" stroke-width="1.05" stroke-linecap="round" opacity="0.5">
+          <path d="M60 38 L52.5 34"/>
+          <path d="M60 38 L67.5 34"/>
+          <path d="M60 62 L52.5 58"/>
+          <path d="M60 62 L67.5 58"/>
+        </g>
+        <path d="M60 88 L60 16" stroke="#7C8AA3" stroke-width="1.7" stroke-linecap="round" opacity="0.8"/>
+        <g stroke="url(#og-cyan)" stroke-width="1.15" stroke-linecap="round" opacity="0.95">
+          <path d="M62.6 30 L57.4 45"/>
+          <path d="M57.4 45 L62.6 60"/>
+          <path d="M62.6 60 L57.4 75"/>
+        </g>
+        <g fill="url(#og-cyan)" filter="url(#og-bloom)">
+          <circle cx="62.6" cy="30" r="2.3"/>
+          <circle cx="57.4" cy="45" r="2.3"/>
+          <circle cx="62.6" cy="60" r="2.3"/>
+          <circle cx="57.4" cy="75" r="2.3"/>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- copy block -->
+  <g font-family="'Space Grotesk','Inter','Segoe UI',system-ui,sans-serif">
+    <text x="556" y="318" font-size="82" font-weight="600" letter-spacing="12" fill="#FFFFFF">YAZIMAO</text>
+    <rect x="560" y="346" width="188" height="3" rx="1.5" fill="url(#og-cyan)"/>
+    <text x="558" y="404" font-size="22" font-weight="500" letter-spacing="3.2" fill="#A7B6CC">A COMMUNITY-OWNED LAYER 1 NETWORK</text>
+    <text x="558" y="462" font-size="30" font-weight="600" letter-spacing="1.5" fill="#22D3EE">Every Creation Matters.</text>
+  </g>
+</svg>

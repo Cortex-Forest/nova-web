@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>YAZIMAO brand — review sheet</title>
+<style>
+  :root { --ink:#04060B; --line:rgba(255,255,255,.10); }
+  * { box-sizing: border-box; }
+  body {
+    margin:0; background:var(--ink); color:#E8EEF9;
+    font-family: Inter, "Segoe UI", system-ui, sans-serif;
+    padding: 40px;
+  }
+  h1 { font-size:15px; letter-spacing:.28em; text-transform:uppercase; color:#8FA0B8; font-weight:600; margin:0 0 8px; }
+  h2 { font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:#5F6F86; font-weight:600; margin:34px 0 12px; }
+  .panel { border:1px solid var(--line); border-radius:18px; padding:28px; background:#070A11; }
+  .row { display:flex; align-items:center; gap:34px; flex-wrap:wrap; }
+  .lbl { font-size:11px; color:#5F6F86; letter-spacing:.08em; margin-top:8px; text-align:center; }
+  .col { text-align:center; }
+  .navbar { display:flex; align-items:center; gap:26px; height:64px; padding:0 22px;
+            border:1px solid var(--line); border-radius:14px; background:#05070D; }
+  .navlinks { display:flex; gap:20px; font-size:13px; color:#8FA0B8; }
+  .light { background:#F2F4F8; border-radius:14px; padding:24px; }
+  .mono img { filter: grayscale(1) contrast(1.05); }
+  img { display:block; }
+</style>
+</head>
+<body>
+  <h1>YAZIMAO — brand review sheet</h1>
+
+  <h2>1 · Main symbol</h2>
+  <div class="panel row">
+    <div class="col"><img src="yazimao-symbol.svg" width="220" height="220" alt=""><div class="lbl">220px</div></div>
+    <div class="col"><img src="yazimao-symbol.svg" width="120" height="120" alt=""><div class="lbl">120px</div></div>
+    <div class="col"><img src="yazimao-symbol.svg" width="64" height="64" alt=""><div class="lbl">64px</div></div>
+  </div>
+
+  <h2>2 · Wordmark lockup</h2>
+  <div class="panel"><img src="yazimao-logo-horizontal.svg" width="404" height="120" alt=""></div>
+
+  <h2>3 · App icon</h2>
+  <div class="panel row">
+    <img src="yazimao-app-icon.svg" width="240" height="240" alt="">
+    <img src="yazimao-app-icon.svg" width="128" height="128" alt="">
+    <img src="yazimao-app-icon.svg" width="64" height="64" alt="">
+    <img src="yazimao-app-icon.svg" width="32" height="32" alt="">
+    <img src="yazimao-app-icon.svg" width="16" height="16" alt="">
+  </div>
+
+  <h2>4 · Dark mode header (in situ)</h2>
+  <div class="navbar">
+    <img src="yazimao-header-dark.svg" height="34" alt="">
+    <div class="navlinks"><span>Technology</span><span>Node</span><span>Developers</span><span>Token</span><span>Roadmap</span></div>
+  </div>
+
+  <h2>5 · Small-size legibility (symbol)</h2>
+  <div class="panel row">
+    <img src="yazimao-symbol.svg" width="48" height="48" alt="">
+    <img src="yazimao-symbol.svg" width="32" height="32" alt="">
+    <img src="yazimao-symbol.svg" width="24" height="24" alt="">
+    <img src="yazimao-symbol.svg" width="20" height="20" alt="">
+    <img src="yazimao-symbol.svg" width="16" height="16" alt="">
+  </div>
+
+  <h2>6 · Monochrome check (grayscale)</h2>
+  <div class="panel row mono">
+    <img src="yazimao-symbol.svg" width="96" height="96" alt="">
+    <img src="yazimao-app-icon.svg" width="96" height="96" alt="">
+    <img src="yazimao-header-dark.svg" height="40" alt="">
+  </div>
+
+  <h2>7 · Light background — expected to be NOT used</h2>
+  <div class="light row">
+    <img src="yazimao-symbol.svg" width="90" height="90" alt="">
+    <img src="yazimao-app-icon.svg" width="90" height="90" alt="">
+    <div style="color:#22303F; font-size:12px">Silver-on-white loses contrast → the identity is dark-mode first.</div>
+  </div>
+
+  <h2>8 · Hand treatment — variants for Owner decision</h2>
+  <div class="panel row">
+    <div class="col">
+      <img src="variants/symbol-fingers.svg" width="170" height="170" alt="">
+      <div class="lbl">A · visible fingers<br>(most “hands”-like)</div>
+    </div>
+    <div class="col">
+      <img src="variants/symbol-upright.svg" width="170" height="170" alt="">
+      <div class="lbl">B · upright feather<br>(best at 16–24px)</div>
+    </div>
+    <div class="col">
+      <img src="yazimao-symbol.svg" width="170" height="170" alt="">
+      <div class="lbl">C · current primary<br>(diagonal plume)</div>
+    </div>
+  </div>
+
+  <h2>9 · Variant at small sizes</h2>
+  <div class="panel row">
+    <img src="variants/symbol-fingers.svg" width="40" height="40" alt="">
+    <img src="variants/symbol-fingers.svg" width="24" height="24" alt="">
+    <img src="variants/symbol-upright.svg" width="40" height="40" alt="">
+    <img src="variants/symbol-upright.svg" width="24" height="24" alt="">
+    <img src="yazimao-symbol.svg" width="40" height="40" alt="">
+    <img src="yazimao-symbol.svg" width="24" height="24" alt="">
+  </div>
+</body>
+</html>

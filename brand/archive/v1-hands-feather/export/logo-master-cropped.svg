@@ -1,0 +1,71 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="14 5 92 114" width="460" height="570" role="img" aria-label="YAZIMAO symbol, two geometric hands holding a networked feather">
+  <title>YAZIMAO symbol</title>
+  <desc>Two abstract geometric hands cradle a diagonal feather. A chain of cyan nodes runs along the feather shaft, standing for creations recorded, connected and verified on-chain.</desc>
+
+  <defs>
+    <linearGradient id="yz-hand" x1="0" y1="0" x2="0.85" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.5" stop-color="#E7ECF6"/>
+      <stop offset="1" stop-color="#A3B1C7"/>
+    </linearGradient>
+    <linearGradient id="yz-feather" x1="0.15" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.58" stop-color="#F5F8FF"/>
+      <stop offset="1" stop-color="#B4C1D6"/>
+    </linearGradient>
+    <linearGradient id="yz-cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7DF9FF"/>
+      <stop offset="1" stop-color="#22D3EE"/>
+    </linearGradient>
+    <radialGradient id="yz-aura" cx="0.5" cy="0.42" r="0.55">
+      <stop offset="0" stop-color="#22D3EE" stop-opacity="0.28"/>
+      <stop offset="0.55" stop-color="#22D3EE" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="yz-bloom" x="-140%" y="-140%" width="380%" height="380%">
+      <feGaussianBlur stdDeviation="1.9" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <ellipse cx="58" cy="56" rx="40" ry="44" fill="url(#yz-aura)"/>
+
+  <g transform="translate(-4,-1)">
+    <!-- HANDS: centre (60,74), outer r 40, inner r 31, wide gap under the feather
+         so the mark reads as two palms rather than one bowl. -->
+    <g fill="url(#yz-hand)">
+      <path d="M28.48 98.63 A40 40 0 0 0 51.68 113.12 L53.55 104.32 A31 31 0 0 1 35.57 93.09 Z"/>
+      <path d="M91.52 98.63 A40 40 0 0 1 68.32 113.12 L66.45 104.32 A31 31 0 0 0 84.43 93.09 Z"/>
+    </g>
+
+    <!-- FEATHER: diagonal plume, base anchored in the cradle, tip rising free. -->
+    <g transform="rotate(24 60 94)">
+      <path d="M60 12 C 47 32, 44.5 64, 60 94 C 75.5 64, 73 32, 60 12 Z" fill="url(#yz-feather)"/>
+
+      <g stroke="#8FA0B8" stroke-width="0.95" stroke-linecap="round" opacity="0.5">
+        <path d="M60 38 L52.5 34"/>
+        <path d="M60 38 L67.5 34"/>
+        <path d="M60 62 L52.5 58"/>
+        <path d="M60 62 L67.5 58"/>
+      </g>
+
+      <path d="M60 88 L60 16" stroke="#7C8AA3" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+
+      <g stroke="url(#yz-cyan)" stroke-width="1" stroke-linecap="round" opacity="0.95">
+        <path d="M62.6 30 L57.4 45"/>
+        <path d="M57.4 45 L62.6 60"/>
+        <path d="M62.6 60 L57.4 75"/>
+      </g>
+      <g fill="url(#yz-cyan)" filter="url(#yz-bloom)">
+        <circle cx="62.6" cy="30" r="2"/>
+        <circle cx="57.4" cy="45" r="2"/>
+        <circle cx="62.6" cy="60" r="2"/>
+        <circle cx="57.4" cy="75" r="2"/>
+      </g>
+    </g>
+  </g>
+</svg>
+

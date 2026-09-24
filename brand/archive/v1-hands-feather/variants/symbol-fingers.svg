@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="YAZIMAO symbol variant, two open hands with visible fingers holding a feather">
+  <title>YAZIMAO symbol — fingers variant</title>
+  <desc>Alternative hand treatment: two open hands with visible fingers, feather rising between them.</desc>
+
+  <defs>
+    <linearGradient id="vf-hand" x1="0" y1="0" x2="0.85" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.5" stop-color="#E7ECF6"/>
+      <stop offset="1" stop-color="#A3B1C7"/>
+    </linearGradient>
+    <linearGradient id="vf-feather" x1="0.15" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.58" stop-color="#F5F8FF"/>
+      <stop offset="1" stop-color="#B4C1D6"/>
+    </linearGradient>
+    <linearGradient id="vf-cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7DF9FF"/>
+      <stop offset="1" stop-color="#22D3EE"/>
+    </linearGradient>
+    <radialGradient id="vf-aura" cx="0.5" cy="0.42" r="0.55">
+      <stop offset="0" stop-color="#22D3EE" stop-opacity="0.26"/>
+      <stop offset="0.55" stop-color="#22D3EE" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="vf-bloom" x="-140%" y="-140%" width="380%" height="380%">
+      <feGaussianBlur stdDeviation="1.8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <ellipse cx="60" cy="54" rx="40" ry="44" fill="url(#vf-aura)"/>
+
+  <!-- RIGHT hand: three fingers fanning up-left plus a thumb and a palm heel -->
+  <g fill="none" stroke="url(#vf-hand)" stroke-linecap="round">
+    <g stroke-width="7">
+      <path d="M102 110 L80 74"/>
+      <path d="M102 110 L80 74" transform="rotate(19 102 110)"/>
+      <path d="M102 110 L80 74" transform="rotate(-19 102 110)"/>
+    </g>
+    <path d="M104 115 L97 95" stroke-width="7"/>
+    <path d="M108 119 L96 111" stroke-width="14"/>
+  </g>
+
+  <!-- LEFT hand: exact mirror about x = 60 -->
+  <g fill="none" stroke="url(#vf-hand)" stroke-linecap="round" transform="translate(120,0) scale(-1,1)">
+    <g stroke-width="7">
+      <path d="M102 110 L80 74"/>
+      <path d="M102 110 L80 74" transform="rotate(19 102 110)"/>
+      <path d="M102 110 L80 74" transform="rotate(-19 102 110)"/>
+    </g>
+    <path d="M104 115 L97 95" stroke-width="7"/>
+    <path d="M108 119 L96 111" stroke-width="14"/>
+  </g>
+
+  <!-- FEATHER: near-upright, rising through the fingers -->
+  <g transform="rotate(12 60 96)">
+    <path d="M60 14 C 47 34, 44.5 66, 60 96 C 75.5 66, 73 34, 60 14 Z" fill="url(#vf-feather)"/>
+
+    <g stroke="#8FA0B8" stroke-width="0.95" stroke-linecap="round" opacity="0.5">
+      <path d="M60 40 L52.5 36"/>
+      <path d="M60 40 L67.5 36"/>
+      <path d="M60 64 L52.5 60"/>
+      <path d="M60 64 L67.5 60"/>
+    </g>
+
+    <path d="M60 90 L60 17" stroke="#7C8AA3" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+
+    <g stroke="url(#vf-cyan)" stroke-width="1" stroke-linecap="round" opacity="0.95">
+      <path d="M62.6 32 L57.4 47"/>
+      <path d="M57.4 47 L62.6 62"/>
+      <path d="M62.6 62 L57.4 77"/>
+    </g>
+    <g fill="url(#vf-cyan)" filter="url(#vf-bloom)">
+      <circle cx="62.6" cy="32" r="2"/>
+      <circle cx="57.4" cy="47" r="2"/>
+      <circle cx="62.6" cy="62" r="2"/>
+      <circle cx="57.4" cy="77" r="2"/>
+    </g>
+  </g>
+</svg>

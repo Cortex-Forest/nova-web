@@ -1,0 +1,47 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="512" height="512" role="img" aria-label="YAZIMAO favicon">
+  <title>YAZIMAO favicon (Genesis Gauntlet)</title>
+  <desc>Favicon / app icon: thickened armour plates with wide gaps and enlarged nodes so the mark survives 16-32px. Thumb plate omitted for clarity at small sizes.</desc>
+
+  <defs>
+    <linearGradient id="gv-bg" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0" stop-color="#0A0F1C"/>
+      <stop offset="0.6" stop-color="#05080F"/>
+      <stop offset="1" stop-color="#04060B"/>
+    </linearGradient>
+    <radialGradient id="gv-glow" cx="0.5" cy="0.44" r="0.55">
+      <stop offset="0" stop-color="#22D3EE" stop-opacity="0.24"/>
+      <stop offset="0.6" stop-color="#A78BFA" stop-opacity="0.07"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gv-plate" x1="0.1" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#D7E0EE"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="26" fill="url(#gv-bg)"/>
+  <rect width="512" height="512" rx="26" fill="url(#gv-glow)"/>
+
+  <g fill="url(#gv-plate)">
+    <!-- four fingertip plates, thicker, wider gaps -->
+    <path d="M22 62 L22 32 L26 27 L33 27 L37 32 L37 62 Z"/>
+    <path d="M43 62 L43 22 L47 17 L54 17 L58 22 L58 62 Z"/>
+    <path d="M64 62 L64 27 L68 22 L75 22 L79 27 L79 62 Z"/>
+    <path d="M85 62 L85 37 L89 32 L96 32 L100 37 L100 62 Z"/>
+    <!-- hand plate -->
+    <path d="M20 68 L20 78 L14 84 L14 90 L21 98 L99 98 L106 90 L106 84 L100 78 L100 68 Z"/>
+    <!-- forearm cuff -->
+    <path d="M22 102 L16 108 L16 116 L24 120 L96 120 L104 116 L104 108 L98 102 Z"/>
+  </g>
+
+  <g>
+    <circle cx="29.5" cy="38" r="5" fill="#22D3EE"/>
+    <circle cx="50.5" cy="28" r="5" fill="#22D3EE"/>
+    <circle cx="71.5" cy="33" r="5" fill="#22D3EE"/>
+    <circle cx="92.5" cy="43" r="5" fill="#22D3EE"/>
+    <circle cx="34" cy="84" r="5" fill="#A78BFA"/>
+    <circle cx="86" cy="84" r="5" fill="#A78BFA"/>
+    <circle cx="60" cy="111" r="5" fill="#A78BFA"/>
+  </g>
+</svg>
+

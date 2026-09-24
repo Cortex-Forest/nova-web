@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 40" width="190" height="40" role="img" aria-label="YAZIMAO">
+  <title>YAZIMAO dark header lockup</title>
+  <desc>Website header version for dark UI: compact symbol plus wordmark, tuned to stay legible at 30 to 40px tall.</desc>
+
+  <defs>
+    <linearGradient id="hd-hand" x1="0" y1="0" x2="0.85" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.5" stop-color="#E7ECF6"/>
+      <stop offset="1" stop-color="#A3B1C7"/>
+    </linearGradient>
+    <linearGradient id="hd-feather" x1="0.15" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.58" stop-color="#F5F8FF"/>
+      <stop offset="1" stop-color="#B4C1D6"/>
+    </linearGradient>
+    <linearGradient id="hd-cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7DF9FF"/>
+      <stop offset="1" stop-color="#22D3EE"/>
+    </linearGradient>
+    <radialGradient id="hd-aura" cx="0.5" cy="0.42" r="0.55">
+      <stop offset="0" stop-color="#22D3EE" stop-opacity="0.26"/>
+      <stop offset="0.55" stop-color="#22D3EE" stop-opacity="0.07"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="hd-bloom" x="-140%" y="-140%" width="380%" height="380%">
+      <feGaussianBlur stdDeviation="1.2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Symbol at 0.30 scale: strokes are divided by the scale so they stay constant on screen. -->
+  <g transform="translate(3.4, 2.2) scale(0.3)">
+    <ellipse cx="58" cy="56" rx="40" ry="44" fill="url(#hd-aura)"/>
+
+    <g transform="translate(-4,-1)">
+      <g fill="url(#hd-hand)">
+        <path d="M28.48 98.63 A40 40 0 0 0 51.68 113.12 L53.55 104.32 A31 31 0 0 1 35.57 93.09 Z"/>
+        <path d="M91.52 98.63 A40 40 0 0 1 68.32 113.12 L66.45 104.32 A31 31 0 0 0 84.43 93.09 Z"/>
+      </g>
+
+      <g transform="rotate(24 60 94)">
+        <path d="M60 12 C 47 32, 44.5 64, 60 94 C 75.5 64, 73 32, 60 12 Z" fill="url(#hd-feather)"/>
+
+        <g stroke="#8FA0B8" stroke-width="3.4" stroke-linecap="round" opacity="0.45">
+          <path d="M60 38 L52.5 34"/>
+          <path d="M60 38 L67.5 34"/>
+          <path d="M60 62 L52.5 58"/>
+          <path d="M60 62 L67.5 58"/>
+        </g>
+
+        <path d="M60 88 L60 16" stroke="#7C8AA3" stroke-width="5" stroke-linecap="round" opacity="0.8"/>
+
+        <g stroke="url(#hd-cyan)" stroke-width="3.4" stroke-linecap="round" opacity="0.95">
+          <path d="M62.6 30 L57.4 45"/>
+          <path d="M57.4 45 L62.6 60"/>
+          <path d="M62.6 60 L57.4 75"/>
+        </g>
+        <g fill="url(#hd-cyan)" filter="url(#hd-bloom)">
+          <circle cx="62.6" cy="30" r="7"/>
+          <circle cx="57.4" cy="45" r="7"/>
+          <circle cx="62.6" cy="60" r="7"/>
+          <circle cx="57.4" cy="75" r="7"/>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <text x="47" y="28.5"
+        font-family="'Space Grotesk','Inter','Segoe UI',system-ui,sans-serif"
+        font-size="26" font-weight="600" letter-spacing="3.4" fill="#FFFFFF">YAZIMAO</text>
+</svg>
