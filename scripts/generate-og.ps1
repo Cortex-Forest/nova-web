@@ -55,10 +55,10 @@ function Add-RadialGlow {
 }
 
 # ---------------------------------------------------------------------------
-# YAZIMAO Logo —— 直接使用羽毛图片 public/logo-feather.png
-# - 不自行绘制/设计：直接嵌入该图片（已裁剪、已去黑底/水印的透明 PNG）。
+# YAZIMAO Logo —— 直接使用图形图片 public/logo-yazimao.png
+# - 不自行绘制/设计：直接嵌入该图片（已抠像、透明背景、已按内容裁切的 PNG）。
 # ---------------------------------------------------------------------------
-$logoPath = Join-Path $root "public\logo-feather.png"
+$logoPath = Join-Path $root "public\logo-yazimao.png"
 
 function Add-YazimaoSymbol {
     param(
@@ -222,7 +222,7 @@ function New-YazimaoBannerImage {
     $tx = 380
     $g.DrawString("YAZIMAO", $fontBrand, $brushBrand, (New-Object System.Drawing.RectangleF($tx, 132, ($W - $tx - 80), 200)), $sfLeft)
     $g.DrawString("Every Creation Matters.", $fontTag, $brushTag, (New-Object System.Drawing.RectangleF($tx, 262, ($W - $tx - 80), 140)), $sfLeft)
-    $g.DrawString("A public network for human creation.", $fontSub, $brushSub, (New-Object System.Drawing.RectangleF($tx, 332, ($W - $tx - 80), 110)), $sfLeft)
+    $g.DrawString("A community-owned Layer 1 network.", $fontSub, $brushSub, (New-Object System.Drawing.RectangleF($tx, 332, ($W - $tx - 80), 110)), $sfLeft)
 
     $bmp.Save($OutPath, [System.Drawing.Imaging.ImageFormat]::Png)
     $g.Dispose(); $bmp.Dispose()

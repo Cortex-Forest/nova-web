@@ -1,20 +1,23 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-/** 羽毛 logo 图片的原生尺寸（public/logo-feather.png） */
-const LOGO_WIDTH = 380;
-const LOGO_HEIGHT = 402;
+/**
+ * 品牌图形图片的原生尺寸（public/logo-yazimao.png = 512×512，已按内容裁切、透明）
+ * 源文件与生成脚本见 brand/（参考图抠像 → brand/tools/build-assets.py）。
+ */
+const LOGO_WIDTH = 512;
+const LOGO_HEIGHT = 512;
 
 /**
- * YAZIMAO Logo —— 统一羽毛图形
+ * YAZIMAO Logo —— 统一品牌图形
  *
- * 品牌图形统一使用图片资产 `public/logo-feather.png`
- * （白色线条羽毛，透明背景；按尺寸等比缩放）。
+ * 品牌图形统一使用图片资产 `public/logo-yazimao.png`
+ * （倾斜轨道环：银白双弧 + 右上青色尖端；透明背景；按尺寸等比缩放）。
  *
  * - 尺寸由 `className` 控制（例如 `h-8 w-8`）；默认 `object-contain` 保持比例。
  * - `loading="eager"`：导航栏 logo 在首屏，避免懒加载晚出现。
  * - 透明背景，适配深色站点；请勿在浅色背景上直接使用。
- * - 禁止卡通鸭/鸭头/鸭嘴/Meme 元素；鸭毛是隐喻，不是吉祥物。
+ * - 禁止卡通鸭/鸭头/鸭嘴/Meme 元素；品牌图形是「开放的环」，不是吉祥物。
  */
 export function YazimaoSymbol({
   className = "h-8 w-8",
@@ -23,7 +26,7 @@ export function YazimaoSymbol({
 }) {
   return (
     <Image
-      src="/logo-feather.png"
+      src="/logo-yazimao.png"
       alt=""
       aria-hidden="true"
       width={LOGO_WIDTH}
